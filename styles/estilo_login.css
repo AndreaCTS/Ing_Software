@@ -16,6 +16,28 @@ form {
   margin-top: 20px;
 }
 
+
+.buscar {
+  background-color: white;
+  border: 1px solid gray;
+  padding: 4px;
+  border-radius: 8px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buscar:focus-within {
+  border: 1px solid blue;
+}
+
+.buscar > input {
+  outline: none;
+  border: 0px;
+}
+
+
+
 /* Full-width inputs */
 input[type="text"],
 input[type="password"] {
@@ -37,10 +59,28 @@ button {
   cursor: pointer;
 }
 
-#logearse {
+
+.botonGenerico {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border: 0px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bolder;
+}
+.botonGenerico:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.mainButton {
+  background-color: #1bb76e;
+  color: white;
+}
+
+.mainButton:hover {
+  box-shadow: 1px 1px green;
 }
 
 /* Add a hover effect for buttons */
