@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginAdmin</title>
+    <link rel="shortcut icon" href="./media/estilo_login.css" type="image/x-icon" />
+    <link rel="stylesheet" href="./media/estilo_login.css">
+</head>
+
+<body background="./media/fondo.jpg" class="back">
+
+    <div id="formulario">
+        <form action="action_page.php" method="post">
+
+            <div class="imgcontainer">
+                <img src="./media/logo.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>Nombre Completo</b></label>
+                <input type="text" placeholder="Ingresa nombre completo" name="uname" required>
+
+                <label for="uname"><b>Nuevo Usuario</b></label>
+                <input type="text" placeholder="Ingresa el nuevo usuario" name="uname" required>
+
+                <label for="email"><b>Correo Electrónico</b></label>
+                <input type="text" placeholder="Ingresa tu correo electrónico" name="uname" required>
+
+                <label for="psw"><b>Contraseña</b></label>
+                <input type="password" placeholder="Ingresa la Contraseña" name="psw" required>
+
+                <button type="submit" id="logearse" onclick="location.href='login.html'">Registrarse</button>
+             
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn" onclick="location.href='login.html'">Cancelar</button>
+            </div>
+        
+
+        </form>
+    </div>
+
+</body>
+
+</html>
