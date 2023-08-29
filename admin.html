@@ -9,7 +9,7 @@
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
+    background-color: #ffffff;
   }
 
   .header {
@@ -128,6 +128,19 @@
     background-color: #f44336;
     color: #fff;
   }
+
+  .add-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+  }
 </style>
 </head>
 <body>
@@ -173,6 +186,7 @@
   </div>
   
   <button class="back-button">Volver a la página principal</button>
+  <button class="add-button">Agregar Comentario</button>
   <div class="message"></div>
 
   <script>
@@ -195,6 +209,53 @@
         comment.remove();
         }, 500);
     });
+    });
+
+    
+    const addButton = document.querySelector('.add-button');
+    const container = document.querySelector('.container');
+
+    addButton.addEventListener('click', () => {
+      const newComment = document.createElement('div');
+      newComment.className = 'comment';
+      newComment.innerHTML = `
+        <div class="name">Nuevo Usuario</div>
+        <p>Este es un comentario recién agregado.</p>
+        <div class="rating">
+          <span class="star">★</span><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span>
+        </div>
+        <div class="buttons">
+          <button class="approve-btn">Aprobar</button>
+          <button class="reject-btn">Rechazar</button>
+        </div>
+      `;
+
+      container.appendChild(newComment);
+
+      const approveBtn = newComment.querySelector('.approve-btn');
+      const rejectBtn = newComment.querySelector('.reject-btn');
+
+      approveBtn.addEventListener('click', () => {
+        newComment.classList.add('hidden');
+        message.textContent = 'Comentario aprobado';
+        message.classList.add('success');
+        setTimeout(() => {
+          newComment.remove();
+          message.textContent = '';
+          message.classList.remove('success');
+        }, 1500);
+      });
+
+      rejectBtn.addEventListener('click', () => {
+        newComment.classList.add('hidden');
+        message.textContent = 'Comentario rechazado';
+        message.classList.add('error');
+        setTimeout(() => {
+          newComment.remove();
+          message.textContent = '';
+          message.classList.remove('error');
+        }, 1500);
+      });
     });
   </script>
 </body>
