@@ -4,75 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Comentarios y Calificaciones</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
-  }
-
-  header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em 0;
-  }
-
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-
-  .comment {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .rating {
-    color: #f39c12;
-  }
-
-  form {
-    margin-top: 20px;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-
-  input[type="text"],
-  textarea,
-  select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    margin-bottom: 10px;
-  }
-
-  button[type="submit"] {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-
-  button[type="submit"]:hover {
-    background-color: #2980b9;
-  }
-</style>
+<link rel="stylesheet" href="styles/userCommentsStyle.css">
 </head>
 <body>
   <header>
@@ -145,37 +77,7 @@
 
       <button type="submit">Enviar Comentario</button>
     </form>
-
-    <!--<script>
-      const commentForm = document.getElementById('comment-form');
-      const newCommentsContainer = document.querySelector('.comments');
     
-      commentForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-    
-        // Obtener datos del formulario
-        const username = e.target.querySelector('#username').value;
-        const commentText = e.target.querySelector('#comment').value;
-        const rating = e.target.querySelector('#rating').value;
-    
-        // Crear un nuevo comentario
-        const newComment = document.createElement('div');
-        newComment.classList.add('comment');
-    
-        // Construir la estructura del comentario
-        newComment.innerHTML = `
-          <h3>${username}</h3>
-          <p>${commentText}</p>
-          <div class="rating">Calificación: ${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</div>
-        `;
-    
-        // Agregar el nuevo comentario al contenedor
-        newCommentsContainer.appendChild(newComment);
-    
-        // Limpiar el formulario
-        e.target.reset();
-      });
-    </script>-->
     <script>
         const commentForm = document.getElementById('comment-form');
         const newCommentsContainer = document.querySelector('.comments');
@@ -234,7 +136,7 @@
             editRating.style.display = 'none';
           });
         });
-      </script>
+    </script>
       
     
   </div>
