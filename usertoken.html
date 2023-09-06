@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generar Token de Autenticación</title>
+</head>
+<body>
+    <button onclick="redirectToAuthorization()">Iniciar Autorización</button>
+
+    <script>
+        // Configuración de la aplicación
+        const clientID = 'tu_client_id';
+        const redirectURI = 'tu_uri_de_redireccion';
+        const authorizationURL = 'URL_de_autorizacion_del_proveedor';
+
+        // Paso 1: Redirige al usuario a la página de autorización del proveedor
+        function redirectToAuthorization() {
+            const authURL = `${authorizationURL}?client_id=${clientID}&redirect_uri=${redirectURI}&response_type=code&scope=scope_deseado`;
+            window.location.href = authURL;
+        }
+    </script>
+</body>
+</html>
