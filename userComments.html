@@ -22,18 +22,21 @@
       <option value="baja">Baja</option>
     </select>
     
-    <label for="ordenarPor">Ordenar por calificación:</label>
-    <select id="ordenarPor">
+    <label for="filtroCalificacion">Filtrar por calificación:</label>
+    <select id="filtroCalificacion">
       <option value="todos">Todos</option>
-      <option value="ascendente">Ascendente</option>
-      <option value="descendente">Descendente</option>
+      <option value="5">★★★★★</option>
+      <option value="4">★★★★☆</option>
+      <option value="3">★★★☆☆</option>
+      <option value="2">★★☆☆☆</option>
+      <option value="1">★☆☆☆☆</option>
     </select>
 
     <div class="comments">
         <div class="comment">
             <h3>Usuario 1</h3>
             <p>¡Este es un comentario genial! Me encanta este contenido.</p>
-            <div class="rating">Calificación: ★★★★☆</div>
+            <div class="stars">Calificación: ★★★★☆</div>
             <button class="edit-button">Editar</button>
             <select class="edit-rating" style="display:none;">
                 <option value="5">★★★★★</option>
@@ -47,7 +50,7 @@
         <div class="comment">
             <h3>Usuario 2</h3>
             <p>No estoy seguro de esto. Podría ser mejor.</p>
-            <div class="rating">Calificación: ★★☆☆☆</div>
+            <div class="stars">Calificación: ★★☆☆☆</div>
             <button class="edit-button">Editar</button>
             <select class="edit-rating" style="display:none;">
                 <option value="5">★★★★★</option>
@@ -98,7 +101,7 @@
           newComment.innerHTML = `
             <h3>${username}</h3>
             <p>${commentText}</p>
-            <div class="rating">Calificación: <span class="stars">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</span></div>
+            <div class="stars">Calificación: <span class="stars">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</span></div>
             <button class="edit-button">Editar</button>
             <select class="edit-rating" style="display:none;">
               <option value="5">★★★★★</option>
@@ -108,7 +111,7 @@
               <option value="1">★☆☆☆☆</option>
             </select>
           `;
-      
+            
           // Agregar el nuevo comentario al contenedor
           newCommentsContainer.appendChild(newComment);
       
@@ -135,6 +138,29 @@
             stars.textContent = '★'.repeat(editRating.value);
             editRating.style.display = 'none';
           });
+
+          /*
+          const filtroCalificacion = document.getElementById('filtroCalificacion');
+
+          filtroCalificacion.addEventListener('change', () => {
+            const selectedRating = filtroCalificacion.value;
+
+            // Obtener todos los comentarios
+            const comments = document.querySelectorAll('.comment');
+
+            // Mostrar u ocultar comentarios según la calificación seleccionada
+            comments.forEach((comment) => {
+              const stars = comment.querySelector('.stars').textContent.length;
+        
+              if (selectedRating === 'todos' || stars === parseInt(selectedRating)) {
+                comment.style.display = 'block';
+              } else {
+                comment.style.display = 'none';
+              }
+            });
+          });
+          */
+
         });
     </script>
       
