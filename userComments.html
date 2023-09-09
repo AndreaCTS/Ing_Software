@@ -96,6 +96,7 @@
           // Crear un nuevo comentario
           const newComment = document.createElement('div');
           newComment.classList.add('comment');
+          
       
           // Construir la estructura del comentario
           newComment.innerHTML = `
@@ -109,7 +110,7 @@
               <option value="3">★★★☆☆</option>
               <option value="2">★★☆☆☆</option>
               <option value="1">★☆☆☆☆</option>
-            </select>
+            </select>   
           `;
             
           // Agregar el nuevo comentario al contenedor
@@ -142,64 +143,27 @@
 
         });
 
-        const filtroCalificacion = document.getElementById('filtroCalificacion');
+        document.addEventListener('DOMContentLoaded', function() {
+            const filtroCalificacion = document.getElementById('filtroCalificacion');
 
-        filtroCalificacion.addEventListener('change',() => {
-          const selectedRating = filtroCalificacion.value;
-          const comments = document.querySelectorAll('.comment');
+            filtroCalificacion.addEventListener('change',() => {
+                const selectedRating = filtroCalificacion.value;
+                const comments = document.querySelectorAll('.comment');
 
-          console.log(comments)
-          comments.forEach((comment)=>{
-            if (comment.rating === selectedRating){
-              
-            }
-          });
-          //const comentariosFiltrados = comments.filter(comment => comment.rating === selectedRating);
-         // mostrarComentarios(comentariosFiltrados);
-        });
+                comments.forEach((comment) => {
+                    const stars = comment.querySelector('.stars');
+                    const starsCount = stars.textContent.match(/★/g).length;
 
-        function mostrarComentarios(comentariosAMostrar) {
-          comentariosList.innerHTML = '';
-
-          comentariosAMostrar.forEach(comentario => {
-            const li = document.createElement('li');
-            li.textContent = `
-            <h3>${username}</h3>
-            <p>${commentText}</p>
-            <div class="stars">Calificación: <span class="stars">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</span></div>
-            <button class="edit-button">Editar</button>
-            <select class="edit-rating" style="display:none;">
-              <option value="5">★★★★★</option>
-              <option value="4">★★★★☆</option>
-              <option value="3">★★★☆☆</option>
-              <option value="2">★★☆☆☆</option>
-              <option value="1">★☆☆☆☆</option>
-            </select>
-            `;
-            comentariosList.appendChild(li);
-          });
-        }
-          /*filtroCalificacion.addEventListener('change', () => {
-            const selectedRating = filtroCalificacion.value;
-
-            // Obtener todos los comentarios
-            const comments = document.querySelectorAll('.comment');
-            // Mostrar u ocultar comentarios según la calificación seleccionada
-            comments.forEach((comment) => {
-              const stars = comment.querySelector('.stars').textContent.length;
-              
-              if (selectedRating === 'todos') {
-                comment.
-                comment.style.display = 'block';
-              }else if (selectedRating === '5') {
-                comment.style.display = 'block';
-              }else if (selectedRating === '4') {
-                comment.style.display = 'block';
-              }else {
-                comment.style.display = 'none';
-              }
+                    if (parseInt(selectedRating) === starsCount) {
+                        comment.style.display = 'block';
+                    }else if(selectedRating === 'todos'){
+                      comment.style.display = 'block';
+                    } else {
+                        comment.style.display = 'none';
+                    }
+                });
             });
-          });*/
+        });
 
     </script>
       
