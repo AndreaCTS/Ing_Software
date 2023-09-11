@@ -1,20 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Generar Token de Autenticación</title>
+  <title>Autenticación OAuth 2.0</title>
 </head>
 <body>
-    <button onclick="redirectToAuthorization()">Iniciar Autorización</button>
+  <h1>Autenticación OAuth 2.0</h1>
+  <button onclick="redirectToAuthorization()">Iniciar Sesión</button>
 
-    <script>
-        const clientID = 'user';
-        const redirectURI = ' tu_uri_de_redireccion ';
-        const authorizationURL = ' URL_de_autorizacion_del_proveedor ';
+  <script>
 
-        function redirectToAuthorization() {
-            const authURL = `${authorizationURL}?client_id=${clientID}&redirect_uri=${redirectURI}&response_type=code&scope=scope_deseado`;
-            window.location.href = authURL;
-        }
-    </script>
+    const axios = require('axios');
+    const clientID = 'tu_client_id';
+    const clientSecret = 'tu_client_secret';
+    const redirectURI = 'tu_uri_de_redireccion';
+    const authorizationURL = 'URL_de_autorizacion_del_proveedor';
+    const tokenURL = 'URL_de_obtencion_de_token_del_proveedor';
+
+    function redirectToAuthorization() {
+      const authURL = `${authorizationURL}?client_id=${clientID}&redirect_uri=${redirectURI}&response_type=code&scope=scope_deseado`;
+      window.location.href = authURL;
+    }
+
+    function processAuthorizationCode() {
+      const code = obtenerCodigoDeAutorizacionDeURL();
+      axios.post(tokenURL, {
+        grant_type: 'authorization_code',
+        client_id: clientID,
+        client_secret: clientSecret,
+        redirect_uri: redirectURI,
+        code: code
+      })
+      .then(response => {
+        const accessToken = response.data.access_token;
+        const refreshToken = response.data.refresh_token;
+
+      })
+      .catch(error => {
+        console.error('Error al obtener el token de acceso:', error);
+      });
+    }
+
+    function obtenerCodigoDeAutorizacionDeURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('code');
+    }
+  </script>
 </body>
 </html>
