@@ -8,17 +8,17 @@
     <link rel="shortcut icon" href="logo_tienda.png" type="image/x-icon" />
     <link rel="stylesheet" href="./media/estilo_login.css">
     <style>
-      
       header {
             background-color: orange;
             text-align: center;
-            padding: -10px 0; /* Ajusta la altura del encabezado según tu preferencia */
+            padding: 0; /* Ajusta la altura del encabezado según tu preferencia */
         }
 
         h1 {
             margin: 0;
             color: white; /* Cambia el color del título a blanco */
         }
+
         /* Estilos para el mapa */
         body {
             display: flex;
@@ -49,31 +49,6 @@
             cursor: pointer;
         }
 
-        /* Define la posición de los marcadores en coordenadas (left, top) */
-        #marcador1 {
-            left: 150px;
-            top: 700px;
-            background-color: red;
-        }
-
-        #marcador2 {
-            left: 250px;
-            top: 450px;
-            background-color: orange;
-        }
-
-        #marcador3 {
-            left: 320px;
-            top: 450px;
-            background-color: green;
-        }
-
-        #marcador4 {
-            left: 350px;
-            top: 250px;
-            background-color: orange;
-        }
-
         /* Define estilos para información de marcadores */
         .info-marcador {
             position: absolute;
@@ -101,39 +76,36 @@
     
     <h1>Visualizando mapa de riesgo en Chapinero</h1>
 
-
     <!-- Contenedor del mapa -->
     <div id="mapa-container">
         <!-- Marcadores -->
-        <div class="marcador" id="marcador1"></div>
-        <div class="info-marcador" style="left: 150px; top: 700px;">
-            <div class="info-texto">
-                Area de Precaución
-            </div>
-        </div>
+        <script>
+            // Función para crear marcadores
+            function crearMarcador(left, top, backgroundColor, infoText) {
+                const marcador = document.createElement("div");
+                marcador.className = "marcador";
+                marcador.style.left = left + "px";
+                marcador.style.top = top + "px";
+                marcador.style.backgroundColor = backgroundColor;
 
-        <div class="marcador" id="marcador2"></div>
-        <div class="info-marcador" style="left: 250px; top: 450px;">
-            <div class="info-texto">
-                Area de Peligro
-            </div>
-        </div>
+                const infoMarcador = document.createElement("div");
+                infoMarcador.className = "info-marcador";
+                infoMarcador.style.left = left + "px";
+                infoMarcador.style.top = top + "px";
+                infoMarcador.innerHTML = '<div class="info-texto">' + infoText + '</div>';
 
-        <div class="marcador" id="marcador3"></div>
-        <div class="info-marcador" style="left: 320px; top: 450px;">
-            <div class="info-texto">
-                Zona aparentemente segura
-            </div>
-        </div>
+                document.getElementById("mapa-container").appendChild(marcador);
+                document.getElementById("mapa-container").appendChild(infoMarcador);
+            }
 
-        <div class="marcador" id="marcador4"></div>
-        <div class="info-marcador" style="left: 350px; top: 250px;">
-            <div class="info-texto">
-                Area de Precaución
-            </div>
-        </div>
+            // Crear marcadores usando la función
+            crearMarcador(150, 700, "red", "Area de Precaución");
+            crearMarcador(250, 450, "orange", "Area de Peligro");
+            crearMarcador(320, 450, "green", "Zona aparentemente segura");
+            crearMarcador(350, 250, "orange", "Area de Precaución");
+        </script>
 
-        <!-- Puedes agregar más marcadores según sea necesario -->
+        <!-- Puedes agregar más marcadores usando la función según sea necesario -->
     </div>
 
     <!-- Resto de tu contenido HTML -->
