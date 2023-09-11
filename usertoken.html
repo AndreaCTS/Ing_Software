@@ -10,7 +10,7 @@
   <script>
 
     const axios = require('axios');
-    const clientID = 'tu_client_id';
+    const clientID = 'uname';
     const clientSecret = 'tu_client_secret';
     const redirectURI = 'tu_uri_de_redireccion';
     const authorizationURL = 'URL_de_autorizacion_del_proveedor';
@@ -25,7 +25,7 @@
       const code = obtenerCodigoDeAutorizacionDeURL();
       axios.post(tokenURL, {
         grant_type: 'authorization_code',
-        client_id: clientID,
+        client_id: uname,
         client_secret: clientSecret,
         redirect_uri: redirectURI,
         code: code
