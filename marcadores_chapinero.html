@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="logo_tienda.png" type="image/x-icon" />
     <link rel="stylesheet" href="./media/estilo_login.css">
     <style>
-      header {
+        header {
             background-color: orange;
             text-align: center;
             padding: 0; /* Ajusta la altura del encabezado según tu preferencia */
@@ -57,6 +57,7 @@
             border: 1px solid #000;
             max-width: 200px;
             display: none;
+            z-index: 1; /* Asegura que las ventanas de información estén encima de los marcadores */
         }
 
         /* Establece estilos para texto de información */
@@ -69,44 +70,77 @@
         .marcador:hover + .info-marcador {
             display: block;
         }
+
+        /* Estilos para los botones */
+        #botones-zonas {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #botones-zonas button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: orange;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #botones-zonas button:hover {
+            background-color: darkorange;
+        }
     </style>
 </head>
 <body>
     <!-- Encabezado con título -->
-    
     <h1>Visualizando mapa de riesgo en Chapinero</h1>
+
+    <!-- Contenedor de botones para seleccionar zona -->
+    <div id="botones-zonas">
+        <button onclick="seleccionarZona('precaucion')">Área de Precaución</button>
+        <button onclick="seleccionarZona('peligro')">Área de Peligro</button>
+        <button onclick="seleccionarZona('segura')">Zona Aparentemente Segura</button>
+        <button onclick="mostrarMapaCompleto()">Mapa Completo</button>
+    </div>
 
     <!-- Contenedor del mapa -->
     <div id="mapa-container">
         <!-- Marcadores -->
-        <script>
-            // Función para crear marcadores
-            function crearMarcador(left, top, backgroundColor, infoText) {
-                const marcador = document.createElement("div");
-                marcador.className = "marcador";
-                marcador.style.left = left + "px";
-                marcador.style.top = top + "px";
-                marcador.style.backgroundColor = backgroundColor;
-
-                const infoMarcador = document.createElement("div");
-                infoMarcador.className = "info-marcador";
-                infoMarcador.style.left = left + "px";
-                infoMarcador.style.top = top + "px";
-                infoMarcador.innerHTML = '<div class="info-texto">' + infoText + '</div>';
-
-                document.getElementById("mapa-container").appendChild(marcador);
-                document.getElementById("mapa-container").appendChild(infoMarcador);
-            }
-
-            // Crear marcadores usando la función
-            crearMarcador(150, 700, "red", "Area de Precaución");
-            crearMarcador(250, 450, "orange", "Area de Peligro");
-            crearMarcador(320, 450, "green", "Zona aparentemente segura");
-            crearMarcador(350, 250, "orange", "Area de Precaución");
-        </script>
+        <!-- Aquí puedes mantener tus marcadores actuales -->
 
         <!-- Puedes agregar más marcadores usando la función según sea necesario -->
     </div>
+
+    <!-- Script para la función de selección de zona -->
+    <script>
+        function seleccionarZona(zona) {
+            // Obtener el elemento de imagen que deseas cambiar
+            const imagen = document.getElementById("mapa-container");
+
+            // Actualizar la imagen según la zona seleccionada
+            switch (zona) {
+                case 'precaucion':
+                    imagen.style.backgroundImage = "url('./media/chapinero_precaucion.PNG')";
+                    break;
+                case 'peligro':
+                    imagen.style.backgroundImage = "url('./media/chapinero_peligro.PNG')";
+                    break;
+                case 'segura':
+                    imagen.style.backgroundImage = "url('./media/chapinero_segura.PNG')";
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function mostrarMapaCompleto() {
+            // Obtener el elemento de imagen que deseas cambiar
+            const imagen = document.getElementById("mapa-container");
+
+            // Restablecer la imagen del mapa completo
+            imagen.style.backgroundImage = "url('./media/chapinero_completo.PNG')";
+        }
+    </script>
 
     <!-- Resto de tu contenido HTML -->
 
