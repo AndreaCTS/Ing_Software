@@ -1,0 +1,49 @@
+# Dependencies
+/fullstack-front/node_modules
+/fullstack-front/.pnp
+/fullstack-front/pnp.js
+
+# Testing
+/fullstack-front/coverage
+
+# Production
+/fullstack-front/build
+
+# Backend specific ignores
+/fullstack-backend/HELP.md
+/fullstack-backend/target/
+/fullstack-backend/!.mvn/wrapper/maven-wrapper.jar
+/fullstack-backend/!**/src/main/**/target/
+/fullstack-backend/!**/src/test/**/target/
+
+# Backend-specific and shared ignores
+/fullstack-backend/.apt_generated
+/fullstack-backend/.classpath
+/fullstack-backend/.factorypath
+/fullstack-backend/.project
+/fullstack-backend/.settings
+/fullstack-backend/.springBeans
+/fullstack-backend/.sts4-cache
+/fullstack-backend/.idea
+/fullstack-backend/*.iws
+/fullstack-backend/*.iml
+/fullstack-backend/*.ipr
+/fullstack-backend/.vscode/
+/fullstack-backend/.nbproject/private/
+/fullstack-backend/.nbproject/nbbuild/
+/fullstack-backend/.nbproject/dist/
+/fullstack-backend/.nbproject/nbdist/
+/fullstack-backend/.nbproject/.nb-gradle/
+/fullstack-backend/build/
+/fullstack-backend/!/fullstack-backend/**/src/main/**/build/
+/fullstack-backend/!/fullstack-backend/**/src/test/**/build/
+
+# Frontend specific ignores
+/fullstack-front/.DS_Store
+/fullstack-front/.env.local
+/fullstack-front/.env.development.local
+/fullstack-front/.env.test.local
+/fullstack-front/.env.production.local
+/fullstack-front/npm-debug.log*
+/fullstack-front/yarn-debug.log*
+/fullstack-front/yarn-error.log*
