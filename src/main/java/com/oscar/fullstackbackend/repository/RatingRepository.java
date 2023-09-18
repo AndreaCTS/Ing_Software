@@ -4,10 +4,13 @@
  */
 package com.oscar.fullstackbackend.repository;
 
+import com.oscar.fullstackbackend.model.Rating;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 /**
  *
  * @author USUARIO
  */
-public class RatingRepository {
-    
+public interface RatingRepository extends JpaRepository<Rating, Long> {
+
 }
