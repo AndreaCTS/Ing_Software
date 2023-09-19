@@ -17,7 +17,7 @@ public class CommentController {
     @Autowired
     private CommentRepository commentRepository;
 
-    @PostMapping("/")
+    @PostMapping("/comment")
     public ResponseEntity<Comment> createComment(@RequestBody Comment comment) {
         Comment savedComment = commentRepository.save(comment);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedComment);
