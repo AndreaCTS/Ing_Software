@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="shortcut icon" href="logo_tienda.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./media/estilo_login.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./styles/estilo_login.css">
 </head>
 
 <body background="./media/fondo.jpg" class="back">
@@ -26,19 +26,20 @@
                 <label for="psw"><b>Contraseña</b></label>
                 <input type="password" placeholder="Ingresa la Contraseña" name="psw" required>
 
-                <button type="submit" id="logearse" onclick="location.href='index.html'">Logearse</button>
+                <button type="submit" class="botonGenerico mainButton" onclick="location.href='index.html'">Logearse</button>
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Recordarme
                 </label>
+                <!-- Write your comments here
                 <label>
                     <span class="oc"> <a href="#" >Olvidaste la Contraseña?</a></span>
                 </label>
-                
+                 -->
             </div>
 
             <div class="container" style="background-color:#8ABEC8 ">
-                <button type="button" class="cancelbtn" onclick="location.href='index.html'">Regresar</button>
-                <span class="psw"> <a href="index.html">Registrarse</a></span>
+                <button type="button" class="botonGenerico secondaryButton" onclick="location.href='index.html'">Regresar</button>
+                <button type="button" class="botonGenerico secondaryButton" onclick="location.href='registro.html'">Registrarse</button>
             </div>
         
 
