@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/estilos.css" />
+    <link rel="shortcut icon" href="./media/logo.png" type="image/x-icon" />
+    <script src="https://kit.fontawesome.com/d4cd33a1a3.js" crossorigin="anonymous"></script>
+    <title>APP</title>
+  </head>
+  <body>
+    <header>
+      <form action="authenticate.php" method="post">
+      <ul class="navbar">
+        <li>
+          <img src="./media/logo.png" alt="imagen" class="logo" />
+        </li>
+        <li>
+          <button class="botonGenerico mainButton">contactanos</button>
+        </li>
+        <li>
+          <div class="buscar">
+            <input placeholder="Buscar " />
+            <i class="fas fa-search botonGenerico iconoBusqueda"></i>
+          </div>
+        </li>
+        <li><button class="botonGenerico secondaryButton" onclick="location.href='login2.html'">Login</button></li>
+        <li><button class="botonGenerico mainButton" onclick="location.href='registro.html'">Registro</button></li>
+      </ul>
+    </header>
+    <main>
+      <section>
+        <h1>Sections</h1>
+        <ul class="breedCardContainer">
+          <li class="breedCard">
+            <div class="contenedorImagen">
+              <img src="./media/map.jpg" alt="Risk map" />
+            </div>
+            <span onclick="window.location='marcadores_chapinero.html'" class="breedTitle">Risk map</span>
+            
+          </li>
+          <li class="breedCard">
+            <div class="contenedorImagen">
+              <img src="./media/route.jpg" alt="route"/>
+              
+            </div>
+  
+            <span  class="breedTitle">Routes</span>
+          </li>
+          <li class="breedCard">
+            <div class="contenedorImagen">
+              <img src="./media/blog.jpg" alt="Forum" />
+              <!--
+              <a href="userComments.html">
+                <img src="./media/blog.jpg" alt="Forum" />
+              </a>
+              -->
+            </div>
+            <span onclick="window.location='userComments.html'" class="breedTitle">Forum</span>
+          </li>
+        </ul>
+      </section>
+      <section></section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
+
