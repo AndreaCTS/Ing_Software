@@ -24,7 +24,7 @@ function StarRating({ value, onClick }) {
   );
 }
 
-export default function ViewComment() {
+export default function ViewFeedback() {
   const [comments, setComments] = useState([]);
   const [selectedRating, setSelectedRating] = useState(0); // Valor de calificación seleccionado
   const { id } = useParams();

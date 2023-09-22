@@ -1,7 +1,6 @@
 package com.oscar.fullstackbackend.model;
 
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,16 +10,19 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, columnDefinition = "int default 0")
+    private int ratingCount; // Count of ratings
+
     @Column(nullable = false)
     private String text;
 
-    @Column(nullable = false, columnDefinition = "int default 0")
-    private int averageRating;
+    @ElementCollection
+    @CollectionTable(name = "comment_ratings", joinColumns = @JoinColumn(name = "comment_id"))
+    @Column(name = "rating")
+    private List<Integer> ratings = new ArrayList<>();
 
     @Column(nullable = false)
-    private int ratingCount; // Count of ratings
-
-    // Other fields, getters, setters, and methods
+    private double averageRating; // Add this field
 
     // Constructor, getters, setters, and other fields are defined here...
 
@@ -36,41 +38,33 @@ public class Comment {
         this.text = text;
     }
 
-    public int getAverageRating() {
+    public List<Integer> getRatings() {
+        return ratings;
+    }
+
+    public double getAverageRating() { // Add this getter
         return averageRating;
     }
 
-    public void setAverageRating(int averageRating) {
-        this.averageRating = averageRating;
-    }
-
-    public int getRatingCount() {
-        return ratingCount;
-    }
-
-    public void setRatingCount(int ratingCount) {
-        this.ratingCount = ratingCount;
-    }
-
-    // Method to add a new rating and update the average
+    // Method to add a new rating to the list and update the average
     public void addRating(int newRating) {
-        int currentTotal = averageRating * ratingCount;
-        ratingCount++;
-        int newTotal = currentTotal + newRating;
-        this.averageRating = newTotal / ratingCount;
+        ratings.add(newRating);
+        updateAverageRating();
     }
 
-    // Method to remove a rating and update the average
+    // Method to remove a rating from the list and update the average
     public void removeRating(int removedRating) {
-        if (ratingCount > 0) {
-            int currentTotal = averageRating * ratingCount;
-            ratingCount--;
-            if (ratingCount > 0) {
-                int newTotal = currentTotal - removedRating;
-                averageRating = newTotal / ratingCount;
-            } else {
-                averageRating = 0;
-            }
+        ratings.remove(Integer.valueOf(removedRating));
+        updateAverageRating();
+    }
+
+    // Calculate and update the average rating based on the ratings list
+    private void updateAverageRating() {
+        if (ratings.isEmpty()) {
+            averageRating = 0;
+        } else {
+            int total = ratings.stream().mapToInt(Integer::intValue).sum();
+            averageRating = (double) total / ratings.size();
         }
     }
 }

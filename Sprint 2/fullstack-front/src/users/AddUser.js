@@ -9,9 +9,10 @@ export default function AddUser() {
     name: "",
     username: "",
     email: "",
+    password: "",
   });
 
-  const { name, username, email } = user;
+  const { name, username, email, password } = user;
 
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -27,12 +28,12 @@ export default function AddUser() {
     <div className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-          <h2 className="text-center m-4">Registro Usuario</h2>
+          <h2 className="text-center m-4">Register User</h2>
 
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="mb-3">
               <label htmlFor="Name" className="form-label">
-                Nombre
+                Name
               </label>
               <input
                 type={"text"}
@@ -66,6 +67,19 @@ export default function AddUser() {
                 placeholder="Enter your e-mail address"
                 name="email"
                 value={email}
+                onChange={(e) => onInputChange(e)}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="Password" className="form-label">
+                Password
+              </label>
+              <input
+                type={"password"}
+                className="form-control"
+                placeholder="Enter your password"
+                name="password"
+                value={password}
                 onChange={(e) => onInputChange(e)}
               />
             </div>

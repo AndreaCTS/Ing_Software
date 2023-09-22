@@ -50,7 +50,7 @@ public class CommentController {
                 .orElseThrow(() -> new CommentNotFoundException(id));
 
         // Add the new rating and update the average
-        System.out.println("Received rating: " + rating);
+
         comment.addRating(rating);
 
         // Save the updated comment

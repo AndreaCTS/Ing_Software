@@ -15,7 +15,10 @@ import Login from './users/Login';
 import 'font-awesome/css/font-awesome.css';
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e9ef5ee (rating fixed and new interface)
 function App() {
   return (
     <div className="App">

@@ -20,13 +20,13 @@ export default function HomeInit() {
             </div>
           </li>
           <li>
-            <Link to={`/login`} className="btn btn-success">
+            <Link to={`/login`} className="botonGenerico mainButton">
               Login
             </Link>
           </li>
           <li>
           <li>
-            <Link to={`/adduser`} className="btn btn-success">
+            <Link to={`/adduser`} className="botonGenerico mainButton">
               Registro
             </Link>
           </li>         
@@ -65,7 +65,19 @@ export default function HomeInit() {
                 <Link to={`/viewcomments`} className="btn btn-light ">
                     Foro
                 </Link>   
+                   
+            </li>
+
+            <li className="breedCard">
               
+              <div className="contenedorImagen">
+                <img src="../media/feedback.jpg" alt="Risk map" />
+              </div>
+
+              <Link className="btn btn-light" to="/">
+              Feedback
+              </Link>
+            
             </li>
           </ul>
         </section>
