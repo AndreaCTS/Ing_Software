@@ -2,9 +2,6 @@ package com.oscar.fullstackbackend.model;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 public class Comment {
     @Id
