@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import '../styles/style.css';
+
 export default function AddComment() {
   let navigate = useNavigate();
   const [comments, setComments] = useState([]);

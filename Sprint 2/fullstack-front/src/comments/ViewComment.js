@@ -7,6 +7,7 @@ import "../styles/style.css";
 export default function ViewComment() {
   const [comments, setComments] = useState([]);
   const [selectedRating, setSelectedRating] = useState(0); // Default rating value
+  const [filterRating,setFilterRating] = useState(0);
   const { id } = useParams();
 
   useEffect(() => {
@@ -52,6 +53,9 @@ export default function ViewComment() {
     }
   };
   
+  const handleFilterChange = (event) => {
+    setFilterRating(event.target.value);
+  };
 
   return (
     <div className="full-page-bg">
@@ -60,8 +64,21 @@ export default function ViewComment() {
         <Link className="btn btn-primary" to="/addcomments">
           Add Comment
         </Link>
+        <div className="my-2">
+            <label>Filter by Rating:</label>
+            <select value={filterRating} onChange={handleFilterChange}>
+              <option value={0}>All Ratings</option>
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+            </select>
+          </div>
         <Row>
-          {comments.map((comment, index) => (
+          {comments
+          .filter(comment => filterRating === 0 || comment.averageRating === filterRating)
+          .map((comment, index) => (
             <Col key={comment.id} md={4}>
               <Card className="mb-4">
                 <Card.Body>
