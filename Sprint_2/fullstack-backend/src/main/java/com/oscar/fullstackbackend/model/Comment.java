@@ -1,0 +1,70 @@
+package com.oscar.fullstackbackend.model;
+
+import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+public class Comment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, columnDefinition = "int default 0")
+    private int ratingCount; // Count of ratings
+
+    @Column(nullable = false)
+    private String text;
+
+    @ElementCollection
+    @CollectionTable(name = "comment_ratings", joinColumns = @JoinColumn(name = "comment_id"))
+    @Column(name = "rating")
+    private List<Integer> ratings = new ArrayList<>();
+
+    @Column(nullable = false)
+    private double averageRating; // Add this field
+
+    // Constructor, getters, setters, and other fields are defined here...
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public List<Integer> getRatings() {
+        return ratings;
+    }
+
+    public double getAverageRating() { // Add this getter
+        return averageRating;
+    }
+
+    // Method to add a new rating to the list and update the average
+    public void addRating(int newRating) {
+        ratings.add(newRating);
+        updateAverageRating();
+    }
+
+    // Method to remove a rating from the list and update the average
+    public void removeRating(int removedRating) {
+        ratings.remove(Integer.valueOf(removedRating));
+        updateAverageRating();
+    }
+
+    // Calculate and update the average rating based on the ratings list
+    private void updateAverageRating() {
+        if (ratings.isEmpty()) {
+            averageRating = 0;
+        } else {
+            int total = ratings.stream().mapToInt(Integer::intValue).sum();
+            averageRating = (double) total / ratings.size();
+        }
+    }
+}
