@@ -14,10 +14,29 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
     @PostMapping("/user")
-    User newUser(@RequestBody User newUser){
-        return userRepository.save(newUser);
+    User newUser(@RequestBody User newUser) {
+
+    User existingUserByEmail = userRepository.findByEmail(newUser.getEmail());
+
+    if (existingUserByEmail != null) {
+
+        throw new RuntimeException("User with this email already exists.");
     }
+
+    User existingUserByUsername = userRepository.findByUsername(newUser.getUsername());
+
+    if (existingUserByUsername != null) {
+
+        throw new RuntimeException("User with this username already exists.");
+    }
+    return userRepository.save(newUser);
+}
+
+
+
+
 
     @GetMapping("/users")
         List<User> getAllUsers(){
