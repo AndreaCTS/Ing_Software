@@ -9,6 +9,7 @@ import com.oscar.fullstackbackend.repository.CommentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,6 +38,15 @@ public class CommentController {
                 .orElseThrow(() -> new CommentNotFoundException(id));
     }
 
+    @GetMapping("/ascendente")
+    public List<Comment> getCommentAsc(){
+        return commentRepository.findAllByOrderByAverageRatingAsc();
+    }
+
+    @GetMapping("/descendente")
+    public List<Comment> getCommentDesc(){
+        return commentRepository.findAllByOrderByAverageRatingDesc();
+    }
     @GetMapping("/all")
     public List<Comment> getAllComments() {
         return commentRepository.findAll();

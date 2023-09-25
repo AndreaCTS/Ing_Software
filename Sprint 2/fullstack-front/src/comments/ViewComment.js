@@ -64,15 +64,12 @@ export default function ViewComment() {
         <Link className="btn btn-primary" to="/addcomments">
           Add Comment
         </Link>
-        <div className="my-2">
+        <div className="mb-4">
             <label>Filter by Rating:</label>
             <select value={filterRating} onChange={handleFilterChange}>
-              <option value={0}>All Ratings</option>
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>
+              <option value={0}>Todos</option>
+              <option value={1}>Ascendente</option>
+              <option value={2}>Descendente</option>
             </select>
           </div>
         <Row>
