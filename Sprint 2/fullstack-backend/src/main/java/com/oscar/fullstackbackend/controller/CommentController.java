@@ -38,7 +38,7 @@ public class CommentController {
 
     @GetMapping("/all")
     public List<Comment> getAllComments() {
-        return commentRepository.findAll();
+        return (List<Comment>) commentRepository.findAll();
     }
 
     @PostMapping("/{id}/rate")
