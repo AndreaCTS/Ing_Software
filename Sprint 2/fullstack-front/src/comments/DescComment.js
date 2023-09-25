@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { Card, Button, Row, Col } from "react-bootstrap"; // Import Bootstrap components
 import "../styles/style.css";
-
+//
 export default function AscComment() {
   const [comments, setComments] = useState([]);
   const [selectedRating, setSelectedRating] = useState(0); // Default rating value
