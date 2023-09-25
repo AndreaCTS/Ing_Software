@@ -4,7 +4,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { Card, Button, Row, Col } from "react-bootstrap"; // Import Bootstrap components
 import "../styles/style.css";
 
-export default function ViewComment() {
+export default function AscComment() {
   const [comments, setComments] = useState([]);
   const [selectedRating, setSelectedRating] = useState(0); // Default rating value
   const { id } = useParams();
@@ -15,7 +15,7 @@ export default function ViewComment() {
 
   const loadComments = async () => {
     try {
-      const result = await axios.get(`http://localhost:8080/comments/all`);
+      const result = await axios.get(`http://localhost:8080/comments/ascendente`);
       setComments(result.data);
     } catch (error) {
       console.error("Error loading comments:", error);
