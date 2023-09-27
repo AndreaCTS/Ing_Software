@@ -59,14 +59,13 @@ export default function AscComment() {
        const selectedValue = event.target.value;
 
        const routes = {
-        '0': '/viewcomments',
-        '1': '/asccomment',
-        '2': '/descomment',
+        '1': '/descomment',
+        '2': '/asccomment',
        };
 
        history(routes[selectedValue]);
     };  
-  
+  //Fin filtro
 
   return (
     <div className="full-page-bg">
@@ -76,11 +75,10 @@ export default function AscComment() {
           Add Comment
         </Link>
         <div className="mb-4">
-            <label>Filter by Rating:</label>
+            <label>Order by:</label>
             <select onChange={handleChange}>
-              <option value="0">Todos</option>
-              <option value="1">Ascendente</option>
-              <option value="2">Descendente</option>
+              <option value="1">Lowest raiting</option>
+              <option value="2">Highest raiting</option>
             </select>
         </div>
         <Row>

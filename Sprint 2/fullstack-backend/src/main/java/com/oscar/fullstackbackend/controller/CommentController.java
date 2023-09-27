@@ -38,6 +38,11 @@ public class CommentController {
                 .orElseThrow(() -> new CommentNotFoundException(id));
     }
 
+    @GetMapping("/{averageRating}")
+    public List<Comment> getCommentRating(@PathVariable int averageRating){
+        return commentRepository.findByAverageRating(averageRating);
+    }
+
     @GetMapping("/ascendente")
     public List<Comment> getCommentAsc(){
         return commentRepository.findAllByOrderByAverageRatingAsc();

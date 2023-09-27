@@ -59,7 +59,7 @@ export default function ViewComment() {
        const selectedValue = event.target.value;
 
        const routes = {
-        '0': '/viewcomments',
+        '0': '/add',
         '1': '/asccomment',
         '2': '/descomment',
        };
@@ -76,11 +76,11 @@ export default function ViewComment() {
           Add Comment
         </Link>
         <div className="mb-4">
-            <label>Filter by Rating:</label>
+            <label>Order by:</label>
             <select onChange={handleChange}>
-              <option value="0">Todos</option>
-              <option value="1">Ascendente</option>
-              <option value="2">Descendente</option>
+              <option value="0"></option>
+              <option value="1">Highest raiting</option>
+              <option value="2">Lowest raiting</option>
             </select>
         </div>
         <Row>
