@@ -33,6 +33,7 @@ function App() {
           <Route exact path="/viewcomments" element={<ViewComment />} />
           <Route exact path="/addcomments" element={<AddComment/>} />
           <Route exact path="/deletecomments" element={<DeleteComment />} />
+          {/*<Route exact path="/viewwheels" element={<ViewWheel />} />*/}
         </Routes>
       </Router>
     </div>

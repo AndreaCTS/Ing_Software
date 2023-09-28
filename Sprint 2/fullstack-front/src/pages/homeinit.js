@@ -67,6 +67,17 @@ export default function HomeInit() {
                 </Link>   
               
             </li>
+
+            <li className="breedCard">
+              <div className="contenedorImagen">
+                <img src="../media/wheel.jpg" alt="Forum" />
+              </div>
+              
+                <Link to={`/wheel`} className="btn btn-light ">
+                    Wheels
+                </Link>   
+              
+            </li>
           </ul>
         </section>
         <section></section>
