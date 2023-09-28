@@ -22,6 +22,17 @@ export default function AscComment() {
     }
   };
 
+  //Cargar comentarios Filtrados (Hecho por Miguel)
+  const loadCommentsRating = async (averageRating) => {
+    try {
+      const result = await axios.get(`http://localhost:8080/comments/rating/${averageRating}`);
+      setComments(result.data);
+    } catch (error) {
+      console.error("Error loading comments:", error);
+    }
+  };
+
+
   const handleRatingChange = (event) => {
     setSelectedRating(event.target.value);
   };
@@ -65,6 +76,11 @@ export default function AscComment() {
 
        history(routes[selectedValue]);
     };  
+
+    const handleFilterRating = (event) => {
+      const selectedValue = event.target.value;
+      loadCommentsRating(selectedValue);
+    };
   //Fin filtro
 
   return (
@@ -79,6 +95,16 @@ export default function AscComment() {
             <select onChange={handleChange}>
               <option value="1">Lowest raiting</option>
               <option value="2">Highest raiting</option>
+            </select>
+        </div>
+        <div className="mb-4">
+            <label>Filter by Rating:</label>
+            <select onChange={handleFilterRating}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
             </select>
         </div>
         <Row>

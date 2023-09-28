@@ -3,8 +3,8 @@ import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { Card, Button, Row, Col } from "react-bootstrap"; // Import Bootstrap components
 import "../styles/style.css";
-
-export default function AscComment() {
+//
+export default function RatingComment() {
   const [comments, setComments] = useState([]);
   const [selectedRating, setSelectedRating] = useState(0); // Default rating value
   const { id } = useParams();
@@ -13,17 +13,7 @@ export default function AscComment() {
     loadComments();
   }, []);
 
-  const loadComments = async () => {
-    try {
-      const result = await axios.get(`http://localhost:8080/comments/ascendente`);
-      setComments(result.data);
-    } catch (error) {
-      console.error("Error loading comments:", error);
-    }
-  };
-
-  //Cargar comentarios Filtrados (Hecho por Miguel)
-  const loadCommentsRating = async (averageRating) => {
+  const loadComments = async (averageRating) => {
     try {
       const result = await axios.get(`http://localhost:8080/comments/rating/${averageRating}`);
       setComments(result.data);
@@ -63,24 +53,29 @@ export default function AscComment() {
   };
   
   //Inicio filtro
-    const history = useNavigate();
 
+    const history = useNavigate();
+    /* Filtro de Orden*/
     const handleChange  = (event) => {
        const selectedValue = event.target.value;
 
        const routes = {
-        '1': '/asccomment',
-        '2': '/descomment',
+        '1': '/descomment',
+        '2': '/asccomment',
        };
 
        history(routes[selectedValue]);
     };  
-  
+
+    /*Filtro Segun Rating */
+
     const handleFilterRating = (event) => {
-      const selectedValue = event.target.value;
-      loadCommentsRating(selectedValue);
+        const selectedValue = event.target.value;
+        loadComments(selectedValue);
     };
-    //Fin filtro
+
+  //Fin filtro
+
   return (
     <div className="full-page-bg">
     <div className="container" >
@@ -91,8 +86,8 @@ export default function AscComment() {
         <div className="mb-4">
             <label>Order by:</label>
             <select onChange={handleChange}>
-              <option value="1">Highest raiting</option>
-              <option value="2">Lowest raiting</option>
+              <option value="1">Lowest raiting</option>
+              <option value="2">Highest raiting</option>
             </select>
         </div>
         <div className="mb-4">

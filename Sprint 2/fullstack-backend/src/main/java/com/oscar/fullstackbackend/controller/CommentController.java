@@ -38,7 +38,7 @@ public class CommentController {
                 .orElseThrow(() -> new CommentNotFoundException(id));
     }
 
-    @GetMapping("/{averageRating}")
+    @GetMapping("/rating/{averageRating}")
     public List<Comment> getCommentRating(@PathVariable int averageRating){
         return commentRepository.findByAverageRating(averageRating);
     }
