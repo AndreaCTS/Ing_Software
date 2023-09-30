@@ -22,7 +22,7 @@ public class Comment {
     private List<Integer> ratings = new ArrayList<>();
 
     @Column(nullable = false)
-    private double averageRating; // Add this field
+    private int averageRating; // Add this field
 
     // Constructor, getters, setters, and other fields are defined here...
 
@@ -42,7 +42,7 @@ public class Comment {
         return ratings;
     }
 
-    public double getAverageRating() { // Add this getter
+    public int getAverageRating() { // Add this getter
         return averageRating;
     }
 
@@ -64,7 +64,7 @@ public class Comment {
             averageRating = 0;
         } else {
             int total = ratings.stream().mapToInt(Integer::intValue).sum();
-            averageRating = (double) total / ratings.size();
+            averageRating = Math.round((float) total / ratings.size());
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.oscar.fullstackbackend.controller;
 
+import com.oscar.fullstackbackend.exception.UserAlreadyExistsException;
 import com.oscar.fullstackbackend.model.User;
 import com.oscar.fullstackbackend.repository.UserRepository;
 import com.oscar.fullstackbackend.exception.UserNotFoundException;
@@ -17,22 +18,16 @@ public class UserController {
 
     @PostMapping("/user")
     User newUser(@RequestBody User newUser) {
+        if (userRepository.existsByEmail(newUser.getEmail())) {
+            throw new UserAlreadyExistsException("User with this email already exists.");
+        }
 
-    User existingUserByEmail = userRepository.findByEmail(newUser.getEmail());
+        if (userRepository.existsByUsername(newUser.getUsername())) {
+            throw new UserAlreadyExistsException("User with this username already exists.");
+        }
 
-    if (existingUserByEmail != null) {
-
-        throw new RuntimeException("User with this email already exists.");
+        return userRepository.save(newUser);
     }
-
-    User existingUserByUsername = userRepository.findByUsername(newUser.getUsername());
-
-    if (existingUserByUsername != null) {
-
-        throw new RuntimeException("User with this username already exists.");
-    }
-    return userRepository.save(newUser);
-}
 
 
 
