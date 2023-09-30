@@ -12,6 +12,8 @@ import AddComment from "./comments/AddComment";
 import DeleteComment from "./comments/DeleteComment";
 import Mapa from './pages/map';
 import Login from './users/Login';
+import ViewWheel from './wheels/ViewWheel';
+import AddWheel from './wheels/AddWheel';
 import 'font-awesome/css/font-awesome.css';
 
 
@@ -33,7 +35,9 @@ function App() {
           <Route exact path="/viewcomments" element={<ViewComment />} />
           <Route exact path="/addcomments" element={<AddComment/>} />
           <Route exact path="/deletecomments" element={<DeleteComment />} />
-          {/*<Route exact path="/viewwheels" element={<ViewWheel />} />*/}
+          {/**/} 
+          <Route exact path="/viewwheels" element={<ViewWheel />} />
+          <Route exact path="/addwheels" element={<AddWheel />} />
         </Routes>
       </Router>
     </div>

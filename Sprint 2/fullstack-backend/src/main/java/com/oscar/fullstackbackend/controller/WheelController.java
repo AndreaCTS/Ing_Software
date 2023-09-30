@@ -11,28 +11,29 @@ import com.oscar.fullstackbackend.repository.WheelRepository;
 
 @RestController
 @CrossOrigin("http://localhost:3000")
+@RequestMapping("/wheels")
 public class WheelController {
     @Autowired
     private WheelRepository wheelRepository;
     
-    @PostMapping("/wheel")
+    @PostMapping("/save")
     Wheel newWheel(@RequestBody Wheel newWheel) {
         return wheelRepository.save(newWheel);
     }
 
-    @GetMapping("/wheels")
+    @GetMapping("/all")
     List<Wheel> getAllWheels() {
         return (List<Wheel>) wheelRepository.findAll();
 
     }
 
-    @GetMapping("/wheel/{id}")
+    @GetMapping("/{id}")
     Wheel getWheelById(@PathVariable Integer id) {
         return wheelRepository.findById(id)
                 .orElseThrow(() -> new WheelNotFoundException(id));
     }
 
-    @PutMapping("/wheel/{id}")
+    @PutMapping("/find/{id}")
     Wheel updateUser(@RequestBody Wheel newWheel, @PathVariable Integer id) {
         return wheelRepository.findById(id)
                 .map(wheel -> {

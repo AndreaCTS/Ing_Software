@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Wheel {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(nullable = false)

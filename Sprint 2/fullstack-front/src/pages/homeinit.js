@@ -73,7 +73,7 @@ export default function HomeInit() {
                 <img src="../media/wheel.jpg" alt="Forum" />
               </div>
               
-                <Link to={`/wheel`} className="btn btn-light ">
+                <Link to={`/viewwheels  `} className="btn btn-light ">
                     Wheels
                 </Link>   
               
