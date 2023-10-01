@@ -18,7 +18,10 @@ public class JWTAuthentication {
         claims.put("exp", new Date(System.currentTimeMillis() + 30 * 60 * 1000));
 
         Algorithm algorithm = Algorithm.HMAC256(SECRET_KEY);
-        String token = JWT.create(algorithm, claims).sign();
+        String token = JWT.create()
+                .withClaims(claims)
+                .withAlgorithm(algorithm)
+                .sign();
 
         return token;
     }
