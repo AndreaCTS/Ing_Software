@@ -1,27 +1,58 @@
-const express = require('express');
-const jwt = require('jsonwebtoken');
-const bodyParser = require('body-parser');
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.Claims;
+import com.auth0.jwt.interfaces.DecodedJWT;
+import com.auth0.jwt.interfaces.JWTVerifier;
 
-const app = express();
-const port = 3000;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
-app.use(bodyParser.json());
+public class JWTAuthentication {
 
-const secretKey = 'mi_clave_secreta';
+    private static final String SECRET_KEY = "my-secret-key";
 
-app.post('/login', (req, res) => {
-  const { username, password } = req.body;
+    public static String generateToken(String username) {
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("username", username);
+        claims.put("exp", new Date(System.currentTimeMillis() + 30 * 60 * 1000));
 
-  if (username === 'uname' && password === 'contraseña') {
+        Algorithm algorithm = Algorithm.HMAC256(SECRET_KEY);
+        String token = JWT.create(algorithm, claims).sign();
 
-    const token = jwt.sign({ username }, secretKey, { expiresIn: '1h' });
+        return token;
+    }
 
-    res.json({ token });
-  } else {
-    res.status(401).json({ message: 'Credenciales incorrectas' });
-  }
-});
+    public static boolean validateToken(String token) {
+        try {
+            JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET_KEY)).build();
+            DecodedJWT decodedToken = verifier.verify(token);
 
-app.listen(port, () => {
-  console.log(`Servidor escuchando en el puerto ${port}`);
-});
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static String getUsernameFromToken(String token) {
+        try {
+            DecodedJWT decodedToken = JWT.decode(token);
+
+            return decodedToken.getClaim("username").asString();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static void main(String[] args) {
+        String token = generateToken("username");
+
+        System.out.println(token);
+
+        boolean valid = validateToken(token);
+        System.out.println(valid);
+
+        String username = getUsernameFromToken(token);
+        System.out.println(username);
+    }
+}
