@@ -67,6 +67,18 @@ export default function HomeInit() {
                 </Link>   
               
             </li>
+
+            <li className="breedCard">
+              
+              <div className="contenedorImagen">
+                <img src="../media/hand-holding-megaphone.jpg" alt="Reports" />
+              </div>
+
+              <Link className="btn btn-light" to="/homereports">
+              Report
+              </Link>
+            
+            </li>
           </ul>
         </section>
         <section></section>

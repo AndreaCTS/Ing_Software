@@ -13,6 +13,9 @@ import DeleteComment from "./comments/DeleteComment";
 import Mapa from './pages/map';
 import Login from './users/Login';
 import 'font-awesome/css/font-awesome.css';
+import AddReport from './reports/AddReport';
+import HomeReport from './reports/homeReports';
+import ViewReport from './reports/ViewReport';
 
 
 
@@ -33,6 +36,10 @@ function App() {
           <Route exact path="/viewcomments" element={<ViewComment />} />
           <Route exact path="/addcomments" element={<AddComment/>} />
           <Route exact path="/deletecomments" element={<DeleteComment />} />
+          <Route exact path="/addreports" element={<AddReport />} />
+          <Route exact path="/homereports" element={<HomeReport />} />
+          <Route exact path="/viewreport/:id" element={<ViewReport />} />
+
         </Routes>
       </Router>
     </div>
