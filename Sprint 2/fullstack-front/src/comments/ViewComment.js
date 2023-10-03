@@ -4,11 +4,12 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { Card, Button, Row, Col } from "react-bootstrap"; // Import Bootstrap components
 import "../styles/style.css";
 
+
 export default function ViewComment() {
   const [comments, setComments] = useState([]);
   const [selectedRating, setSelectedRating] = useState(0); // Default rating value
   const { id } = useParams();
-
+  
   useEffect(() => {
     loadComments();
   }, []);
@@ -21,7 +22,20 @@ export default function ViewComment() {
       console.error("Error loading comments:", error);
     }
   };
+  const loadCommentss = async (pag) => {
+    try {
+      if(pag === "1"){
+        const result = await axios.get(`http://localhost:8080/comments/ascendente`);
+        setComments(result.data);
+      }else if(pag === "2"){
+        const result = await axios.get(`http://localhost:8080/comments/descendente`);
+        setComments(result.data);
+      }
 
+    } catch (error) {
+      console.error("Error loading comments:", error);
+    }
+  };
   //Cargar comentarios Filtrados (Hecho por Miguel)
   const loadCommentsRating = async (averageRating) => {
     try {
@@ -63,18 +77,10 @@ export default function ViewComment() {
   };
   
   //Inicio filtro
-    const history = useNavigate();
 
     const handleChange  = (event) => {
        const selectedValue = event.target.value;
-
-       const routes = {
-        '0': '/all',
-        '1': '/asccomment',
-        '2': '/descomment',
-       };
-
-       history(routes[selectedValue]);
+       loadCommentss(selectedValue)
     };  
   
     const handleFilterRating = (event) => {
@@ -101,6 +107,7 @@ export default function ViewComment() {
         <div className="mb-4">
             <label>Filter by Rating:</label>
             <select onChange={handleFilterRating}>
+              <option value="0">Todos</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
