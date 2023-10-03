@@ -10,5 +10,6 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
     List<Comment> findAllByOrderByAverageRatingDesc();
     List<Comment> findAllByOrderByAverageRatingAsc();
     List<Comment> findByAverageRating(int avg);
+    List<Comment> findByBarrio(String b);
 }
 
