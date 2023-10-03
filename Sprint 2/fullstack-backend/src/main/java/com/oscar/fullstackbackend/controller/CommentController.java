@@ -44,7 +44,9 @@ public class CommentController {
     }
     @GetMapping("/barrio/{barrio}")
     public List<Comment> getCommentBarrio(@PathVariable String barrio){
-        System.out.println(barrio);
+        if (barrio.equals("Todos")){
+            return commentRepository.findAll();
+        }
         return commentRepository.findByBarrio(barrio);
     }
 
