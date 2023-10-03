@@ -33,10 +33,26 @@ export default function ViewComment() {
     loadComments();
   }, []);
 
+
   const loadComments = async () => {
     try {
       const result = await axios.get(`http://localhost:8080/comments/all`);
       setComments(result.data);
+    } catch (error) {
+      console.error("Error loading comments:", error);
+    }
+  };
+
+  const loadCommentss = async (pag) => {
+    try {
+      if(pag === "1"){
+        const result = await axios.get(`http://localhost:8080/comments/ascendente`);
+        setComments(result.data);
+      }else if(pag === "2"){
+        const result = await axios.get(`http://localhost:8080/comments/descendente`);
+        setComments(result.data);
+      }
+
     } catch (error) {
       console.error("Error loading comments:", error);
     }
@@ -57,19 +73,10 @@ export default function ViewComment() {
   };
 
 
-  const history = useNavigate();
-
-  const handleChange = (event) => {
+  const handleChange  = (event) => {
     const selectedValue = event.target.value;
-
-    const routes = {
-      '0': '/all',
-      '1': '/asccomment',
-      '2': '/descomment',
-    };
-
-    history(routes[selectedValue]);
-  };
+    loadCommentss(selectedValue)
+ }; 
 
   const handleFilterRating = (event) => {
     const selectedValue = event.target.value;
@@ -114,16 +121,17 @@ export default function ViewComment() {
             Agregar Comentario
           </Link>
           <div className="mb-4">
-            <label>Order by:</label>
-            <select onChange={handleChange}>
+            <label >Order by:</label>
+            <select onChange={handleChange} >
               <option value="0"></option>
               <option value="1">Highest raiting</option>
               <option value="2">Lowest raiting</option>
             </select>
-          </div>
-          <div className="mb-4">
-            <label>Filter by Rating:</label>
+          
+          
+            <label className="f1">Filter by Rating:</label>
             <select onChange={handleFilterRating}>
+            <option value="0">Todos</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>

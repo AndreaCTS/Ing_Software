@@ -29,3 +29,11 @@ display: inline-block; /* Alinea las estrellas en línea */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
+
+.mb-4{
+  padding: 20px;
+}
+
+.f1{
+  padding-left: 40px;
+}
