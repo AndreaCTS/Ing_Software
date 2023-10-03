@@ -36,6 +36,9 @@ public class CommentController {
 
     @GetMapping("/rating/{averageRating}")
     public List<Comment> getCommentRating(@PathVariable int averageRating){
+        if (averageRating == 0){
+            return commentRepository.findAll();
+        }
         return commentRepository.findByAverageRating(averageRating);
     }
     @GetMapping("/barrio/{barrio}")
