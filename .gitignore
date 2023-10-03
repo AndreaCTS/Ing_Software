@@ -9,6 +9,6 @@
 *.settings/
 *.classpath
 *.project
-*.springBeans/
+
 
 node_modules/
