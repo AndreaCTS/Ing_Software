@@ -8,6 +8,8 @@ import AddUser from './users/AddUser';
 import EditUser from './users/EditUser';
 import ViewUser from "./users/ViewUser";
 import ViewComment from './comments/ViewComment';
+import AscComment from './comments/AscComment';
+import DescComment from './comments/DescComment';
 import AddComment from "./comments/AddComment";
 import DeleteComment from "./comments/DeleteComment";
 import Mapa from './pages/map';
@@ -30,6 +32,8 @@ function App() {
           <Route exact path='/edituser/:id' element={<EditUser/>}/>
           <Route exact path="/viewuser/:id" element={<ViewUser />} />
           <Route exact path="/viewcomments" element={<ViewComment />} />
+          <Route exact path ="/asccomment"element={ <AscComment/>} />
+          <Route exact path ="/descomment"element= {<DescComment/>} />
           <Route exact path="/addcomments" element={<AddComment/>} />
           <Route exact path="/deletecomments" element={<DeleteComment />} />
         </Routes>

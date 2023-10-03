@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate  } from "react-router-dom";
 import { Card, Button, Row, Col } from "react-bootstrap";
 import "../styles/style.css";
-import { toast,ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function StarRating({ value, onClick }) {
@@ -42,12 +42,38 @@ export default function ViewComment() {
     }
   };
 
+  const loadCommentsRating = async (averageRating) => {
+    try {
+      const result = await axios.get(`http://localhost:8080/comments/rating/${averageRating}`);
+      setComments(result.data);
+    } catch (error) {
+      console.error("Error loading comments:", error);
+    }
+  };
+
+
   const handleRatingChange = (rating) => {
     setSelectedRating(rating);
   };
 
-  const roundToOneDecimal = (number) => {
-    return Math.round(number * 10) / 10; // Redondea a un decimal
+
+  const history = useNavigate();
+
+  const handleChange = (event) => {
+    const selectedValue = event.target.value;
+
+    const routes = {
+      '0': '/all',
+      '1': '/asccomment',
+      '2': '/descomment',
+    };
+
+    history(routes[selectedValue]);
+  };
+
+  const handleFilterRating = (event) => {
+    const selectedValue = event.target.value;
+    loadCommentsRating(selectedValue);
   };
 
   const handleAddRating = async (commentId) => {
@@ -87,6 +113,24 @@ export default function ViewComment() {
           <Link className="btn btn-primary" to="/addcomments">
             Agregar Comentario
           </Link>
+          <div className="mb-4">
+            <label>Order by:</label>
+            <select onChange={handleChange}>
+              <option value="0"></option>
+              <option value="1">Highest raiting</option>
+              <option value="2">Lowest raiting</option>
+            </select>
+          </div>
+          <div className="mb-4">
+            <label>Filter by Rating:</label>
+            <select onChange={handleFilterRating}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
           <Row>
             {comments.map((comment, index) => (
               <Col key={comment.id} md={4}>
@@ -97,7 +141,10 @@ export default function ViewComment() {
                       {comment.text}
                     </Card.Text>
                     <Card.Text>
-                      Rating: {roundToOneDecimal(comment.averageRating)}
+                      Barrio: {comment.barrio}
+                    </Card.Text>
+                    <Card.Text>
+                      Rating: {comment.averageRating}
                     </Card.Text>
                     <StarRating
                       value={selectedRating}

@@ -3,11 +3,21 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import '../styles/style.css';
 
+const neighborhoodOptions = [
+  "Chico Reservado","Bellavista","Chico Alto","El Nogal","El Refugio","La Cabrera","Los Rosales",
+  "Seminario","Toscana","La Esperaza Nororiental","La Sureña","San Isidiro","San Luis Altos Del Cabo",
+  "Bosque Calderón","Bosque Calderón Tejada","Chapinero Alto","El Castillo","El Paraiso","Emaus",
+  "Granada","Ingenar","Juan XXII","La Salle","Las Acacias","Los Olivos","Maria Cristina","Mariscal Sucre","Nueva Granada",
+  "El Palomar","Pardo Rubio","San Martin De Porres","Villa Anita","Villa Del Cerdo","Antiguo Country","Chico Norte",
+  "Chico Norte II","Chico Norte III","Chico Occidental","El Chico","El Retiro","Espartillal","La Cabrera",
+  "Lago Gaitan","La Porciuncula","Quinta Camacho","Cataluña","Chapinero Central","Chapinero Norte","Marly","Sucre",
+];
+
 export default function AddComment() {
   let navigate = useNavigate();
-  const [comments, setComments] = useState({ text: "" });
+  const [comments, setComments] = useState({ text: "", barrio: "" });
 
-  const { text } = comments;
+  const { text, barrio } = comments;
 
   const onInputChange = (e) => {
     const { name, value } = e.target;
@@ -49,6 +59,26 @@ export default function AddComment() {
               <div className="text-end mt-2">
                 <span className="text-muted">{text.length}/50</span>
               </div>
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="barrio" className="form-label">
+                Choose a Neighborhood
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                list="neighborhoods"
+                name="barrio"
+                value={barrio}
+                onChange={(e) => onInputChange(e)}
+                placeholder="Type or select a neighborhood"
+              />
+              <datalist id="neighborhoods">
+                {neighborhoodOptions.map((neighborhood) => (
+                  <option key={neighborhood} value={neighborhood} />
+                ))}
+              </datalist>
             </div>
 
             <button type="submit" className="btn btn-outline-primary">
