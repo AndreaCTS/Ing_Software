@@ -59,8 +59,8 @@ const {id} = useParams()
           ))}
           </tbody>
         </table>
-        <Link className="btn btn-primary" to="/deletecomments">
-          Delete Comments
+        <Link className="btn btn-primary" to="/addreports">
+          Add Reports
         </Link>
         
       </div>
