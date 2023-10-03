@@ -1,0 +1,160 @@
+body {
+  
+  margin: 0px;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: rgb(237, 237, 238);
+  border-bottom: 1px solid gray;
+  box-shadow: 1px 1px gray;
+}
+
+.navbar > li {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 70px;
+}
+
+.botonGenerico {
+  border: 0px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bolder;
+}
+.botonGenerico:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.mainButton {
+  background-color: #1bb76e;
+  color: white;
+}
+
+.mainButton:hover {
+  box-shadow: 1px 1px green;
+}
+
+.secondaryButton {
+  background-color: #66d8f5;
+  color: white;
+}
+
+.secondaryButton:hover {
+  box-shadow: 1px 1px rgb(119, 229, 233);
+}
+
+.buscar {
+  background-color: white;
+  border: 1px solid gray;
+  padding: 4px;
+  border-radius: 8px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buscar:focus-within {
+  border: 1px solid blue;
+}
+
+.buscar > input {
+  outline: none;
+  border: 0px;
+}
+
+.iconoBusqueda:hover {
+  color: blue;
+}
+
+.breedCardContainer {
+  display: flex;
+}
+
+.breedCard {
+  margin: 10px;
+  background-color: rgb(78, 78, 90);
+  box-shadow: 5px 10px 10px rgb(231, 231, 231);
+  border-radius: 10px;
+  height: -70px;
+}
+
+.breedTitle {
+  color: white;
+  margin: 10px;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+
+
+.contenedorImagen {
+  width: 240px;
+  height: 300px;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.contenedorImagen:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+.contenedorImagen > img {
+  object-fit: cover;
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.footer-content {
+  width: 100%;
+  height: 40px;
+  font-size: 15px;
+  text-align: center;
+  line-height: 50px;
+  font-weight: bold;
+  position: fixed; 
+  bottom: 0px;
+  
+
+
+}
+
+.social-icons {
+  list-style: none;
+  padding: 0;
+  margin: 10px;
+}
+
+.social-icons li {
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+  right: -700px;
+  bottom: 70px;
+  
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.social-icons a:hover {
+  color: #007bff; /* Hover color */
+}
+
