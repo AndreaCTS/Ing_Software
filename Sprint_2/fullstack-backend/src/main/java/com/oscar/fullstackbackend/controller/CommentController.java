@@ -21,9 +21,6 @@ public class CommentController {
 
     @Autowired
     private CommentRepository commentRepository;
-    //@Autowired
-    //private RatingRepository ratingRepository;
-
 
     @PostMapping
     public Comment createComment(@RequestBody Comment comment) {
@@ -35,6 +32,28 @@ public class CommentController {
     public Comment getCommentById(@PathVariable Long id) {
         return commentRepository.findById(id)
                 .orElseThrow(() -> new CommentNotFoundException(id));
+    }
+
+    @GetMapping("/rating/{averageRating}")
+    public List<Comment> getCommentRating(@PathVariable int averageRating){
+        return commentRepository.findByAverageRating(averageRating);
+    }
+    @GetMapping("/barrio/{barrio}")
+    public List<Comment> getCommentBarrio(@PathVariable String barrio){
+        System.out.println(barrio);
+        return commentRepository.findByBarrio(barrio);
+    }
+
+
+
+    @GetMapping("/ascendente")
+    public List<Comment> getCommentAsc(){
+        return commentRepository.findAllByOrderByAverageRatingAsc();
+    }
+
+    @GetMapping("/descendente")
+    public List<Comment> getCommentDesc(){
+        return commentRepository.findAllByOrderByAverageRatingDesc();
     }
 
     @GetMapping("/all")

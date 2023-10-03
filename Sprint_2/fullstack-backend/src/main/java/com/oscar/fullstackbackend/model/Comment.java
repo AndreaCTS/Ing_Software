@@ -16,6 +16,12 @@ public class Comment {
     @Column(nullable = false)
     private String text;
 
+
+    @Column(nullable = false)
+    private String barrio;
+
+
+
     @ElementCollection
     @CollectionTable(name = "comment_ratings", joinColumns = @JoinColumn(name = "comment_id"))
     @Column(name = "rating")
@@ -38,6 +44,14 @@ public class Comment {
         this.text = text;
     }
 
+    public String getBarrio() {
+        return barrio;
+    }
+
+    public void setBarrio(String barrio) {
+        this.barrio = barrio;
+    }
+
     public List<Integer> getRatings() {
         return ratings;
     }
@@ -45,6 +59,7 @@ public class Comment {
     public int getAverageRating() { // Add this getter
         return averageRating;
     }
+
 
     // Method to add a new rating to the list and update the average
     public void addRating(int newRating) {
