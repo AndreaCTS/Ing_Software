@@ -20,3 +20,12 @@ color: gold; /* Color de la estrella seleccionada */
 .star-rating {
 display: inline-block; /* Alinea las estrellas en línea */
 }
+
+.container {
+  
+    padding-top: 100px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
