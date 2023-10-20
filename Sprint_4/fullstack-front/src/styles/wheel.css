@@ -1,0 +1,27 @@
+.full-page-bg-wheel {
+    background-color:#e6f7ff; /* Your desired light blue color */
+    min-height: 100vh; /* Ensure the background covers the full viewport height */
+}
+
+.button {
+    background-color: #3498db;
+    position: fixed; /* Opcionalmente, puedes usar "absolute" en lugar de "fixed" si prefieres que esté posicionado con respecto a su contenedor en lugar de la ventana del navegador */
+    left: 50%; /* Centra horizontalmente el botón */
+    bottom: 10px; /* Controla la distancia desde la parte inferior de la ventana del navegador */
+    transform: translateX(-50%); /* Centra el botón horizontalmente en relación con su propio ancho */
+    padding: 10px 20px; /* Añade espaciado alrededor del botón para que sea fácilmente seleccionable */
+    color: #fff; /* Color del texto del botón */
+    border: none; /* Elimina el borde del botón */
+    border-radius: 5px; /* Agrega esquinas redondeadas al botón */
+    cursor: pointer; /* Cambia el cursor al puntero al pasar sobre el botón */
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 16px;
+    padding: 16px;
+    background-color: #fff;
+    margin-top: 50px;
+  }
