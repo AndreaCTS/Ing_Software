@@ -17,6 +17,7 @@ import Dashboard from './pages/dashboard';
 import ViewWheel from './wheels/ViewWheel';
 import AddWheel from './wheels/AddWheel';
 import DeleteWheels from './wheels/DeleteWheel';
+import NewInit from './pages/newInit';
 
 
 
@@ -30,7 +31,7 @@ function App() {
       <Router>
       <Navbar />
         <Routes>
-          <Route exact path="/" element={<HomeInit />} />
+          <Route exact path="/" element={<NewInit />} />
           <Route exact path="/admin" element={<Admin />} />
           <Route exact path="/mapa" element={<HomeInit />} />
           <Route exact path="/map" element={<Mapa />} />
