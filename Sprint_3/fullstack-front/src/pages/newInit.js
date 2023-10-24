@@ -53,17 +53,17 @@ export default function NewInit() {
                     <p>&copy; 2023 Clase con Leyva</p>
                     <ul className="social-icons">
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="https://www.instagram.com/" target="_blank">
                                 <img src="../media/instagram_1.png" alt="Instagram" />
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="https://web.facebook.com/?locale=es_LA&_rdc=1&_rdr" target="_blank">
                                 <img src="../media/facebook.png" alt="Facebook" />
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="https://twitter.com/?lang=es" target="_blank">
                                 <img src="../media/twitter.png" alt="Twitter" />
                             </a>
                         </li>
