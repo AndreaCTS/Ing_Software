@@ -5,36 +5,40 @@
 *.ear
 *.dll
 *.exe
-/target/
-/build/
 
-# Ignorar configuraciones de Eclipse
-/.metadata/
-*.settings/
-*.classpath
-*.project
+# Ignorar directorio target en cualquier ubicación
+**/target/
 
-# Ignorar configuraciones de IntelliJ IDEA
-.idea/
-*.iml
-*.iws
-*.ipr
+# Ignorar directorio build en cualquier ubicación
+**/build/
 
-# Ignorar configuraciones de Visual Studio Code
-.vscode/
+# Ignorar configuraciones de Eclipse en cualquier ubicación
+**/.metadata/
+**/*.settings/
+**/*.classpath
+**/*.project
 
-# Ignorar configuraciones de NetBeans
-/nbproject/
+# Ignorar configuraciones de IntelliJ IDEA en cualquier ubicación
+**/.idea/
+**/*.iml
+**/*.iws
+**/*.ipr
 
-# Ignorar configuraciones de Android Studio
-.gradle/
-local.properties
+# Ignorar configuraciones de Visual Studio Code en cualquier ubicación
+**/.vscode/
 
-# Ignorar directorio de Node.js y módulos
-node_modules/
+# Ignorar configuraciones de NetBeans en cualquier ubicación
+**/nbproject/
 
-# Ignorar directorio de dependencias generadas por Maven
-~/.m2/
+# Ignorar configuraciones de Android Studio en cualquier ubicación
+**/.gradle/
+**/local.properties
+
+# Ignorar directorio de Node.js y módulos en cualquier ubicación
+**/node_modules/
+
+# Ignorar directorio de dependencias generadas por Maven en cualquier ubicación
+**/~/.m2/
 
 # Ignorar archivos de registros y archivos temporales
 *.log
