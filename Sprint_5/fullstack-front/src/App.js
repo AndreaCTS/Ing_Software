@@ -17,7 +17,10 @@ import Dashboard from './pages/dashboard';
 import ViewWheel from './wheels/ViewWheel';
 import AddWheel from './wheels/AddWheel';
 import DeleteWheels from './wheels/DeleteWheel';
+<<<<<<< HEAD
 import NewInit from './pages/newInit';
+=======
+>>>>>>> origin/Juanes
 
 
 
@@ -31,7 +34,11 @@ function App() {
       <Router>
       <Navbar />
         <Routes>
+<<<<<<< HEAD
           <Route exact path="/" element={<NewInit />} />
+=======
+          <Route exact path="/" element={<HomeInit />} />
+>>>>>>> origin/Juanes
           <Route exact path="/admin" element={<Admin />} />
           <Route exact path="/mapa" element={<HomeInit />} />
           <Route exact path="/map" element={<Mapa />} />

@@ -5,8 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.oscar.fullstackbackend.exception.CommentNotFoundException;
-import com.oscar.fullstackbackend.exception.UserAlreadyExistsException;
 import com.oscar.fullstackbackend.exception.UserNotExistException;
 import com.oscar.fullstackbackend.exception.WheelNotFoundException;
 import com.oscar.fullstackbackend.model.Wheel;

@@ -2,7 +2,6 @@ package com.oscar.fullstackbackend.controller;
 
 import com.oscar.fullstackbackend.exception.CommentNotFoundException;
 
-import com.oscar.fullstackbackend.exception.UserNotFoundException;
 import com.oscar.fullstackbackend.model.Comment;
 
 import com.oscar.fullstackbackend.repository.CommentRepository;

@@ -10,11 +10,12 @@ export default function AddUser() {
     username: "",
     email: "",
     password: "",
+    role: "ADMIN",
   });
 
   const [error, setError] = useState("");
 
-  const { name, username, email, password } = user;
+  const { name, username, email, password, role } = user;
 
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -33,6 +34,10 @@ export default function AddUser() {
         setError("An error occurred while processing your request.");
       }
     }
+  };
+
+  const handleChange  = (event) => {
+    const selectedValue = event.target.value;
   };
 
   return (
@@ -99,6 +104,16 @@ export default function AddUser() {
                 value={password}
                 onChange={(e) => onInputChange(e)}
               />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="Role" className="form-label">
+                Role
+              </label>
+              <select onChange={handleChange}>
+                <option value="USER">Select role...</option>
+                <option value="USER">User</option>
+                <option value="ADMIN">Admin</option>
+              </select>
             </div>
             <button type="submit" className="btn btn-outline-primary">
               Submit

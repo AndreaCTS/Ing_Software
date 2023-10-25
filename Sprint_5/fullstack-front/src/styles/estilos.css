@@ -150,7 +150,12 @@ ul {
 
 .social-icons a {
   text-decoration: none;
+<<<<<<< HEAD
   font-size: 24px;
+=======
+  color: #333;
+  font-size: 16px;
+>>>>>>> origin/Juanes
 }
 
 .social-icons a:hover {
