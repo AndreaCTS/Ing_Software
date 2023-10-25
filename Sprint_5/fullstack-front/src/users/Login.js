@@ -18,8 +18,25 @@ export default function Login() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/user", user);
-    navigate("/");
+    try {
+      const response = await axios.post("http://localhost:8080/userAuth/authenticate", user);
+      const userData = response.data;
+  
+      // Log the userData object to the console for inspection
+      console.log("userData:", userData);
+  
+      // Check if the user is an admin (adjust this condition as needed)
+      if (userData.role === 'ADMIN') {
+        // Redirect the admin to the admin page
+        navigate("/admin");
+      } else {
+        // Redirect non-admin users to a different page
+        navigate("/viewcomments");
+      }
+    } catch (error) {
+      // Handle login errors
+      console.error("Login error:", error);
+    }
   };
 
   return (

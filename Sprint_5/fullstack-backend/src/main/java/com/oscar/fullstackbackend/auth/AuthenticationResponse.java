@@ -1,6 +1,7 @@
 package com.oscar.fullstackbackend.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.oscar.fullstackbackend.model.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,4 +19,5 @@ public class AuthenticationResponse {
   private String accessToken;
   @JsonProperty("refresh_token")
   private String refreshToken;
+  private UserRole role;
 }

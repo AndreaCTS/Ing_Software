@@ -25,8 +25,8 @@ export default function AddUser() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/user", user);
-      navigate("/");
+      await axios.post("http://localhost:8080/userAuth/register", user);
+      navigate("/login");
     } catch (err) {
       if (err.response && err.response.status === 400) {
         setError("User with this email or username already exists.");
@@ -36,8 +36,9 @@ export default function AddUser() {
     }
   };
 
-  const handleChange  = (event) => {
+  const handleChange = (event) => {
     const selectedValue = event.target.value;
+    setUser({ ...user, role: selectedValue });
   };
 
   return (
@@ -109,10 +110,9 @@ export default function AddUser() {
               <label htmlFor="Role" className="form-label">
                 Role
               </label>
-              <select onChange={handleChange}>
-                <option value="USER">Select role...</option>
-                <option value="USER">User</option>
-                <option value="ADMIN">Admin</option>
+              <select name="role" value={role}  onChange={handleChange}>
+                  <option value="USER">User</option>
+                  <option value="ADMIN">Admin</option>
               </select>
             </div>
             <button type="submit" className="btn btn-outline-primary">

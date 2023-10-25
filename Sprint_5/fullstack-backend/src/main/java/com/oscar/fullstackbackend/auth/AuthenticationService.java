@@ -48,11 +48,13 @@ public class AuthenticationService {
                         request.getPassword()));
         var user = repository.findByEmail(request.getEmail())
                 .orElseThrow();
+
         var jwtToken = jwtService.generateToken(user);
         var refreshToken = jwtService.generateRefreshToken(user);
         return AuthenticationResponse.builder()
                 .accessToken(jwtToken)
                 .refreshToken(refreshToken)
+                .role(user.getRole())
                 .build();
     }
 }
