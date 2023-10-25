@@ -1,0 +1,11 @@
+.form-title {
+    text-align: right; /* Coloca el título a la izquierda */
+    margin-top: -1100px; /* Espacio inferior entre el título y el formulario */
+    margin-right: 100px;
+    margin-left: 500px;
+  }
+.form-container {
+    margin-top: -700px; /* Mueve el formulario hacia arriba */
+    margin-right: 50px;
+    margin-left: -600px;
+  }  
