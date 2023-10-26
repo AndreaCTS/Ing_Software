@@ -41,7 +41,8 @@ public class SecurityConfiguration {
 
         // Lista de todas las URLs permitidas en la aplicación
         private static final String[] WHITE_LIST_URL = { "/userAuth/**",
-                        "/user", "/user/**","/userAuth/authenticate"
+                        "/user", "/user/**","/userAuth/authenticate","/users/**",
+                        "/users","/comments","/comments/**","/wheels","/wheels/**"
         };
         private final JwtAuthenticationFilter jwtAuthFilter;
         private final AuthenticationProvider authenticationProvider;
