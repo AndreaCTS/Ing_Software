@@ -40,9 +40,8 @@ export default function Login() {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
+        <div  class="d-flex justify-content-center align-items-center" style={{height: "100vh",background:"#FFFEEC"}}>
+        <div className="bg-light col-md-6  border border-dark rounded p-4 mt-5 shadow">
           <h2 className="text-center m-4">Login</h2>
 
           <form onSubmit={(e) => onSubmit(e)}>
@@ -80,7 +79,7 @@ export default function Login() {
             </Link>
           </form>
         </div>
-      </div>
-    </div>
+        </div>
+
   );
 }

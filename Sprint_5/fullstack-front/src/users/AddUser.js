@@ -41,10 +41,9 @@ export default function AddUser() {
     setUser({ ...user, role: selectedValue });
   };
 
-  return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
+  return (   
+        <div div class=" d-flex justify-content-center align-items-center" style={{height: "100vh", background:"#FFFEEC"}}>
+        <div className="bg-light col-md-6  border border-dark rounded p-4 mt-5 shadow"  >
           <h2 className="text-center m-4">Register User</h2>
 
           {error && (
@@ -123,7 +122,8 @@ export default function AddUser() {
             </Link>
           </form>
         </div>
-      </div>
-    </div>
+        </div>
+     
+    
   );
 }

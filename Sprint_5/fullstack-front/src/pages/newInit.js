@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function NewInit() {
     return (
         <div>
-            <div style={{ background: 'black', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+            <div style={{ background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
                 <div data-baseweb="block" className="css-iRqTzz">
                     <div data-baseweb="block" className="container-inner css-gCYXkZ">
                         <div data-baseweb="block" className="css-bVFrLX">
@@ -49,7 +49,7 @@ export default function NewInit() {
                 </div>
             </div>
             <footer>
-                <div className="footer-content" style={{ backgroundColor: "#FFFFFF" }}>
+                <div className="footer-content" style={{ backgroundColor: "#000000" ,color:"#FFFFFF"}}>
                     <p>&copy; 2023 Clase con Leyva</p>
                     <ul className="social-icons">
                         <li>
