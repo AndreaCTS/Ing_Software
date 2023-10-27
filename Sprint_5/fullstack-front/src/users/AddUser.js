@@ -25,7 +25,7 @@ export default function AddUser() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/user", user);
+      await axios.post("http://localhost:8080/userAuth/register", user);
       navigate("/");
     } catch (err) {
       if (err.response && err.response.status === 400) {
@@ -109,7 +109,7 @@ export default function AddUser() {
               <label htmlFor="Role" className="form-label">
                 Role
               </label>
-              <select onChange={handleChange}>
+              <select onChange={handleChange} value={role}>
                 <option value="USER">Select role...</option>
                 <option value="USER">User</option>
                 <option value="ADMIN">Admin</option>
