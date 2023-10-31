@@ -1,0 +1,76 @@
+.share{
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
+    -moz-box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
+}
+
+.shareWrapper{
+    padding: 10px;
+}
+
+.shareTop{
+    display: flex;
+    align-items: center;
+}
+.shareInput{
+    border: none;
+    height: 70px;
+    width: 500px;
+}
+
+.shareInput:focus{
+    outline: none;
+}
+
+.shareHr{
+    margin: 20px;
+}
+
+.shareBottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.shareOptions{
+    display: flex;
+    margin-left: 10px;
+}
+
+.shareOption{
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.selectBar{
+    border-style: solid;
+    border-radius: 10px;
+    border-color:gray;
+    text-align: center;
+}
+
+.shareIcon{
+    font-size: 18px;
+    margin-right: 3px;
+}
+
+.shareOptionText{
+    font-size: 18px;
+    font-weight: 500;
+    color: gray;
+}
+
+.shareButtom{
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: green;
+    font-weight: 500;
+    margin-right: 20px;
+    cursor: pointer;
+    color: white;
+}

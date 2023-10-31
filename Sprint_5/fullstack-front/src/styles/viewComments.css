@@ -1,0 +1,9 @@
+.foro{
+    display: flex;
+    justify-content: center;
+    
+}
+.foroWrapper{
+    margin-top: 70px;
+    width: 500px; 
+}
