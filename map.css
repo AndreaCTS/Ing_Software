@@ -1,0 +1,9 @@
+.mapa {
+    text-align: center;
+  }
+  
+  .map-wrap {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 100px);
+  }
