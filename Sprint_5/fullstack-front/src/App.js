@@ -32,6 +32,7 @@ function App() {
       <Navbar />
         <Routes>
           <Route exact path="/" element={<NewInit />} />
+          <Route exact path='/mainmenu' element={<HomeInit/>}/>
           <Route exact path="/admin" element={<Admin />} />
           <Route exact path="/mapa" element={<HomeInit />} />
           <Route exact path="/map" element={<Mapa />} />
