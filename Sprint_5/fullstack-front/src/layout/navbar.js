@@ -21,14 +21,6 @@ export const Navbar = () => {
                           </Link>
                         </li>
                     </ul>
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <Link className="nav-link" to="/dashboard">
-                              Admin
-                            </Link>
-                        </li>
-                        
-                    </ul>
                 </div>
        </nav>
     )

@@ -31,7 +31,7 @@ export default function Login() {
         navigate("/admin");
       } else {
         // Redirect non-admin users to a different page
-        navigate("/viewcomments");
+        navigate("/mainmenu");
       }
     } catch (error) {
       // Handle login errors
