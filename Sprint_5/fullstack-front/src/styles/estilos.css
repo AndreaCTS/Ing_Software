@@ -105,6 +105,17 @@ h4 {/* Tamaño de fuente del título */
   font-size: x-large;
 }
 
+.initial {
+  background: url("/public/media/newBG.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: block;
+
+}
+
+
 .breedCard {
   margin: 10px;
   background-color: rgb(124, 119, 119);
