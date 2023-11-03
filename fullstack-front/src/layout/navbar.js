@@ -20,21 +20,6 @@ export const Navbar = () => {
                               Home
                           </Link>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="//www.codeply.com">Login</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <Link className="nav-link" to="/dashboard">
-                              Admin
-                            </Link>
-                        </li>
-                        <li class="nav-item">
-                            <Link className="nav-link" to="/adduser">
-                              Register
-                            </Link>
-                        </li>
                     </ul>
                 </div>
        </nav>

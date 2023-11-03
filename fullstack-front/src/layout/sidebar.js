@@ -18,11 +18,6 @@ function Sidebar() {
         </Link>
         </li>
         <li>
-        <Link to="/adduser">
-            <button className="sidebar-button">Añadir Usuario</button>
-        </Link>
-        </li>
-        <li>
         <Link to="/deletecomments">
             <button className="sidebar-button">Gestionar Comentarios</button>
         </Link>

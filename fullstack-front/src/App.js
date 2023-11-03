@@ -17,9 +17,8 @@ import Dashboard from './pages/dashboard';
 import ViewWheel from './wheels/ViewWheel';
 import AddWheel from './wheels/AddWheel';
 import DeleteWheels from './wheels/DeleteWheel';
-import AddReport from './reports/AddReport';
-import HomeReport from './reports/homeReports';
-import ViewReport from './reports/ViewReport';
+import NewInit from './pages/newInit';
+import MapView from './mapa/MapView'
 
 
 
@@ -33,10 +32,11 @@ function App() {
       <Router>
       <Navbar />
         <Routes>
-          <Route exact path="/" element={<HomeInit />} />
+          <Route exact path="/" element={<NewInit />} />
+          <Route exact path='/mainmenu' element={<HomeInit/>}/>
           <Route exact path="/admin" element={<Admin />} />
           <Route exact path="/mapa" element={<HomeInit />} />
-          <Route exact path="/map" element={<Mapa />} />
+          <Route exact path="/map" element={<MapView />} />
           <Route exact path="/adduser" element={<AddUser />} />
           <Route exact path='/dashboard' Component={Dashboard}/>
           <Route exact path="/login" element={<Login />} />
@@ -48,9 +48,6 @@ function App() {
           <Route exact path="/addcomments" element={<AddComment/>} />
           <Route exact path="/deletecomments" element={<DeleteComment />} />
           <Route exact path="/deletewheels" element={<DeleteWheels/>} />
-          <Route exact path="/addreports" element={<AddReport />} />
-          <Route exact path="/homereports" element={<HomeReport />} />
-          <Route exact path="/viewreport/:id" element={<ViewReport />} />
         </Routes>
       </Router>
     </div>

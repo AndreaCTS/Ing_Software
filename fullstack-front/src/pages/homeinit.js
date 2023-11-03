@@ -1,97 +1,60 @@
-import React from 'react';
-import '../styles/estilos.css'; // Import your CSS file here
+import React, { useState } from 'react';
+import '../styles/estilos.css';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Link } from 'react-router-dom';
+import Sidebar from '../layout/sidebar';
 
 export default function HomeInit() {
+
   return (
-    <div>
+    <div className="initial" >
       <header>
       </header>
-      <main>
-        <section>
-          <h1>Sections</h1>
-          <ul className="breedCardContainer">
-            <li className="breedCard">
-              
+      <main style={{ display: 'block',marginTop: '60px'}}>
+        <h1 style={{ marginBottom: '5px' }}><em>Sobre nosotros </em></h1>
+        <section >
+          <Carousel showThumbs={false} showStatus={false} emulateTouch>
+            <div className="breedCard">
               <div className="contenedorImagen">
                 <img src="../media/map.jpg" alt="Risk map" />
               </div>
-
-              <Link className="btn btn-light" to="/map">
-              Mapa
+              <h4 >Mapa</h4> {/* Agrega el título */}
+              <Link to="/map" className="btn btn-light btn-custom">
+                Ver más
               </Link>
-            
-            </li>
-            
-            <li className="breedCard">
+            </div>
+            <div className="breedCard">
               <div className="contenedorImagen">
                 <img src="../media/route.jpg" alt="route" />
               </div>
-              <Link to={`index.html`} className="btn btn-light ">
-                  Routes
+              <h4 >Rutas</h4> 
+              <Link to="/mainmenu" className="btn btn-light">
+                Ver más
               </Link>
-            </li>
-            <li className="breedCard">
+            </div>
+            <div className="breedCard">
               <div className="contenedorImagen">
                 <img src="../media/blog.jpg" alt="Forum" />
               </div>
-              
-                <Link to={`/viewcomments`} className="btn btn-light ">
-                    Foro
-                </Link>   
-              
-            </li>
-            <li className="breedCard">
-              <div className="contenedorImagen">
-
-              <img src="../media/wheel.jpg" alt="Wheel" />
-              </div>
-              
-                <Link to={`/viewwheels  `} className="btn btn-light ">
-                    Wheels
-                </Link>   
-              
-            </li>
-
-            <li className="breedCard">
-              
-              <div className="contenedorImagen">
-                <img src="../media/hand-holding-megaphone.jpg" alt="Reports" />
-              </div>
-
-              <Link className="btn btn-light" to="/homereports">
-              Report
+              <h4 >Foro</h4> 
+              <Link to="/viewcomments" className="btn btn-light">
+                Ver más
               </Link>
-            
-            </li>
-
-
-          </ul>
+            </div>
+            <div className="breedCard">
+              <div className="contenedorImagen">
+                <img src="../media/wheel.jpg" alt="Wheel" />
+              </div>
+              <h4 >Wheels</h4> 
+              <Link to="/viewwheels" className="btn btn-light">
+                Ver más
+              </Link>
+            </div>
+          </Carousel>
         </section>
-        <section></section>
       </main>
-      <footer>
-      <div className="footer-content" style={{ backgroundColor: "#C5F1FF"}}>
-          <p>&copy; 2023 Clase con Leyva</p>
-          <ul className="social-icons">
-            <li>
-              <a href="#">
-                <i className="fab fa-facebook fa-lg"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fab fa-twitter fa-lg"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fab fa-instagram fa-lg"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </footer>
+      
     </div>
   );
 }

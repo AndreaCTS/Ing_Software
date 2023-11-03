@@ -10,11 +10,12 @@ export default function AddUser() {
     username: "",
     email: "",
     password: "",
+    role: "ADMIN",
   });
 
   const [error, setError] = useState("");
 
-  const { name, username, email, password } = user;
+  const { name, username, email, password, role } = user;
 
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -24,8 +25,8 @@ export default function AddUser() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/user", user);
-      navigate("/");
+      await axios.post("http://localhost:8080/userAuth/register", user);
+      navigate("/login");
     } catch (err) {
       if (err.response && err.response.status === 400) {
         setError("User with this email or username already exists.");
@@ -35,10 +36,14 @@ export default function AddUser() {
     }
   };
 
-  return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
+  const handleChange = (event) => {
+    const selectedValue = event.target.value;
+    setUser({ ...user, role: selectedValue });
+  };
+
+  return (   
+        <div div class=" d-flex justify-content-center align-items-center" style={{height: "100vh", background:"#FFFEEC"}}>
+        <div className="bg-light col-md-6  border border-dark rounded p-4 mt-5 shadow"  >
           <h2 className="text-center m-4">Register User</h2>
 
           {error && (
@@ -100,6 +105,15 @@ export default function AddUser() {
                 onChange={(e) => onInputChange(e)}
               />
             </div>
+            <div className="mb-3">
+              <label htmlFor="Role" className="form-label">
+                Role
+              </label>
+              <select name="role" value={role}  onChange={handleChange}>
+                  <option value="USER">User</option>
+                  <option value="ADMIN">Admin</option>
+              </select>
+            </div>
             <button type="submit" className="btn btn-outline-primary">
               Submit
             </button>
@@ -108,7 +122,8 @@ export default function AddUser() {
             </Link>
           </form>
         </div>
-      </div>
-    </div>
+        </div>
+     
+    
   );
 }

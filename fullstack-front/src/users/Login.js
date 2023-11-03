@@ -18,14 +18,30 @@ export default function Login() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/user", user);
-    navigate("/");
+    try {
+      const response = await axios.post("http://localhost:8080/userAuth/authenticate", user);
+      const userData = response.data;
+  
+      // Log the userData object to the console for inspection
+      console.log("userData:", userData);
+  
+      // Check if the user is an admin (adjust this condition as needed)
+      if (userData.role === 'ADMIN') {
+        // Redirect the admin to the admin page
+        navigate("/admin");
+      } else {
+        // Redirect non-admin users to a different page
+        navigate("/mainmenu");
+      }
+    } catch (error) {
+      // Handle login errors
+      console.error("Login error:", error);
+    }
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
+        <div  class="d-flex justify-content-center align-items-center" style={{height: "100vh",background:"#FFFEEC"}}>
+        <div className="bg-light col-md-6  border border-dark rounded p-4 mt-5 shadow">
           <h2 className="text-center m-4">Login</h2>
 
           <form onSubmit={(e) => onSubmit(e)}>
@@ -63,7 +79,7 @@ export default function Login() {
             </Link>
           </form>
         </div>
-      </div>
-    </div>
+        </div>
+
   );
 }
