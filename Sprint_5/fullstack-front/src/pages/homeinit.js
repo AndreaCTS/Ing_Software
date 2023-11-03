@@ -5,11 +5,10 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Link } from 'react-router-dom';
 import Sidebar from '../layout/sidebar';
 
-
 export default function HomeInit() {
 
   return (
-    <div style={{ background: '#E8E7DE ',height: '100vh'}}>
+    <div className="initial" >
       <header>
       </header>
       <main style={{ display: 'block',marginTop: '60px'}}>
