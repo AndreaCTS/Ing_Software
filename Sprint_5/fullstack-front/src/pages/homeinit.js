@@ -9,11 +9,11 @@ import Sidebar from '../layout/sidebar';
 export default function HomeInit() {
 
   return (
-    <div style={{ background: '#E8E7DE '}}>
+    <div style={{ background: '#E8E7DE ',height: '100vh'}}>
       <header>
       </header>
-      <main>
-        <h1 style={{ marginBottom: '20px' }}><em>Sobre nosotros </em></h1>
+      <main style={{ display: 'block',marginTop: '60px'}}>
+        <h1 style={{ marginBottom: '5px' }}><em>Sobre nosotros </em></h1>
         <section >
           <Carousel showThumbs={false} showStatus={false} emulateTouch>
             <div className="breedCard">
