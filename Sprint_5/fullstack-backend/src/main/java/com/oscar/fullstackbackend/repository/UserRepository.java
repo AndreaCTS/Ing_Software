@@ -7,8 +7,8 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User,Integer> {
+    long count();
 
-<<<<<<<< HEAD:Sprint_5/fullstack-backend/src/main/java/com/oscar/fullstackbackend/repository/UserRepository.java
     // Check if a user with the given email exists
     boolean existsByEmail(String email);
 
@@ -18,6 +18,3 @@ public interface UserRepository extends JpaRepository<User,Integer> {
     // Retorna el usuario si se encuentra en el repositorio
     Optional<User> findByEmail(String email);
 }
-========
-}
->>>>>>>> parent of 90251831f (Sprint 4):Sprint 2/fullstack-backend/src/main/java/com/oscar/fullstackbackend/repository/UserRepository.java

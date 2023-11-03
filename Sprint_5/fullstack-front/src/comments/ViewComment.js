@@ -2,20 +2,19 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate  } from "react-router-dom";
 import { Card, Button, Row, Col } from "react-bootstrap";
-import "../styles/style.css";
+import {Place} from '@mui/icons-material';
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import '../styles/viewComments.css';
 import AddComment from "./AddComment";
-import NavBar from '../layout/navbar';
+
 
 const neighborhoodOptions = [
-  "Chico Reservado","Bellavista","Chico Alto","El Nogal","El Refugio","La Cabrera","Los Rosales",
+  "Chico Reservado","Bellavista","Chico Alto","El Nogal","El Refugio","La Cabrera","La Castellana","Los Rosales",
   "Seminario","Toscana","La Esperaza Nororiental","La Sureña","San Isidiro","San Luis Altos Del Cabo",
   "Bosque Calderón","Bosque Calderón Tejada","Chapinero Alto","El Castillo","El Paraiso","Emaus",
   "Granada","Ingenar","Juan XXII","La Salle","Las Acacias","Los Olivos","Maria Cristina","Mariscal Sucre","Nueva Granada",
   "El Palomar","Pardo Rubio","San Martin De Porres","Villa Anita","Villa Del Cerdo","Antiguo Country","Chico Norte",
-  "Chico Norte II","Chico Norte III","Chico Occidental","El Chico","El Retiro","Espartillal","La Cabrera",
+  "Chico Norte II","Chico Norte III","Chico Occidental","El Chico","El Retiro","Espartillal",
   "Lago Gaitan","La Porciuncula","Quinta Camacho","Cataluña","Chapinero Central","Chapinero Norte","Marly","Sucre",
 ];
 function StarRating({ value, onClick }) {
@@ -88,8 +87,9 @@ export default function ViewComment() {
   };
 
 
-  const handleRatingChange = (rating) => {
+  const handleRatingChange = (commentId,rating) => {
     setSelectedRating(rating);
+    handleAddRating(commentId,rating)
   };
 
 
@@ -108,7 +108,7 @@ export default function ViewComment() {
     loadCommentsNeighborhood(selectedValue);
   }
 
-  const handleAddRating = async (commentId) => {
+  const handleAddRating = async (commentId,selectedRating) => {
     try {
       // Envia los datos de calificación (un número) directamente en el cuerpo de la solicitud
       const response = await axios.post(
@@ -144,40 +144,23 @@ export default function ViewComment() {
       <div className="foro">
         <div className="foroWrapper"> 
           <AddComment />
-
-          <div className="full-page-bg">
-      <div className="container">
-        <div className="py-4">
-          
-          <div className="filter-container ">
+          <div className="filters">
             
-            <select className="" onChange={handleChange}>
+            <select className="filter" onChange={handleChange}>
               <option value="0">Order by</option>
               <option value="1">Highest Raiting</option>
               <option value="2">Lowest Raiting</option>
             </select>
-<<<<<<<< HEAD:Sprint_5/fullstack-front/src/comments/ViewComment.js
-      
-            <select className="" onChange={handleFilterRating}>
+       
+            <select className="filter" onChange={handleFilterRating}>
               <option value="0">Select Rating</option>  
-========
-            <label>Filter by Rating:</label>
-            <select onChange={handleFilterRating}>
-              <option value="0">All</option>  
->>>>>>>> parent of 90251831f (Sprint 4):Sprint 2/fullstack-front/src/comments/ViewComment.js
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
             </select>
-<<<<<<<< HEAD:Sprint_5/fullstack-front/src/comments/ViewComment.js
-          
-            <select className="" onChange={handleFilterNeighborhood}>
-========
-            <label>Filter by Neighborhood</label>
-            <select onChange={handleFilterNeighborhood}>
->>>>>>>> parent of 90251831f (Sprint 4):Sprint 2/fullstack-front/src/comments/ViewComment.js
+            <select className="filter" onChange={handleFilterNeighborhood}>
               <option value="">Select Neighborhood</option>
               <option value="Todos">All</option>
               {neighborhoodOptions.map((neighborhood, index) => (
@@ -187,43 +170,45 @@ export default function ViewComment() {
               ))}
             </select>
           </div>
-          <Row>
-            {comments.map((comment, index) => (
-              <Col key={comment.id} md={4}>
-                <Card className="mb-4">
-                  <Card.Body>
-                    <Card.Title className="comment-title">Comentario {index + 1}</Card.Title>
-                    <Card.Text className="comment-text" style={{ textAlign: "justify" }}>
-                      {comment.text}
-                    </Card.Text>
-                    <Card.Text className="comment-info">
-                      Barrio: {comment.barrio}
-                    </Card.Text>
-                    <Card.Text className="comment-info">
-                      Rating: {comment.averageRating}
-                    </Card.Text>
-                    <StarRating className="rating-button"
-                      value={selectedRating}
-                      onClick={handleRatingChange}
-                    />
-                    <Button
-                      onClick={() => handleAddRating(comment.id)}
-                      variant="outline-primary"
-                      className="rating-button"
-                    >
-                      Calificar
-                    </Button>
-                  </Card.Body>
+          <div className="post">
+            {comments.map((comment, index) => (  
+                <Card className="postWrapper">
+                    <div className="postTop">
+                      <div className="postTopLeft">
+                        <Card.Title className="postUsername">Comentario {index + 1}</Card.Title>
+                      </div>
+                      <div className="postTopRight">
+                        <Place htmlColor="green"/>
+                        <span className="">{comment.barrio}</span>
+                        
+                      </div>
+                    </div>
+                    <hr className="hr"></hr>
+                    <div className="postCenter">
+                      <Card.Text className="postText" style={{ textAlign: "justify" }}>
+                        {comment.text}
+                      </Card.Text>
+                    </div>
+                    <hr className="hr"></hr>
+                    <div className="postBottom">
+                      <div className="postBottomLeft">
+                        <Card.Text className="postCommentText">
+                          Calificacion: {comment.averageRating}
+                        </Card.Text>
+                      </div>
+                      <div className="postBottomRight">
+                        <StarRating className="likeIcon"
+                          value={selectedRating}
+                          onClick={(rating) => handleRatingChange(comment.id, rating)} 
+                        />
+                      </div>                   
+                    </div>
+                  
                 </Card>
-              </Col>
+              
             ))}
-          </Row>
-        </div>
-        <ToastContainer />
-      </div>
-    </div>
-        </div>
-        
+          </div>  
+        </div> 
       </div>
     </>
   );

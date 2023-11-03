@@ -74,3 +74,27 @@
     cursor: pointer;
     color: white;
 }
+
+.emojiList {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Máximo 5 columnas */
+    
+  }
+  
+  .emojiList span {
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .emojiList span:hover {
+    background-color: #f0f0f0;
+  }

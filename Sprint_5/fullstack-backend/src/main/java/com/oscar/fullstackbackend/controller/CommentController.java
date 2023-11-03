@@ -8,7 +8,6 @@ import com.oscar.fullstackbackend.repository.CommentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -48,6 +47,8 @@ public class CommentController {
         }
         return commentRepository.findByBarrio(barrio);
     }
+
+
 
     @GetMapping("/ascendente")
     public List<Comment> getCommentAsc(){
@@ -161,3 +162,4 @@ public class CommentController {
      */
 
 }
+

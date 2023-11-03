@@ -25,16 +25,12 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue
     private int id;
-<<<<<<<< HEAD:Sprint_5/fullstack-backend/src/main/java/com/oscar/fullstackbackend/model/User.java
 
     private String name;
-========
->>>>>>>> parent of 90251831f (Sprint 4):Sprint 2/fullstack-backend/src/main/java/com/oscar/fullstackbackend/model/User.java
     private String username;
     private String email;
     private String password;
 
-<<<<<<<< HEAD:Sprint_5/fullstack-backend/src/main/java/com/oscar/fullstackbackend/model/User.java
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
@@ -46,8 +42,6 @@ public class User implements UserDetails {
         this.name = name;
     }
 
-========
->>>>>>>> parent of 90251831f (Sprint 4):Sprint 2/fullstack-backend/src/main/java/com/oscar/fullstackbackend/model/User.java
     public int getId() {
         return id;
     }

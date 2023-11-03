@@ -11,20 +11,24 @@ const neighborhoodOptions = [
   "Bosque Calderón","Bosque Calderón Tejada","Chapinero Alto","El Castillo","El Paraiso","Emaus",
   "Granada","Ingenar","Juan XXII","La Salle","Las Acacias","Los Olivos","Maria Cristina","Mariscal Sucre","Nueva Granada",
   "El Palomar","Pardo Rubio","San Martin De Porres","Villa Anita","Villa Del Cerdo","Antiguo Country","Chico Norte",
-  "Chico Norte II","Chico Norte III","Chico Occidental","El Chico","El Retiro","Espartillal","La Cabrera",
+  "Chico Norte II","Chico Norte III","Chico Occidental","El Chico","El Retiro","Espartillal",
   "Lago Gaitan","La Porciuncula","Quinta Camacho","Cataluña","Chapinero Central","Chapinero Norte","Marly","Sucre",
 ];
 
 const emoji = [
-  "&#1F600;","&#1F601;","&#1F602;","&#1F603;","&#1F604;","&#1F605;","&#1F606;","&#1F607;","&#1F608;","&#1F609;","&#1F610;",
-  "&#1F611;","&#1F612;","&#1F613;",
+  "😀","😁","😂","😃","😄","😅",
 ];
 export default function AddComment() {
   let navigate = useNavigate();
   const [comments, setComments] = useState({ text: "", barrio: "" });
-
+  const [showEmojis, setShowEmojis] = useState(false); // Estado para controlar la visibilidad de los emojis
   const { text, barrio } = comments;
 
+  const [isEmojiListOpen, setIsEmojiListOpen] = useState(false); // Estado para controlar si la lista de emojis está abierta
+
+  const toggleEmojiList = () => {
+    setIsEmojiListOpen(!isEmojiListOpen);
+  };
   const onInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -39,13 +43,19 @@ export default function AddComment() {
   const onSubmit = async (e) => {
     e.preventDefault();
     await axios.post("http://localhost:8080/comments", comments);
-    navigate("/viewcomments");
+    //navigate("/viewcomments");
+    window.location.reload()
   };
+
+  const handleEmojiClick = (emoji) => {
+    setComments({ ...comments, text: text + emoji }); // Agrega el emoji al texto
+  };
+
 
   return (
     <div className="share">
       <div className="shareWrapper">
-          <form onSubmit={(e) => onsubmit(e)}> 
+          <form onSubmit={(e) => onSubmit(e)}> 
             <div className="shareTop">     
               <textarea       
                 placeholder="Haz un comentario. 200 Caracteres Max." 
@@ -78,9 +88,24 @@ export default function AddComment() {
                   </datalist>
                 </div>
                 
-                <div className="shareOption">
-                  <EmojiEmotions htmlColor="goldenrod" className="shareIcon"/>
-                  <span className="shareOptionText">Emojis</span>
+                <div className="shareOption" onClick={() => setShowEmojis(!showEmojis)}>
+                  <EmojiEmotions 
+                    htmlColor="goldenrod" 
+                    className="shareIcon"
+                    onClick={toggleEmojiList}
+                  />
+                  <span className="shareOptionText" >Emojis</span>
+                  {isEmojiListOpen && (
+                    <div className="emojiList">
+                      {emoji.map((emoji, index) => (
+                        <span
+                          key={index}
+                          onClick={() => handleEmojiClick(emoji)} // Agrega un manejador de clics para seleccionar un emoji
+                          dangerouslySetInnerHTML={{ __html: emoji }} // Renderiza el emoji utilizando HTML
+                        />
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>              
               <button type="submit" className="shareButtom">Publicar</button>
@@ -89,8 +114,6 @@ export default function AddComment() {
           </form>
       </div>
     </div>
-    
-    
 
   );
 }
