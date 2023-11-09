@@ -21,15 +21,15 @@ export default function NewInit() {
                                     <div data-baseweb="block" className="css-PKJb">
                                         <div className="css-WiLSj">
                                             <div className="css-iYgZzq">
-                                            <Link to="/adduser" className="css-bENDJs">
+                                                <Link to="/adduser" className="css-bENDJs">
                                                     Registrate con nosotros
-                                            </Link>
-                                                
+                                                </Link>
+
                                             </div>
                                             <div className="css-iYgZzq">
-                                            <Link to="/login" className="css-hmUeKG">
-                                                Inicio de sesion
-                                            </Link>
+                                                <Link to="/login" className="css-hmUeKG">
+                                                    Inicio de sesion
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
@@ -44,12 +44,138 @@ export default function NewInit() {
                         alt="Viaja o conduce con la app de Uber"
                         role="presentation"
                         aria-hidden="true"
-                        style={{ width: '60%', height: '60%',borderRadius: '10px' }}
+                        style={{ width: '60%', height: '60%', borderRadius: '10px' }}
                     />
                 </div>
             </div>
+            <div>
+                <section data-baseweb="block" class="css-gqcHgx">
+                    <div class="css-fVLpfI">
+                        <div class="css-iJydmP">
+                            <div class="css-eleJdh" >
+                                <img
+                                    src="../media/mapR.jpg"
+                                    role="presentation"
+                                    aria-hidden="true"
+                                    class="css-bGmtfz1"
+                                />
+                            </div>
+                        </div>
+                        <div class="css-cxtfxr css-cGimUo ">
+                            <div class="css-hPnljU" >
+                                <h1 class="css-jzIGNN" style={{ marginBottom:'20px' }}>Mapa de riesgo</h1>
+                            </div>
+                            <div class="css-hPnljU">
+                                <p style={{ fontSize: '20px', textAlign: 'left' }}>
+                                    Te permite explorar las zonas de riego en la localidad de Chapinero. Descubre las áreas peligrosas y toma decisiones informadas.
+                                </p>
+                            </div>
+                            <div class="css-PKJb">
+                                <div class="css-WiLSj">
+                                <div class="css-iYgZzq">
+                                            <div className="css-iYgZzq">
+                                                <Link to="/map" className="css-hmUeKG">
+                                                    comenzar
+                                                </Link>
+                                            </div>
+                                    </div>
+                                    <div class="css-iYgZzq">
+                                            <div className="css-iYgZzq">
+                                                <Link to="/login" className="css-hmUeKG">
+                                                    ¿ya tienes una cuenta?
+                                                </Link>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+            <div>
+                <section data-baseweb="block" class="css-gqcHgx">
+                    <div class="css-fVLpfI">
+                        <div class="css-cxtfxr css-cGimUo " style={{marginLeft:'50px' }}>
+                            <div class="css-hPnljU" >
+                                <h1 class="css-jzIGNN" style={{ marginBottom:'20px'}}>Wheel: Comparte Tu Viaje</h1>
+                            </div>
+                            <div class="css-hPnljU">
+                                <p style={{ fontSize: '20px', textAlign: 'left' }}>
+                                    Comparte viajes seguros y ahorra dinero al viajar con personas que se dirigen a tu mismo destino. Rutas compartidas para desplazamientos amigables con el medio ambiente.
+                                </p>
+                            </div>
+                            <div class="css-PKJb">
+                                <div class="css-WiLSj">
+                                <div class="css-iYgZzq">
+                                            <div className="css-iYgZzq">
+                                                <Link to="/viewwheels" className="css-hmUeKG">
+                                                    comenzar
+                                                </Link>
+                                            </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-iJydmP">
+                            <div class="css-eleJdh" >
+                                <img
+                                    src="../media/car.jpg"
+                                    role="presentation"
+                                    aria-hidden="true"
+                                    class="css-bGmtfz"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            
+
+            <div>
+                <section data-baseweb="block" class="css-gqcHgx">
+                    <div class="css-fVLpfI">
+                    <div class="css-iJydmP">
+                            <div class="css-eleJdh" >
+                                <img
+                                    src="../media/comments.jpg"
+                                    role="presentation"
+                                    aria-hidden="true"
+                                    class="css-bGmtfz"
+                                />
+                            </div>
+                    </div>
+                        <div class="css-cxtfxr css-cGimUo ">
+                            <div class="css-hPnljU" >
+                                <h1 class="css-jzIGNN" style={{ marginBottom:'20px' }}>Foro</h1>
+                            </div>
+                            <div class="css-hPnljU">
+                                <p style={{ fontSize: '20px', textAlign: 'left',marginRight:'30px' }}>
+                                Comparte y comunícate sobre incidentes de seguridad y acciones de robo en lugares de Chapinero. Mantente informado y conectado con la comunidad.
+                                </p>
+                            </div>
+                            <div class="css-PKJb">
+                                <div class="css-WiLSj">
+                                <div class="css-iYgZzq">
+                                            <div className="css-iYgZzq">
+                                                <Link to="/viewcomments" className="css-hmUeKG">
+                                                    comenzar
+                                                </Link>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
             <footer>
-                <div className="footer-content" style={{ backgroundColor: "#FFFFFF" }}>
+                <div className="footer-content" style={{ backgroundColor: "#808080" }}>
                     <p>&copy; 2023 Clase con Leyva</p>
                     <ul className="social-icons">
                         <li>
