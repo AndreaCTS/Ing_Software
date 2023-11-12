@@ -9,33 +9,56 @@ export default function AddUser() {
     name: "",
     username: "",
     email: "",
+    password: "",
+    role: "ADMIN",
   });
 
-  const { name, username, email } = user;
+  const [error, setError] = useState("");
+
+  const { name, username, email, password, role } = user;
 
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
+    setError(""); // Clear any previous errors when input changes
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/user", user);
-    navigate("/");
+    try {
+      await axios.post("http://localhost:8080/userAuth/register", user);
+      navigate("/login");
+    } catch (err) {
+      if (err.response && err.response.status === 400) {
+        setError("User with this email or username already exists.");
+      } else {
+        setError("An error occurred while processing your request.");
+      }
+    }
   };
 
-  return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-          <h2 className="text-center m-4">Registro Usuario</h2>
+  const handleChange = (event) => {
+    const selectedValue = event.target.value;
+    setUser({ ...user, role: selectedValue });
+  };
+
+  return (   
+        <div div class=" d-flex justify-content-center align-items-center" style={{height: "100vh", background:"#FFFEEC"}}>
+        <div className="bg-light col-md-6  border border-dark rounded p-4 mt-5 shadow"  >
+          <h2 className="text-center m-4">Register User</h2>
+
+          {error && (
+            <div className="alert alert-danger" role="alert">
+              {error}
+            </div>
+          )}
 
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="mb-3">
               <label htmlFor="Name" className="form-label">
-                Nombre
+                Name
               </label>
               <input
-                type={"text"}
+                type="text"
                 className="form-control"
                 placeholder="Enter your name"
                 name="name"
@@ -48,7 +71,7 @@ export default function AddUser() {
                 Username
               </label>
               <input
-                type={"text"}
+                type="text"
                 className="form-control"
                 placeholder="Enter your username"
                 name="username"
@@ -61,13 +84,35 @@ export default function AddUser() {
                 E-mail
               </label>
               <input
-                type={"text"}
+                type="text"
                 className="form-control"
                 placeholder="Enter your e-mail address"
                 name="email"
                 value={email}
                 onChange={(e) => onInputChange(e)}
               />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="Password" className="form-label">
+                Password
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Enter your password"
+                name="password"
+                value={password}
+                onChange={(e) => onInputChange(e)}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="Role" className="form-label">
+                Role
+              </label>
+              <select name="role" value={role}  onChange={handleChange}>
+                  <option value="USER">User</option>
+                  <option value="ADMIN">Admin</option>
+              </select>
             </div>
             <button type="submit" className="btn btn-outline-primary">
               Submit
@@ -77,7 +122,8 @@ export default function AddUser() {
             </Link>
           </form>
         </div>
-      </div>
-    </div>
+        </div>
+     
+    
   );
 }

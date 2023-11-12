@@ -62,7 +62,7 @@ public class CommentController {
 
     @GetMapping("/all")
     public List<Comment> getAllComments() {
-        return commentRepository.findAll();
+        return commentRepository.findAllByOrderByIdDesc();
     }
 
     @PostMapping("/{id}/rate")
