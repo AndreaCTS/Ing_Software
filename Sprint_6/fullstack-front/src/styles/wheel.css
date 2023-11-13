@@ -1,0 +1,156 @@
+.full-page-bg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 120vh;
+    margin-top: 60px;
+  }
+  
+  .page-title {
+      color: #000000;
+      margin-top: 40px;
+      margin-left: 200px;
+      float: left;
+      font-weight: 600;
+      font-size: 26px;
+      display: inline;
+      font-family: Circular;
+  
+  }
+  .page-subtitle1 {
+      color: #000000;
+      margin-top: 80px; 
+      margin-left: -295px;
+      float: left;
+      font-weight: 600; 
+      font-size: 15px; 
+      display: inline;
+      text-decoration: underline;
+      font-family: Circular;
+    }
+  .page-subtitle2{
+      color: #000000;
+      margin-top: 80px;
+      margin-left: -405px;
+      float: left;
+      font-weight: 600; 
+      font-size: 15px; 
+      font-family: Circular;
+  }
+  
+  .image-1 {
+      width:  560px;
+      height: 373.75px;
+      border-top-left-radius: 4%;
+      border-bottom-left-radius: 4%;
+      position: relative;
+      right: 508px; /* Mueve la imagen 50px a la derecha */
+      top: 132px;
+    }
+    
+    .image-2 {
+      width: 269.2px;
+      height: 185.88px;
+      position: relative;
+      right: 33%;
+      top: 38px;
+    }
+  
+    .image-3 {
+      width: 269.2px;
+      height: 185.88px;
+      position: relative;
+      right: -40.4%;
+      top: -242px;
+      border-top-right-radius: 4%;
+      border-bottom-right-radius: 4%;
+    }
+  
+    .image-4 {
+      width: 269.2px;
+      height: 186.88px;
+      position: relative;
+      right: -22.6%;
+      top: -54px;
+      border-top-right-radius: 4%;
+      border-bottom-right-radius: 4%;
+  
+    }
+  
+    .image-5 {
+      width: 269.2px;
+      height: 186.88px;
+      position: relative;
+      right: 13.2%;
+      top: -54px;
+  
+    }
+  
+    .image-7{
+      width: 65px;
+      height: 65px;
+      position: relative;
+      right: 10%;
+      top: -60px;
+      border-radius: 20%;
+  
+    }
+  
+    .titulo-inferior{
+      color: #000000;
+      font-weight: 600; 
+      font-size: 19px; 
+      margin-left: -1000px;
+  }
+  
+  .subtitulo-inferior{
+      color: #000000;
+      font-weight: 600; 
+      font-size: 15px; 
+      margin-left: -1125px;
+  }
+  
+  .description-container {
+    width: 50%; /* Esto hará que tu descripción ocupe el 50% del ancho disponible */
+    margin: 0 auto; /* Esto centrará tu descripción horizontalmente */
+    padding: 20px; /* Esto agregará un espacio alrededor de tu descripción */
+    text-align: left;
+    left: 500px; /* Esto alineará tu texto a la izquierda */
+  }
+  
+  .description-container p {
+    font-size: 16px;
+  }
+    
+    
+  
+  .button {
+      background-color: #3498db;
+      position: fixed;
+      /* Opcionalmente, puedes usar "absolute" en lugar de "fixed" si prefieres que esté posicionado con respecto a su contenedor en lugar de la ventana del navegador */
+      left: 50%;
+      /* Centra horizontalmente el botón */
+      bottom: 10px;
+      /* Controla la distancia desde la parte inferior de la ventana del navegador */
+      transform: translateX(-50%);
+      /* Centra el botón horizontalmente en relación con su propio ancho */
+      padding: 10px 20px;
+      /* Añade espaciado alrededor del botón para que sea fácilmente seleccionable */
+      color: #fff;
+      /* Color del texto del botón */
+      border: none;
+      /* Elimina el borde del botón */
+      border-radius: 5px;
+      /* Agrega esquinas redondeadas al botón */
+      cursor: pointer;
+      /* Cambia el cursor al puntero al pasar sobre el botón */
+  }
+  
+  .card {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin: 16px;
+      padding: 16px;
+      background-color: #fff;
+      margin-top: 50px;
+  }
