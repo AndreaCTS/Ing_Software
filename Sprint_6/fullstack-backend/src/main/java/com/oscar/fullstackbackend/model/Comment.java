@@ -1,7 +1,10 @@
 package com.oscar.fullstackbackend.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -21,7 +24,6 @@ public class Comment {
     private String barrio;
 
 
-
     @ElementCollection
     @CollectionTable(name = "comment_ratings", joinColumns = @JoinColumn(name = "comment_id"))
     @Column(name = "rating")
@@ -30,7 +32,21 @@ public class Comment {
     @Column(nullable = false)
     private int averageRating; // Add this field
 
+
+
+    @Column(nullable = false)
+    private Date publish_Date;
+
     // Constructor, getters, setters, and other fields are defined here...
+
+    public Date getPublish_Date() {
+        return publish_Date;
+    }
+
+    public void setPublish_Date(Date publish_Date){
+        this.publish_Date = publish_Date;
+    }
+
 
     public Long getId() {
         return id;

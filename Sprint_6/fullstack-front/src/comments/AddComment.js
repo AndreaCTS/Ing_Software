@@ -20,7 +20,7 @@ const emoji = [
 ];
 export default function AddComment() {
   let navigate = useNavigate();
-  const [comments, setComments] = useState({ text: "", barrio: "" });
+  const [comments, setComments] = useState({ text: "", barrio: "", publish_Date: Date()});
   const [showEmojis, setShowEmojis] = useState(false); // Estado para controlar la visibilidad de los emojis
   const { text, barrio } = comments;
 
@@ -42,6 +42,10 @@ export default function AddComment() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    const fechaActual = new Date();
+    
+    comments.publish_Date = fechaActual;
+    setComments({ ...comments,publish_Date: fechaActual});
     await axios.post("http://localhost:8080/comments", comments);
     //navigate("/viewcomments");
     window.location.reload()

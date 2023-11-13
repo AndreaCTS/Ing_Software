@@ -27,7 +27,7 @@
 }
 
 .postTopLeft{
-    display: flex;
+    display: block;
     align-items: center;
 }
 
@@ -36,7 +36,11 @@
     font-weight: 500;
     margin:0 10px;
 }
-
+.publishDate{
+    font-size: 10px;
+    font-weight: 500; 
+    display: block;
+}
 .postDate{
     font-size: 12px;
 }
@@ -90,3 +94,4 @@
 .filter:hover{
     background-color: rgb(160, 158, 158)
 }
+

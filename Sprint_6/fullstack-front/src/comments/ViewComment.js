@@ -6,7 +6,7 @@ import {Place} from '@mui/icons-material';
 import { toast, ToastContainer } from "react-toastify";
 import '../styles/viewComments.css';
 import AddComment from "./AddComment";
-
+import moment from "moment"
 
 const neighborhoodOptions = [
   "Chico Reservado","Bellavista","Chico Alto","El Nogal","El Refugio","La Cabrera","La Castellana","Los Rosales",
@@ -106,7 +106,7 @@ export default function ViewComment() {
   const handleFilterNeighborhood = (event) => {
     const selectedValue = event.target.value;
     loadCommentsNeighborhood(selectedValue);
-  }
+  };
 
   const handleAddRating = async (commentId,selectedRating) => {
     try {
@@ -138,6 +138,24 @@ export default function ViewComment() {
     }
   };
 
+  // Funcion para comparar la fecha de publicacion y la actual del sistema
+  const calculateTimeDifference = (publishDate) => {
+    const now = moment();
+    const commentDate = moment(publishDate);
+    const diff = now.diff(commentDate, "minutes"); // Puedes cambiar "minutes" a "hours", "days", etc.
+    console.log(now)
+    console.log(commentDate)
+    console.log(diff)
+    if (diff < 1) {
+      return "Hace unos segundos";
+    } else if (diff < 60) {
+      return `${diff} min`;
+    } else if (diff < 1440) {
+      return `${Math.floor(diff / 60)} hr`;
+    } else {
+      return `${Math.floor(diff / 1440)} días`;
+    }
+  };
   return (
     <>
       
@@ -176,11 +194,12 @@ export default function ViewComment() {
                     <div className="postTop">
                       <div className="postTopLeft">
                         <Card.Title className="postUsername">Comentario {index + 1}</Card.Title>
+                        <span className="publishDate">{calculateTimeDifference(comment.publish_Date)}</span>
                       </div>
                       <div className="postTopRight">
                         <Place htmlColor="green"/>
                         <span className="">{comment.barrio}</span>
-                        
+                              
                       </div>
                     </div>
                     <hr className="hr"></hr>
