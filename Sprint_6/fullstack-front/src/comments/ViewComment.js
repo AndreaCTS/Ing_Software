@@ -7,7 +7,8 @@ import { toast, ToastContainer } from "react-toastify";
 import '../styles/viewComments.css';
 import AddComment from "./AddComment";
 import moment from "moment"
-
+import News from "./Noticias/News";
+import LeftContainer from "./ContainerLeft/LeftContainer";
 const neighborhoodOptions = [
   "Chico Reservado","Bellavista","Chico Alto","El Nogal","El Refugio","La Cabrera","La Castellana","Los Rosales",
   "Seminario","Toscana","La Esperaza Nororiental","La Sureña","San Isidiro","San Luis Altos Del Cabo",
@@ -149,19 +150,18 @@ export default function ViewComment() {
     if (diff < 1) {
       return "Hace unos segundos";
     } else if (diff < 60) {
-      return `${diff} min`;
+      return `Hace ${diff} min`;
     } else if (diff < 1440) {
-      return `${Math.floor(diff / 60)} hr`;
+      return `Hace ${Math.floor(diff / 60)} h`;
     } else {
-      return `${Math.floor(diff / 1440)} días`;
+      return `Hace ${Math.floor(diff / 1440)} d`;
     }
   };
   return (
     <>
-      
       <div className="foro">
-        <div className="foroWrapper"> 
-          <AddComment />
+        <LeftContainer/>
+        <div className="foroWrapper">    
           <div className="filters">
             
             <select className="filter" onChange={handleChange}>
@@ -188,12 +188,13 @@ export default function ViewComment() {
               ))}
             </select>
           </div>
+          <AddComment />
           <div className="post">
             {comments.map((comment, index) => (  
-                <Card className="postWrapper">
+                <div className="postWrapper">
                     <div className="postTop">
                       <div className="postTopLeft">
-                        <Card.Title className="postUsername">Comentario {index + 1}</Card.Title>
+                        <span className="postUsername">Comentario {index + 1}</span>
                         <span className="publishDate">{calculateTimeDifference(comment.publish_Date)}</span>
                       </div>
                       <div className="postTopRight">
@@ -204,7 +205,7 @@ export default function ViewComment() {
                     </div>
                     <hr className="hr"></hr>
                     <div className="postCenter">
-                      <Card.Text className="postText" style={{ textAlign: "justify" }}>
+                      <Card.Text className="postText" >
                         {comment.text}
                       </Card.Text>
                     </div>
@@ -223,11 +224,12 @@ export default function ViewComment() {
                       </div>                   
                     </div>
                   
-                </Card>
+                </div>
               
             ))}
           </div>  
         </div> 
+        <News num={comments.length}/>
       </div>
     </>
   );

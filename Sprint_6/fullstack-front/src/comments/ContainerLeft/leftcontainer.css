@@ -1,0 +1,10 @@
+.left-container{
+    display: none;
+    background-color: aqua;
+    width: 500px;
+}
+@media screen and (min-width: 1000px) {
+    .left-container {
+        display: block; /* Muestra el contenedor cuando la pantalla es más ancha que 500px */
+    }
+}

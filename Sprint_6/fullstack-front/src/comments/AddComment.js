@@ -6,7 +6,7 @@ import '../styles/addcomments.css';
 import {AddLocationAlt,EmojiEmotions} from '@mui/icons-material';
 //import {AgregarCasaTrabajo} from "@material-ui/icons";
 const neighborhoodOptions = [
-  "Chico Reservado","Bellavista","Chico Alto","El Nogal","La Ca  stellana","El Refugio","La Cabrera","Los Rosales",
+  "Chico Reservado","Bellavista","Chico Alto","El Nogal","La Castellana","El Refugio","La Cabrera","Los Rosales",
   "Seminario","Toscana","La Esperaza Nororiental","La Sureña","San Isidiro","San Luis Altos Del Cabo",
   "Bosque Calderón","Bosque Calderón Tejada","Chapinero Alto","El Castillo","El Paraiso","Emaus",
   "Granada","Ingenar","Juan XXII","La Salle","Las Acacias","Los Olivos","Maria Cristina","Mariscal Sucre","Nueva Granada",
