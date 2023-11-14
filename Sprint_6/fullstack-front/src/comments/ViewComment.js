@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate  } from "react-router-dom";
 import { Card, Button, Row, Col } from "react-bootstrap";
-import {Place} from '@mui/icons-material';
+import {Place, ThumbUpOffAlt, FavoriteBorder} from '@mui/icons-material';
 import { toast, ToastContainer } from "react-toastify";
 import '../styles/viewComments.css';
 import AddComment from "./AddComment";
@@ -212,15 +212,12 @@ export default function ViewComment() {
                     <hr className="hr"></hr>
                     <div className="postBottom">
                       <div className="postBottomLeft">
-                        <Card.Text className="postCommentText">
-                          Calificacion: {comment.averageRating}
-                        </Card.Text>
+                        <ThumbUpOffAlt htmlColor="blue" className="likeIcon"/>
+                        <FavoriteBorder htmlColor="red" className="likeIcon"/>
+                        <span className="postLikeCounter">2 </span>
                       </div>
                       <div className="postBottomRight">
-                        <StarRating className="likeIcon"
-                          value={selectedRating}
-                          onClick={(rating) => handleRatingChange(comment.id, rating)} 
-                        />
+                        <span className="postCommentText">2 comments</span>
                       </div>                   
                     </div>
                   
