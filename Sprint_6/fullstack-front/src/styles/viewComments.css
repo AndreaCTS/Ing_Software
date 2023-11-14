@@ -1,10 +1,7 @@
 .foro{
     display: flex;
-    justify-content: center;
-    
+    justify-content: center;   
     margin-top: 63px;
-    background-color: rgb(54, 54, 54);
-    
 }
 
 
@@ -22,13 +19,10 @@
     width: 100%;
     border-radius: 10px;
     box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
-    -webkit-box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.15);
     -moz-box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
     margin: 30px 0px;
     padding: 10px;
-    background-color: rgb(34, 34, 34);
-    color: rgba(255, 255, 255, 0.841);
-    
 }
 
 
@@ -98,15 +92,14 @@
 .filters{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 20px;
     margin-bottom: 30px;
     padding: 10px;
     border-radius: 10px;
     box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
-    -webkit-box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.15);
     -moz-box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
-    background-color: rgb(34, 34, 34);
     
 }
 

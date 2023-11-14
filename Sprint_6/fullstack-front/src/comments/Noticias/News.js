@@ -13,7 +13,7 @@ export default function News({num}) {
   const loadNoticias = async () => {
     try {
       const result = await axios.get("https://newsapi.org/v2/everything?q="
-                                    +"chapinero&languaje=es&apiKey=5e58dc1d84694fa1bf56e6e905a1a69b");
+                                    +"bogota&languaje=es&apiKey=5e58dc1d84694fa1bf56e6e905a1a69b");
       setNoticias(result.data.articles);
     } catch (error) {
       console.error("Error loading noticias:", error);

@@ -2,10 +2,10 @@
     width: 100%;
     border-radius: 10px;
     box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
-    -webkit-box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.15);
     -moz-box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
-    background-color: rgb(34, 34, 34);
-    color: white;
+    
+    
 }
 
 .shareWrapper{
@@ -21,7 +21,7 @@
     border: none;
     height: 70px;
     width: 500px;
-    background-color: rgb(34, 34, 34);
+    
     
 }
 
@@ -55,7 +55,7 @@
     border-style: solid;
     border-radius: 10px;
     border-color:gray;
-    background-color: rgba(255, 255, 255, 0.138);
+    
     text-align: center;
 
 }

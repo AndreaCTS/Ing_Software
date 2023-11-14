@@ -170,14 +170,7 @@ export default function ViewComment() {
               <option value="2">Lowest Raiting</option>
             </select>
        
-            <select className="filter" onChange={handleFilterRating}>
-              <option value="0">Select Rating</option>  
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
+      
             <select className="filter" onChange={handleFilterNeighborhood}>
               <option value="">Select Neighborhood</option>
               <option value="Todos">All</option>

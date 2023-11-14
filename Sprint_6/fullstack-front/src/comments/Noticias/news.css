@@ -7,19 +7,20 @@
    
 }
 .title{
-    color: antiquewhite;
+    
     font-family: 'Montserrat', sans-serif;
     margin-top: 20px;
 }
 .item{
+   
     border-radius: 10px;
     margin: 0 50px 0 50px;
     padding: 10px;
     box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
     -webkit-box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
     -moz-box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
-    background-color: rgba(255, 255, 255, 0.912);
     margin-bottom: 15px;
+    
 }
 .title-noticia{
     font-size: 17px;
