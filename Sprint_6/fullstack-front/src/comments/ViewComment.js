@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams, useNavigate  } from "react-router-dom";
-import { Card, Button, Row, Col } from "react-bootstrap";
-import {Place, ThumbUpOffAlt, FavoriteBorder} from '@mui/icons-material';
-import { toast, ToastContainer } from "react-toastify";
+import {useParams } from "react-router-dom";
+import { Card} from "react-bootstrap";
+import {Place, ThumbUpOffAlt} from '@mui/icons-material';
+import { toast} from "react-toastify";
 import '../styles/viewComments.css';
 import AddComment from "./AddComment";
 import moment from "moment"
@@ -18,27 +18,10 @@ const neighborhoodOptions = [
   "Chico Norte II","Chico Norte III","Chico Occidental","El Chico","El Retiro","Espartillal",
   "Lago Gaitan","La Porciuncula","Quinta Camacho","Cataluña","Chapinero Central","Chapinero Norte","Marly","Sucre",
 ];
-function StarRating({ value, onClick }) {
-  const stars = [1, 2, 3, 4, 5]; // Número de estrellas
-
-  return (
-    <div className="star-rating">
-      {stars.map((star) => (
-        <span
-          key={star}
-          className={star <= value ? "star star-selected" : "star"}
-          onClick={() => onClick(star)}
-        >
-          ★
-        </span>
-      ))}
-    </div>
-  );
-}
 
 export default function ViewComment() {
   const [comments, setComments] = useState([]);
-  const [selectedRating, setSelectedRating] = useState(0); // Valor de calificación seleccionado
+  const [rating, setRating] = useState(comments.rating)
   const { id } = useParams();
 
   useEffect(() => {
@@ -69,15 +52,6 @@ export default function ViewComment() {
     }
   };
 
-  const loadCommentsRating = async (averageRating) => {
-    try {
-      const result = await axios.get(`http://localhost:8080/comments/rating/${averageRating}`);
-      setComments(result.data);
-    } catch (error) {
-      console.error("Error loading comments:", error);
-    }
-  };
-
   const loadCommentsNeighborhood = async (barrio) => {
     try {
       const result = await axios.get(`http://localhost:8080/comments/barrio/${barrio}`);
@@ -87,9 +61,8 @@ export default function ViewComment() {
     }
   };
 
-
   const handleRatingChange = (commentId,rating) => {
-    setSelectedRating(rating);
+    setRating(rating);
     handleAddRating(commentId,rating)
   };
 
@@ -99,28 +72,16 @@ export default function ViewComment() {
        loadCommentss(selectedValue)
   };  
   
-  const handleFilterRating = (event) => {
-    const selectedValue = event.target.value;
-    loadCommentsRating(selectedValue);
-  };
-
   const handleFilterNeighborhood = (event) => {
     const selectedValue = event.target.value;
     loadCommentsNeighborhood(selectedValue);
   };
 
-  const handleAddRating = async (commentId,selectedRating) => {
+  const handleAddRating = async (commentId) => {
     try {
       // Envia los datos de calificación (un número) directamente en el cuerpo de la solicitud
       const response = await axios.post(
-        `http://localhost:8080/comments/${commentId}/rate`,
-        selectedRating, // Envía selectedRating directamente como cuerpo de la solicitud
-        {
-          headers: {
-            "Content-Type": "application/json", // Establece el encabezado de tipo de contenido
-          },
-        }
-      );
+        `http://localhost:8080/comments/${commentId}/rate`);
 
       // Show a success notification
       toast.success("Rating added successfully!", {
@@ -130,7 +91,7 @@ export default function ViewComment() {
       setComments((prevComments) =>
         prevComments.map((comment) =>
           comment.id === commentId
-            ? { ...comment, averageRating: response.data.averageRating } // Actualiza el campo averageRating
+            ? { ...comment, rating: response.data.rating} // Actualiza el campo averageRating
             : comment
         )
       );
@@ -169,7 +130,6 @@ export default function ViewComment() {
               <option value="1">Highest Raiting</option>
               <option value="2">Lowest Raiting</option>
             </select>
-       
       
             <select className="filter" onChange={handleFilterNeighborhood}>
               <option value="">Select Neighborhood</option>
@@ -205,12 +165,15 @@ export default function ViewComment() {
                     <hr className="hr"></hr>
                     <div className="postBottom">
                       <div className="postBottomLeft">
-                        <ThumbUpOffAlt htmlColor="blue" className="likeIcon"/>
-                        <FavoriteBorder htmlColor="red" className="likeIcon"/>
-                        <span className="postLikeCounter">2 </span>
+                          <button  className="buttonBorder" onClick={(rating)=> handleRatingChange(comment.id, rating)}>
+                            <ThumbUpOffAlt htmlColor="blue" className="LikeIcon"/> 
+                          </button>
+                          <span className="postLikeCounter" >
+                              {comment.rating}
+                          </span>
                       </div>
                       <div className="postBottomRight">
-                        <span className="postCommentText">2 comments</span>
+
                       </div>                   
                     </div>
                   

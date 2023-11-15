@@ -76,10 +76,10 @@
     align-items: center;
 }
 
-.likeIcon{
+.LikeIcon{
     width: 24px;
     height: 24px;
-    margin-right: 5px;
+    
     cursor: pointer;
 }
 
@@ -112,3 +112,12 @@
     background-color: rgb(160, 158, 158)
 }
 
+.postLikeCounter{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.buttonBorder{
+    border: none;
+    background: none;
+}
