@@ -74,7 +74,7 @@ export default function NewInit() {
                                 <div class="css-WiLSj">
                                 <div class="css-iYgZzq">
                                             <div className="css-iYgZzq">
-                                                <Link to="/map" className="css-hmUeKG">
+                                                <Link to="/mapa" className="css-hmUeKG">
                                                     comenzar
                                                 </Link>
                                             </div>

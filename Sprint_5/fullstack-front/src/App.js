@@ -1,7 +1,7 @@
 import './styles/App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import CustomNavbar from './layout/navbar';
-
+import { QueryClient,QueryClientProvider } from 'react-query';
 import HomeInit from './pages/homeinit';
 import Admin from './pages/admin';
 import{BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -18,22 +18,23 @@ import ViewWheel from './wheels/ViewWheel';
 import AddWheel from './wheels/AddWheel';
 import DeleteWheels from './wheels/DeleteWheel';
 import NewInit from './pages/newInit';
-import MapView from './mapa/MapView'
+import MapView from './component/MapView'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+const queryClient = new QueryClient();
 
 function App() {
   
   return (
     <div className="App">
+        <QueryClientProvider client={queryClient}>
       <Router>
-      <CustomNavbar />
+        <CustomNavbar/>
         <Routes>
           <Route exact path="/" element={<NewInit />} />
           <Route exact path='/mainmenu' element={<HomeInit/>}/>
           <Route exact path="/admin" element={<Admin />} />
-          <Route exact path="/mapa" element={<HomeInit />} />
-          <Route exact path="/map" element={<MapView />} />
+          <Route exact path="/mapa" element={<MapView />} />
           <Route exact path="/adduser" element={<AddUser />} />
           <Route exact path='/dashboard' Component={Dashboard}/>
           <Route exact path="/login" element={<Login />} />
@@ -47,6 +48,7 @@ function App() {
           <Route exact path="/deletewheels" element={<DeleteWheels/>} />
         </Routes>
       </Router>
+      </QueryClientProvider>
     </div>
   );
 }
