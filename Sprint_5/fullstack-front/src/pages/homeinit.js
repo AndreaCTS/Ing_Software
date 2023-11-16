@@ -2,14 +2,27 @@ import React, { useState } from 'react';
 import '../styles/estilos.css';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-export default function HomeInit() {
+export default function HomeInit () {
   const [selectedSlide, setSelectedSlide] = useState(0);
+  const navigate = useNavigate();
 
   const handleSlideChange = (index) => {
     setSelectedSlide(index);
   };
+
+  const OnClickImage = (index) =>{
+    if(index===1){
+      navigate("/map") 
+    }else if(index === 2){
+      navigate("/map")
+    }else if(index === 3){
+      navigate("/viewcomments")
+    }else{
+      navigate("/viewwheels")
+    }
+  }
 
   const customArrowStyles = {
     position: 'absolute',
@@ -18,13 +31,13 @@ export default function HomeInit() {
     transform: 'translateY(-50%)',
     cursor: 'pointer',
   };
-
+  
   return (
     <div className="initial" style={{ backgroundColor: getBackgroundColor(selectedSlide) }}>
       <header></header>
       <main className="center-main">
         <h1 style={{ marginBottom: '5px' }}>
-          <em>Sobre nosotros </em>
+          <em>Secciones</em>
         </h1>
         <section>
           <Carousel
@@ -59,7 +72,7 @@ export default function HomeInit() {
             }
           >
             <div className="breedCard">
-              <div className="contenedorImagen">
+              <div className="contenedorImagen" onClick={() => OnClickImage(1)} >
                 <img src="../media/map.jpg" alt="Risk map" />
               </div>
               <h4 >Mapa</h4>
@@ -68,7 +81,7 @@ export default function HomeInit() {
               </Link>
             </div>
             <div className="breedCard">
-              <div className="contenedorImagen">
+              <div className="contenedorImagen" onClick={() => OnClickImage(2)}>
                 <img src="../media/route.jpg" alt="route" />
               </div>
               <h4 >Rutas</h4> 
@@ -77,7 +90,7 @@ export default function HomeInit() {
               </Link>
             </div>
             <div className="breedCard">
-              <div className="contenedorImagen">
+              <div className="contenedorImagen" onClick={() => OnClickImage(3)}>
                 <img src="../media/blog.jpg" alt="Forum" />
               </div>
               <h4 >Foro</h4> 
@@ -86,7 +99,7 @@ export default function HomeInit() {
               </Link>
             </div>
             <div className="breedCard">
-              <div className="contenedorImagen">
+              <div className="contenedorImagen" onClick={() => OnClickImage(4)}> 
                 <img src="../media/wheel.jpg" alt="Wheel" />
               </div>
               <h4 >Wheels</h4> 

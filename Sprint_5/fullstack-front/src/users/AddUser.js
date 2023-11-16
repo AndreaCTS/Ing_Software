@@ -10,7 +10,7 @@ export default function AddUser() {
     username: "",
     email: "",
     password: "",
-    role: "ADMIN",
+    role: "USER",
   });
 
   const [error, setError] = useState("");
@@ -102,9 +102,10 @@ s
                 placeholder="Enter your password"
                 name="password"
                 value={password}
-                onChange={(e) => onInputChange(e)}
+                onChange={(e) => onInputChange(e)} 
               />
             </div>
+            {/*
             <div className="mb-3">
               <label htmlFor="Role" className="form-label">
                 Role
@@ -114,6 +115,7 @@ s
                   <option value="ADMIN">Admin</option>
               </select>
             </div>
+          */}
             <button type="submit" className="btn btn-outline-primary">
               Submit
             </button>
