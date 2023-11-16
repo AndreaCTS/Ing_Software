@@ -40,7 +40,7 @@ export default function Login() {
   };
 
   return (
-        <div  class="d-flex justify-content-center align-items-center" style={{height: "100vh",background:"#FFFEEC"}}>
+        <div  class="d-flex justify-content-center align-items-center" style={{height: "100vh",background: "linear-gradient(190deg, rgba(204,255,216,1) 0%, rgba(168,185,255,0.3575630935968137) 100%)" }}>
         <div className="bg-light col-md-6  border border-dark rounded p-4 mt-5 shadow">
           <h2 className="text-center m-4">Login</h2>
 

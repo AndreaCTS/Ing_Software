@@ -45,7 +45,6 @@ export default function AddUser() {
     <div  className="d-flex justify-content-center align-items-center" style={{ height: "100vh", background: "linear-gradient(190deg, rgba(34,193,195,0.2539216370141807) 0%, rgba(253,187,45,0.2539216370141807) 100%)" }}>
         <div className="bg-light col-md-6  border border-dark rounded p-4 mt-5  shadow-lg  "  >
           <h2 className="text-center m-4">Register User</h2>
-s
           {error && (
             <div className="alert alert-danger" role="alert">
               {error}

@@ -23,7 +23,7 @@ export default function HomeInit () {
       navigate("/viewwheels")
     }
   }
-
+  
   const customArrowStyles = {
     position: 'absolute',
     zIndex: 2,
@@ -32,11 +32,24 @@ export default function HomeInit () {
     cursor: 'pointer',
   };
   
+  function getBackgroundColor(index) {
+    // Define los gradientes según el índice de la diapositiva seleccionada
+    const gradients = [
+      'linear-gradient(190deg, rgba(158,80,199,1) 0%, rgba(139,201,255,0.3575630935968137) 100%)',
+      'linear-gradient(190deg, rgba(235,127,127,1) 0%, rgba(149,88,186,0.3575630935968137) 100%)',
+      'linear-gradient(190deg, rgba(61,93,154,1) 0%, rgba(67,186,88,0.3575630935968137) 100%)',
+      'linear-gradient(190deg, rgba(0,0,255,1) 0%, rgba(0,255,255,1) 100%)',
+    ];
+  
+    return gradients[index] || 'linear-gradient(190deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 100%)';
+    // Fallback al gradiente blanco si el índice no coincide
+  }
+
   return (
-    <div className="initial" style={{ backgroundColor: getBackgroundColor(selectedSlide) }}>
+    <div className="initial" style={{ background: getBackgroundColor(selectedSlide) }}>
       <header></header>
       <main className="center-main">
-        <h1 style={{ marginBottom: '5px' }}>
+        <h1 style={{ marginBottom: '5px', color:"white" }}>
           <em>Secciones</em>
         </h1>
         <section>
@@ -80,6 +93,7 @@ export default function HomeInit () {
                 Ver más
               </Link>
             </div>
+            {/*
             <div className="breedCard">
               <div className="contenedorImagen" onClick={() => OnClickImage(2)}>
                 <img src="../media/route.jpg" alt="route" />
@@ -89,6 +103,7 @@ export default function HomeInit () {
                 Ver más
               </Link>
             </div>
+          */}
             <div className="breedCard">
               <div className="contenedorImagen" onClick={() => OnClickImage(3)}>
                 <img src="../media/blog.jpg" alt="Forum" />
@@ -114,9 +129,3 @@ export default function HomeInit () {
   );
 }
 
-function getBackgroundColor(index) {
-  // Define los colores según el índice de la diapositiva seleccionada
-  const colors = ['#EEECDF', '#F9CE8C', '#F99B8C', '#AEA4BC']; // Puedes ajustar los colores según tus preferencias
-
-  return colors[index] || '#FFFFFF'; // Fallback al color blanco si el índice no coincide
-}
