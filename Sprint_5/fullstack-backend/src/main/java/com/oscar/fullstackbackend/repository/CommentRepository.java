@@ -5,9 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 public interface CommentRepository extends JpaRepository<Comment, Long> {
     // Add any custom query methods if needed
-    List<Comment> findAllByOrderByAverageRatingDesc();
-    List<Comment> findAllByOrderByAverageRatingAsc();
-    List<Comment> findByAverageRating(int avg);
+    List<Comment> findAllByOrderByRatingDesc();
+    List<Comment> findAllByOrderByRatingAsc();
     List<Comment> findByBarrio(String b);
+    List<Comment> findAllByOrderByIdDesc();
 
 }

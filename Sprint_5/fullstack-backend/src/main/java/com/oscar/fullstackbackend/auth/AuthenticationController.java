@@ -16,14 +16,14 @@ public class AuthenticationController {
 
   private final AuthenticationService service;
 
-  // Se reciben los datos del formulario de registro web para asignarlos al
+  // Reciben los datos del formulario de registro web para asignarlos al
   // usuario
   @PostMapping("/register")
   public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
     return ResponseEntity.ok(service.register(request));
   }
 
-  // Se verifica si los datos enviados por el cliente corresponden a un usuario ya
+  // Verifica si los datos enviados por el cliente corresponden a un usuario ya
   // existente, usando email y contraseña
   @PostMapping("/authenticate")
   public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
