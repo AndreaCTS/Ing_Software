@@ -51,6 +51,8 @@ public class CommentController {
 
     @GetMapping("/all")
     public List<Comment> getAllComments() {
+        List<Comment> lc=commentRepository.findAllByOrderByIdDesc();
+        System.out.println(lc.size());
         return commentRepository.findAllByOrderByIdDesc();
     }
 

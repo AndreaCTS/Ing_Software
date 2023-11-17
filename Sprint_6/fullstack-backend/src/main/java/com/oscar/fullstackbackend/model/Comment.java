@@ -17,7 +17,7 @@ public class Comment {
     private int rating; // Count of ratings
 
     @Column(nullable = false)
-    private String text;
+    private String texto;
 
     @Column(nullable = false)
     private String barrio;
@@ -41,10 +41,10 @@ public class Comment {
         return id;
     }
     public String getText() {
-        return text;
+        return texto;
     }
-    public void setText(String text) {
-        this.text = text;
+    public void setText(String texto) {
+        this.texto = texto;
     }
     public String getBarrio() {
         return barrio;

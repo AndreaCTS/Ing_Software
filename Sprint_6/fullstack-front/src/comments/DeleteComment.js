@@ -37,7 +37,7 @@ export default function DeleteComment() {
                 <th scope="row" key={index}>
                   {index + 1}
                 </th>
-                <td>{comment.text}</td>
+                <td >{comment.text}</td>
                 <td>
                   <button
                     className="btn btn-danger mx-2"
