@@ -25,6 +25,10 @@ public class Comment {
     @Column(nullable = false, columnDefinition = "TIMESTAMP")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
     private Date publishDate;
+
+    public Comment() {
+        this.publishDate = new Date();
+    }
     public Date getPublishDate() {
         return publishDate;
     }
