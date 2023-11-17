@@ -12,7 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 //import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.authentication.logout.LogoutHandler;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import static com.oscar.fullstackbackend.model.UserPermission.ADMIN_CREATE;
 import static com.oscar.fullstackbackend.model.UserPermission.ADMIN_DELETE;
@@ -30,6 +30,8 @@ import static org.springframework.http.HttpMethod.POST;
 import static org.springframework.http.HttpMethod.PUT;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
+@CrossOrigin(origins = "http://localhost:3000")
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -43,11 +45,12 @@ public class SecurityConfiguration {
         // Lista de todas las URLs permitidas en la aplicación
         private static final String[] WHITE_LIST_URL = { "/userAuth/**",
                         "/user", "/user/**", "/userAuth/authenticate", "/users/**",
-                        "/users", "/comments", "/comments/**", "/wheels", "/wheels/**"
+                        "/users", "/comments", "/comments/**", "/wheels", "/wheels/**",
+                        "/logout"
         };
         private final JwtAuthenticationFilter jwtAuthFilter;
         private final AuthenticationProvider authenticationProvider;
-        private final LogoutHandler logoutHandler;
+        private final LogoutService logoutService;
 
         @Bean
         // Se encarga de limitar el acceso a determinadas URLs según los permisos del
@@ -73,8 +76,10 @@ public class SecurityConfiguration {
                                 .authenticationProvider(authenticationProvider)
                                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                                 .logout()
-                                .logoutUrl("/userAuth/logout")
-                                .addLogoutHandler(logoutHandler)
+                                .logoutUrl("/logout")
+                                .addLogoutHandler((request, response, authentication) -> {
+                                        logoutService.logout(request, response, authentication);
+                                })
                                 .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder
                                                 .clearContext());
                 http.cors().and().csrf().disable();

@@ -21,9 +21,15 @@ export default function Login() {
     try {
       const response = await axios.post("http://localhost:8080/userAuth/authenticate", user);
       const userData = response.data;
+      
+      const token = response.data.access_token;
+
+      localStorage.setItem('token', token);
   
       // Log the userData object to the console for inspection
       console.log("userData:", userData);
+
+      console.log("token almacenado de manera local:", token);
   
       // Check if the user is an admin (adjust this condition as needed)
       if (userData.role === 'ADMIN') {
