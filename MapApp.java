@@ -1,4 +1,4 @@
-// MapApp.java
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
@@ -12,7 +12,7 @@ public class MapApp extends Application {
         WebView webView = new WebView();
         WebEngine webEngine = webView.getEngine();
 
-        // Cargar el contenido HTML con el mapa (usando Leaflet y OpenStreetMap)
+
         webEngine.loadContent("<html>\n" +
                 "  <head>\n" +
                 "    <title>Mapa</title>\n" +
