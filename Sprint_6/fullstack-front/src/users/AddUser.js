@@ -42,9 +42,10 @@ export default function AddUser() {
   };
 
   return (   
-    <div  className="d-flex justify-content-center align-items-center" style={{ height: "100vh", background: "linear-gradient(190deg, rgba(34,193,195,0.2539216370141807) 0%, rgba(253,187,45,0.2539216370141807) 100%)" }}>
-        <div className="bg-light col-md-6  border border-dark rounded p-4 mt-5  shadow-lg  "  >
-          <h2 className="text-center m-4">Register User</h2>
+    <div  className="d-flex justify-content-center align-items-center" style={{ height: "100vh", backgroundColor: "white" }}>
+      
+        <div className=" col-md-6  border border-dark rounded p-4 mt-5  shadow-lg  " style={{backgroundColor:'#afa8a8'}}  >
+          <h2 className="text-center m-4" style={{color:'black'}}>Register User</h2>
           {error && (
             <div className="alert alert-danger" role="alert">
               {error}
@@ -53,7 +54,7 @@ export default function AddUser() {
 
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="mb-3">
-              <label htmlFor="Name" className="form-label">
+              <label htmlFor="Name" className="form-label" style={{color:'black'}}>
                 Name
               </label>
               <input
@@ -66,7 +67,7 @@ export default function AddUser() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="Username" className="form-label">
+              <label htmlFor="Username" className="form-label" style={{color:'black'}}>
                 Username
               </label>
               <input
@@ -79,7 +80,7 @@ export default function AddUser() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="Email" className="form-label">
+              <label htmlFor="Email" className="form-label" style={{color:'black'}}>
                 E-mail
               </label>
               <input
@@ -92,7 +93,7 @@ export default function AddUser() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="Password" className="form-label">
+              <label htmlFor="Password" className="form-label" style={{color:'black'}}>
                 Password
               </label>
               <input
@@ -115,10 +116,10 @@ export default function AddUser() {
               </select>
             </div>
           */}
-            <button type="submit" className="btn btn-outline-primary">
+            <button type="submit" className="btn btn-success">
               Submit
             </button>
-            <Link className="btn btn-outline-danger mx-2" to="/">
+            <Link className="btn btn-danger mx-2" to="/">
               Cancel
             </Link>
           </form>
