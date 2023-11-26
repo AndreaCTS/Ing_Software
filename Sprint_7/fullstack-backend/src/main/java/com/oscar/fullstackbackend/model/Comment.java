@@ -1,11 +1,8 @@
 package com.oscar.fullstackbackend.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 public class Comment {
@@ -25,6 +22,11 @@ public class Comment {
     @Column(nullable = false)
     private Date publish_Date;
 
+    @Column(nullable = false)
+    private User user;
+
+
+    public User getUser(){return user;}
     // Constructor, getters, setters, and other fields are defined here...
 
     public Date getPublish_Date() {return publish_Date;}
