@@ -22,13 +22,14 @@ public class Comment {
     @Column(nullable = false)
     private Date publish_Date;
 
+    /*
     @Column(nullable = false)
     private User user;
 
 
     public User getUser(){return user;}
     // Constructor, getters, setters, and other fields are defined here...
-
+*/
     public Date getPublish_Date() {return publish_Date;}
     public void setPublish_Date(Date publish_Date){this.publish_Date = publish_Date;}
     public Long getId() {

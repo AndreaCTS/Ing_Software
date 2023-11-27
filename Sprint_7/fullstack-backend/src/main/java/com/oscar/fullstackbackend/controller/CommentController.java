@@ -31,6 +31,11 @@ public class CommentController {
         return commentRepository.findByAverageRating(averageRating);
     }*/
 
+    @GetMapping("Top3")
+    public List<Comment> getTopComment(){
+        return commentRepository.findTop3ByOrderByRatingDesc();
+    }
+
     @GetMapping("/barrio/{barrio}")
     public List<Comment> getCommentBarrio(@PathVariable String barrio){
         if (barrio.equals("Todos")){

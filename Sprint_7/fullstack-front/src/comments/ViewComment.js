@@ -66,17 +66,6 @@ export default function ViewComment() {
     handleAddRating(commentId,rating)
   };
 
-
-  const handleChange  = (event) => {
-       const selectedValue = event.target.value;
-       loadCommentss(selectedValue)
-  };  
-  
-  const handleFilterNeighborhood = (event) => {
-    const selectedValue = event.target.value;
-    loadCommentsNeighborhood(selectedValue);
-  };
-
   const handleAddRating = async (commentId) => {
     try {
       // Envia los datos de calificación (un número) directamente en el cuerpo de la solicitud
@@ -100,11 +89,23 @@ export default function ViewComment() {
     }
   };
 
+  const handleChange  = (event) => {
+       const selectedValue = event.target.value;
+       loadCommentss(selectedValue)
+  };  
+  
+  const handleFilterNeighborhood = (event) => {
+    const selectedValue = event.target.value;
+    loadCommentsNeighborhood(selectedValue);
+  };
+
+  
+
   // Funcion para comparar la fecha de publicacion y la actual del sistema
   const calculateTimeDifference = (publishDate) => {
     const now = moment();
     const commentDate = moment(publishDate);
-    const diff = now.diff(commentDate, "minutes"); // Puedes cambiar "minutes" a "hours", "days", etc.
+    const diff = now.diff(commentDate, "minutes");
     console.log(now)
     console.log(commentDate)
     console.log(diff)
