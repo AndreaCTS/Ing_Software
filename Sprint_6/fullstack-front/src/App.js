@@ -11,6 +11,7 @@ import ViewUser from "./users/ViewUser";
 import ViewComment from './comments/ViewComment';
 import AddComment from "./comments/AddComment";
 import DeleteComment from "./comments/DeleteComment";
+import ViewCommentUser from "./comments/ViewCommentUser";
 import Login from './users/Login';
 import 'font-awesome/css/font-awesome.css';
 import Dashboard from './pages/dashboard';
@@ -43,6 +44,7 @@ function App() {
           <Route exact path='/edituser/:id' element={<EditUser/>}/>
           <Route exact path="/viewuser/:id" element={<ViewUser />} />
           <Route exact path="/viewcomments" element={<ViewComment />} />
+          <Route exact path="/viewcommentsuser" element={<ViewCommentUser />}/> 
           <Route exact path="/addcomments" element={<AddComment/>} />
           <Route exact path="/deletecomments" element={<DeleteComment />} />
           <Route exact path="/deletewheels" element={<DeleteWheels/>} />

@@ -3,9 +3,8 @@ package com.oscar.fullstackbackend.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.Optional;
 
 @Entity
 public class Comment {
@@ -25,6 +24,17 @@ public class Comment {
     @Column(nullable = false, columnDefinition = "TIMESTAMP")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
     private Date publishDate;
+
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String user) {
+        this.username = user;
+    }
+
 
     public Comment() {
         this.publishDate = new Date();
