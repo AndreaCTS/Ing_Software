@@ -102,8 +102,15 @@ export default function ViewComment() {
 
   // Funcion para comparar la fecha de publicacion y la actual del sistema
   const calculateTimeDifference = (publishDate) => {
-    const commentDate = moment(publishDate, "YYYY-MM-DD HH:mm:ss.SSS");
-    return commentDate.fromNow();
+    
+        var moment = require('moment'); 
+        var date1 = moment(publishDate, 'yyyy-MM-dd HH:mm:ss.SSS'), 
+          date2 = moment(new Date(), 'yyyy-MM-dd HH:mm:ss.SSS'); 
+          
+        var duration = moment.duration(date2.diff(date1)); 
+         
+        duration = moment(duration).format("MMMM Do YYYY, h:mm:ss a");
+        return duration
   };
   
 
@@ -138,7 +145,7 @@ export default function ViewComment() {
                     <div className="postTop">
                       <div className="postTopLeft">
                         <span className="postUsername">{comment.username}</span>
-                        <span className="publishDate">{calculateTimeDifference(comment.publish_Date)}</span>
+                        <span className="publishDate">{calculateTimeDifference(comment.publishDate)}</span>
                       </div>
                       <div className="postTopRight">
                         <Place htmlColor="green"/>

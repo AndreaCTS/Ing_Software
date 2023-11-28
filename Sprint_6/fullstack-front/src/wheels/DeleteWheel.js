@@ -22,8 +22,8 @@ export default function DeleteWheels() {
   };
 
   return (
-    <div className="container">
-      <div className="py-4">
+    <div className="container" style={{backgroundColor:'#afa8a8'}}>
+      
         <table className="table border shadow">
           <thead>
             <tr>
@@ -32,6 +32,7 @@ export default function DeleteWheels() {
               <th scope="col">Localidad</th>
               <th scope="col">Capacidad </th>
               <th scope="col">Cupos </th>
+              <th scope="col">Acción </th>
             </tr>
           </thead>
           <tbody>
@@ -60,6 +61,6 @@ export default function DeleteWheels() {
             Back to Admin
         </Link>
       </div>
-    </div>
+    
   );
 }

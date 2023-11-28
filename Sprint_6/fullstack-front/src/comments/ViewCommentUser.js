@@ -9,8 +9,6 @@ import AddComment from "./AddComment";
 import moment from "moment"
 import News from "./Noticias/News";
 import LeftContainer from "./ContainerLeft/LeftContainer";
-import { DateTime } from "luxon";
-
 
 const neighborhoodOptions = [
   "Chico Reservado","Bellavista","Chico Alto","El Nogal","El Refugio","La Cabrera","La Castellana","Los Rosales",
@@ -105,21 +103,16 @@ export default function ViewCommentUser() {
 
   // Funcion para comparar la fecha de publicacion y la actual del sistema
   const calculateTimeDifference = (publishDate) => {
-    const commentDate = DateTime.fromFormat(publishDate, "yyyy-MM-dd HH:mm:ss.SSS");
-    const now = DateTime.local();
-  
-    // Calcula la diferencia en minutos
-    const diffMinutes = now.diff(commentDate, 'minutes').toObject().minutes;
-  
-    if (diffMinutes < 1) {
-      return "Hace unos segundos";
-    } else if (diffMinutes < 60) {
-      return `Hace ${diffMinutes} min`;
-    } else if (diffMinutes < 1440) {
-      return `Hace ${Math.floor(diffMinutes / 60)} h`;
-    } else {
-      return `Hace ${Math.floor(diffMinutes / 1440)} d`;
-    }
+    
+    var moment = require('moment'); 
+
+    var date1 = moment(publishDate, 'yyyy-MM-dd HH:mm:ss.SSS'), 
+      date2 = moment(new Date(), 'yyyy-MM-dd HH:mm:ss.SSS'); 
+
+    var duration = moment.duration(date2.diff(date1)); 
+ 
+    duration = moment(duration).format("MMMM Do YYYY, h:mm:ss a");
+    return duration
   };
 
   return (

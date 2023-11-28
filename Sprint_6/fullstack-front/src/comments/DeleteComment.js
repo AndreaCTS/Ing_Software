@@ -22,13 +22,13 @@ export default function DeleteComment() {
   };
 
   return (
-    <div className="container">
-      <div className="py-4">
+    <div className="container" style={{backgroundColor:'#afa8a8'}}>
         <table className="table border shadow">
           <thead>
             <tr>
               <th scope="col">S.N</th>
               <th scope="col">Description</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -53,7 +53,7 @@ export default function DeleteComment() {
         <Link className="btn btn-primary my-2" to={"/admin"}>
             Back to Admin
         </Link>
-      </div>
+     
     </div>
   );
 }
