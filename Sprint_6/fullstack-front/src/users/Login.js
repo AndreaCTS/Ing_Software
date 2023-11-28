@@ -21,6 +21,9 @@ export default function Login() {
     try {
       const response = await axios.post("http://localhost:8080/userAuth/authenticate", user);
       const userData = response.data;
+
+      localStorage.setItem("access_token", userData.access_token);
+      console.log("Token guardado en LocalStorage:", userData.access_token);
   
       // Log the userData object to the console for inspection
       console.log("userData:", userData);

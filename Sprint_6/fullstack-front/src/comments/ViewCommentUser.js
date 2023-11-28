@@ -9,6 +9,9 @@ import AddComment from "./AddComment";
 import moment from "moment"
 import News from "./Noticias/News";
 import LeftContainer from "./ContainerLeft/LeftContainer";
+import { DateTime } from "luxon";
+
+
 const neighborhoodOptions = [
   "Chico Reservado","Bellavista","Chico Alto","El Nogal","El Refugio","La Cabrera","La Castellana","Los Rosales",
   "Seminario","Toscana","La Esperaza Nororiental","La Sureña","San Isidiro","San Luis Altos Del Cabo",
@@ -19,7 +22,7 @@ const neighborhoodOptions = [
   "Lago Gaitan","La Porciuncula","Quinta Camacho","Cataluña","Chapinero Central","Chapinero Norte","Marly","Sucre",
 ];
 
-export default function ViewComment() {
+export default function ViewCommentUser() {
   const [comments, setComments] = useState([]);
   const [rating, setRating] = useState(comments.rating)
   const { id } = useParams();
@@ -102,11 +105,22 @@ export default function ViewComment() {
 
   // Funcion para comparar la fecha de publicacion y la actual del sistema
   const calculateTimeDifference = (publishDate) => {
-    const commentDate = moment(publishDate, "YYYY-MM-DD HH:mm:ss.SSS");
-    return commentDate.fromNow();
-  };
+    const commentDate = DateTime.fromFormat(publishDate, "yyyy-MM-dd HH:mm:ss.SSS");
+    const now = DateTime.local();
   
-
+    // Calcula la diferencia en minutos
+    const diffMinutes = now.diff(commentDate, 'minutes').toObject().minutes;
+  
+    if (diffMinutes < 1) {
+      return "Hace unos segundos";
+    } else if (diffMinutes < 60) {
+      return `Hace ${diffMinutes} min`;
+    } else if (diffMinutes < 1440) {
+      return `Hace ${Math.floor(diffMinutes / 60)} h`;
+    } else {
+      return `Hace ${Math.floor(diffMinutes / 1440)} d`;
+    }
+  };
 
   return (
     <>
@@ -131,14 +145,14 @@ export default function ViewComment() {
               ))}
             </select>
           </div>
-          {/*<AddComment />*/}
+          <AddComment />
           <div className="post">
             {comments.map((comment, index) => (  
                 <div className="postWrapper">
                     <div className="postTop">
                       <div className="postTopLeft">
                         <span className="postUsername">{comment.username}</span>
-                        <span className="publishDate">{calculateTimeDifference(comment.publish_Date)}</span>
+                        <span className="publishDate">{calculateTimeDifference(comment.publishDate)}</span>
                       </div>
                       <div className="postTopRight">
                         <Place htmlColor="green"/>

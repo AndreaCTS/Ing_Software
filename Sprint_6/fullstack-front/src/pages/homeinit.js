@@ -12,7 +12,7 @@ export default function HomeInit () {
     }else if(index === 2){
       navigate("/map")
     }else if(index === 3){
-      navigate("/viewcomments")
+      navigate("/viewcommentsuser")
     }else{
       navigate("/viewwheels")
     }
@@ -49,7 +49,7 @@ export default function HomeInit () {
                 <img src="../media/blog.jpg" alt="Forum" />
               </div>
               <h4 >Foro</h4> 
-              <Link to="/viewcomments" className="btn btn-dark">
+              <Link to="/viewcommentsuser" className="btn btn-dark">
                 Ver más
               </Link>
             </li>
