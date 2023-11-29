@@ -8,7 +8,7 @@ export default function HomeInit () {
 
   const OnClickImage = (index) =>{
     if(index===1){
-      navigate("/mapa") 
+      navigate("/mapauser") 
     }else if(index === 2){
       navigate("/map")
     }else if(index === 3){
@@ -29,7 +29,7 @@ export default function HomeInit () {
                 <img src="../media/map.jpg" alt="Risk map" />
               </div>
               <h4 >Mapa</h4>
-              <Link to="/mapa" className="btn btn-dark btn-custom">
+              <Link to="/mapauser" className="btn btn-dark btn-custom">
                 Ver más
               </Link>
             </li>

@@ -12,20 +12,27 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     window.location.href = '/';
   };
 
+  const handleReport = () => {
+    // Puedes cambiar '/ruta-deseada' por la ruta a la que deseas redirigir
+    window.location.href = '/addreport';
+  };
+
   return (
     <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
       <button onClick={toggleSidebar}>
         {isOpen ? <FaArrowLeft /> : <FaBars />}
         <span className={isOpen ? 'show-text' : 'hide-text'}>
-          {isOpen ? 'Toggle' : ''}
+          {isOpen ? '' : ''}
         </span>
       </button>
+      <a href="/adduser" onClick={handleReport}>
       <button>
         <FaRegSquare />
         <span className={isOpen ? 'show-text' : 'hide-text'}>
-          {isOpen ? 'Filtrar' : ''}
+          {isOpen ? 'Registrate' : ''}
         </span>
       </button>
+      </a>
       <a href="/" onClick={handleHomeClick}>
         <button>
           <FaRegSquare />

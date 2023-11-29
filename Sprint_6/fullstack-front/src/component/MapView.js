@@ -5,8 +5,8 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import ShowCrimes from './ShowCrimes';
 import Sidebar from './Sidebarn';
 import '../styles/Map.css';
-
 import 'leaflet/dist/leaflet.css'
+
 
 function MapView() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -22,7 +22,8 @@ function MapView() {
 
   const { isLoading, error, data } = useQuery('repoData', () =>
     fetch(
-      'https://raw.githubusercontent.com/OscarMirandaPuentes/Data/main/archivo_modificado_4.json'
+      'http://localhost:8080/reports'
+      
     ).then((res) => res.json())
   );
 

@@ -23,6 +23,7 @@ const cuffs = new L.Icon({
 });
 
 function ShowCrimes({ data }) {
+  console.log('Iniciando showcrimes con la URL:', data);
   const maxZoom = 22;
   const [bounds, setBounds] = useState(null);
   const [zoom, setZoom] = useState(12);
@@ -59,12 +60,12 @@ function ShowCrimes({ data }) {
 
   const points = data.map((crime) => ({
     type: "Feature",
-    properties: { cluster: false, crimeId: crime.id, category: crime.category, date: crime.month, street: crime.location.street.name },
+    properties: { cluster: false, crimeId: crime.id, category: crime.crimeType, date: crime.date},
     geometry: {
       type: "Point",
       coordinates: [
-        parseFloat(crime.location.longitude),
-        parseFloat(crime.location.latitude),
+        parseFloat(crime.longitude),
+        parseFloat(crime.latitude),
       ],
     },
   }));
@@ -128,18 +129,13 @@ function ShowCrimes({ data }) {
           <Popup>
           <div>
             <p>
-            <strong>Category:</strong>{" "}
-            {cluster.properties.category}
+              <strong>Categoría:</strong>{" "}
+              {cluster.properties.category}
             </p>
             <p>
-              <strong>Location:</strong>{" "}
-              {cluster.properties.street || "N/A"}
-            </p>
-            <p>
-              <strong>Date:</strong>
+              <strong>Fecha:</strong>
               {cluster.properties.date || "N/A"}
             </p>
-
           </div>
           </Popup>
         </Marker>

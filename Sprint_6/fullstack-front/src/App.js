@@ -20,6 +20,8 @@ import AddWheel from './wheels/AddWheel';
 import DeleteWheels from './wheels/DeleteWheel';
 import NewInit from './pages/newInit';
 import MapView from './component/MapView'
+import MapViewUser from './component/MapViewUser';
+import AddReport from './component/AddReport'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const queryClient = new QueryClient();
@@ -36,7 +38,9 @@ function App() {
           <Route exact path='/mainmenu' element={<HomeInit/>}/>
           <Route exact path="/admin" element={<Admin />} />
           <Route exact path="/mapa" element={<MapView />} />
+          <Route exact path="/mapauser" element={<MapViewUser />} />
           <Route exact path="/adduser" element={<AddUser />} />
+          <Route exact path="/addreport" element={<AddReport />} />
           <Route exact path='/dashboard' Component={Dashboard}/>
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/viewwheels" element={<ViewWheel />} />
