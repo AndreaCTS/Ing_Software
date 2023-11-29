@@ -32,6 +32,7 @@ export default function ViewComment() {
     try {
       const result = await axios.get(`http://localhost:8080/comments/all`);
       setComments(result.data);
+      console.log(result.data);
     } catch (error) {
       console.error("Error loading comments:", error);
     }
@@ -62,8 +63,18 @@ export default function ViewComment() {
   };
 
   const handleRatingChange = (commentId,rating) => {
-    setRating(rating);
     handleAddRating(commentId,rating)
+  };
+
+
+  const handleChange  = (event) => {
+       const selectedValue = event.target.value;
+       loadCommentss(selectedValue)
+  };  
+  
+  const handleFilterNeighborhood = (event) => {
+    const selectedValue = event.target.value;
+    loadCommentsNeighborhood(selectedValue);
   };
 
   const handleAddRating = async (commentId) => {
@@ -89,36 +100,21 @@ export default function ViewComment() {
     }
   };
 
-  const handleChange  = (event) => {
-       const selectedValue = event.target.value;
-       loadCommentss(selectedValue)
-  };  
-  
-  const handleFilterNeighborhood = (event) => {
-    const selectedValue = event.target.value;
-    loadCommentsNeighborhood(selectedValue);
-  };
-
-  
-
   // Funcion para comparar la fecha de publicacion y la actual del sistema
   const calculateTimeDifference = (publishDate) => {
-    const now = moment();
-    const commentDate = moment(publishDate);
-    const diff = now.diff(commentDate, "minutes");
-    console.log(now)
-    console.log(commentDate)
-    console.log(diff)
-    if (diff < 1) {
-      return "Hace unos segundos";
-    } else if (diff < 60) {
-      return `Hace ${diff} min`;
-    } else if (diff < 1440) {
-      return `Hace ${Math.floor(diff / 60)} h`;
-    } else {
-      return `Hace ${Math.floor(diff / 1440)} d`;
-    }
+    
+        var moment = require('moment'); 
+        var date1 = moment(publishDate, 'yyyy-MM-dd HH:mm:ss.SSS'), 
+          date2 = moment(new Date(), 'yyyy-MM-dd HH:mm:ss.SSS'); 
+          
+        var duration = moment.duration(date2.diff(date1)); 
+         
+        duration = moment(duration).format("MMMM Do YYYY, h:mm:ss a");
+        return duration
   };
+  
+
+
   return (
     <>
       <div className="foro">
@@ -148,8 +144,8 @@ export default function ViewComment() {
                 <div className="postWrapper">
                     <div className="postTop">
                       <div className="postTopLeft">
-                        <span className="postUsername">Comentario {index + 1}</span>
-                        <span className="publishDate">{calculateTimeDifference(comment.publish_Date)}</span>
+                        <span className="postUsername">{comment.username}</span>
+                        <span className="publishDate">{calculateTimeDifference(comment.publishDate)}</span>
                       </div>
                       <div className="postTopRight">
                         <Place htmlColor="green"/>

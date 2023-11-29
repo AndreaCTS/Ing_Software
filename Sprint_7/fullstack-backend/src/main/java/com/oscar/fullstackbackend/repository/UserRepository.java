@@ -17,4 +17,7 @@ public interface UserRepository extends JpaRepository<User,Integer> {
 
     // Retorna el usuario si se encuentra en el repositorio
     Optional<User> findByEmail(String email);
+
+    User findByUsername(String username);
+
 }

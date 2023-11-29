@@ -6,5 +6,16 @@
 @media screen and (min-width: 1000px) {
     .left-container {
         display: block; /* Muestra el contenedor cuando la pantalla es más ancha que 500px */
+        
+        width: 30%; /* Ajusta el ancho según tus necesidades */
+        height: 100vh;
+        overflow-y: scroll; /* Para permitir el desplazamiento vertical si el contenido es largo */
+        border-left: 1px solid #ccc; /* Otra opción para separar visualmente LeftContainer de ForoWrapper */
     }
+    .left-container::-webkit-scrollbar {
+        width: 0.5em; /* Ancho de la barra de desplazamiento */
+        border-radius: 10px;
+        
+        background-color: rgb(244, 241, 241);
+   }
 }

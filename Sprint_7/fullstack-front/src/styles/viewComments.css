@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;   
     margin-top: 63px;
+    
 }
 
 
@@ -9,9 +10,18 @@
     .foro{
         justify-content: space-between; /* Muestra el contenedor cuando la pantalla es más ancha que 500px */
     }
+    .foroWrapper{
+        width: 40%;
+        overflow-y: scroll;
+    }
+    .foroWrapper::-webkit-scrollbar {
+        width: 0.5em; /* Ancho de la barra de desplazamiento */
+        background-color: rgb(244, 241, 241);
+    }
 }
 .post{
     display: block;
+    width: 200px;
     
 }
 

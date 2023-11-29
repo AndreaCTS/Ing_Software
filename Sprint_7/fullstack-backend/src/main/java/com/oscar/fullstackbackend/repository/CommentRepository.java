@@ -9,7 +9,5 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
     List<Comment> findAllByOrderByRatingAsc();
     List<Comment> findByBarrio(String b);
     List<Comment> findAllByOrderByIdDesc();
-    List<Comment> findTop3ByOrderByRatingDesc();
 
 }
-

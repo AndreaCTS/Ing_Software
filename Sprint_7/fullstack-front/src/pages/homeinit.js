@@ -1,32 +1,41 @@
 import React, { useState } from 'react';
 import '../styles/estilos.css';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
+export default function HomeInit () {
+  const [selectedSlide, setSelectedSlide] = useState(0);
+  const navigate = useNavigate();
 
-export default function HomeInit() {
+  const OnClickImage = (index) =>{
+    if(index===1){
+      navigate("/mapauser") 
+    }else if(index === 2){
+      navigate("/map")
+    }else if(index === 3){
+      navigate("/viewcommentsuser")
+    }else{
+      navigate("/viewwheels")
+    }
+  }
 
   return (
-    <div className="initial" >
-
-      <header>
-      </header>
-      <main style={{ display: 'block',marginTop: '60px'}}>
-        <h1 style={{ marginBottom: '5px' }}><em>Sobre nosotros </em></h1>
-        <section >
-          <Carousel showThumbs={false} showStatus={false} emulateTouch>
-            <div className="breedCard">
-              <div className="contenedorImagen">
+    <div style={{backgroundColor:'white'}} >
+      <header></header>
+      <main>
+        <section>
+          <ul className="breedCardContainer">
+            <li className="breedCard">
+              <div className="contenedorImagen" onClick={() => OnClickImage(1)} >
                 <img src="../media/map.jpg" alt="Risk map" />
               </div>
-              <h4 >Mapa</h4> {/* Agrega el título */}
-              <Link to="/map" className="btn btn-light btn-custom">
+              <h4 >Mapa</h4>
+              <Link to="/mapauser" className="btn btn-dark btn-custom">
                 Ver más
               </Link>
-            </div>
+            </li>
+            {/*
             <div className="breedCard">
-              <div className="contenedorImagen">
+              <div className="contenedorImagen" onClick={() => OnClickImage(2)}>
                 <img src="../media/route.jpg" alt="route" />
               </div>
               <h4 >Rutas</h4> 
@@ -34,29 +43,28 @@ export default function HomeInit() {
                 Ver más
               </Link>
             </div>
-            <div className="breedCard">
-              <div className="contenedorImagen">
+          */}
+            <li className="breedCard">
+              <div className="contenedorImagen" onClick={() => OnClickImage(3)}>
                 <img src="../media/blog.jpg" alt="Forum" />
               </div>
               <h4 >Foro</h4> 
-              <Link to="/viewcomments" className="btn btn-light">
+              <Link to="/viewcommentsuser" className="btn btn-dark">
                 Ver más
               </Link>
-            </div>
-            <div className="breedCard">
-              <div className="contenedorImagen">
+            </li>
+            <li className="breedCard">
+              <div className="contenedorImagen" onClick={() => OnClickImage(4)}> 
                 <img src="../media/wheel.jpg" alt="Wheel" />
               </div>
               <h4 >Wheels</h4> 
-              <Link to="/viewwheels" className="btn btn-light">
+              <Link to="/viewwheels" className="btn btn-dark">
                 Ver más
               </Link>
-            </div>
-          </Carousel>
+            </li>
+          </ul>
         </section>
       </main>
-      
     </div>
   );
 }
-

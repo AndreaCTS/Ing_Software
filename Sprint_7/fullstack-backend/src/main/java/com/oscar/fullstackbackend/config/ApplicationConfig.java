@@ -1,5 +1,6 @@
 package com.oscar.fullstackbackend.config;
 
+import com.oscar.fullstackbackend.model.User;
 import com.oscar.fullstackbackend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Configuration
 @RequiredArgsConstructor
@@ -24,10 +28,19 @@ public class ApplicationConfig {
 
   @Bean
   public UserDetailsService userDetailsService() {
-    return username -> repository.findByEmail(username)
-        .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-  }
+    return username -> {
+      User userByUsername = repository.findByUsername(username);
+      Optional<User> userByEmail = repository.findByEmail(username);
 
+      if (userByUsername != null) {
+        return userByUsername;
+      } else if (userByEmail.isPresent()) {
+        return userByEmail.get();
+      } else {
+        throw new UsernameNotFoundException("User not found");
+      }
+    };
+  }
   @Bean
   public AuthenticationProvider authenticationProvider() {
     DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();

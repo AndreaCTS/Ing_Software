@@ -1,8 +1,10 @@
 package com.oscar.fullstackbackend.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.Optional;
 
 @Entity
 public class Comment {
@@ -14,32 +16,45 @@ public class Comment {
     private int rating; // Count of ratings
 
     @Column(nullable = false)
-    private String text;
+    private String texto;
 
     @Column(nullable = false)
     private String barrio;
 
-    @Column(nullable = false)
-    private Date publish_Date;
+    @Column(nullable = false, columnDefinition = "TIMESTAMP")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
+    private Date publishDate;
 
-    /*
-    @Column(nullable = false)
-    private User user;
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String user) {
+        this.username = user;
+    }
 
 
-    public User getUser(){return user;}
-    // Constructor, getters, setters, and other fields are defined here...
-*/
-    public Date getPublish_Date() {return publish_Date;}
-    public void setPublish_Date(Date publish_Date){this.publish_Date = publish_Date;}
+    public Comment() {
+        this.publishDate = new Date();
+    }
+    public Date getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate;
+    }
+
     public Long getId() {
         return id;
     }
     public String getText() {
-        return text;
+        return texto;
     }
-    public void setText(String text) {
-        this.text = text;
+    public void setText(String texto) {
+        this.texto = texto;
     }
     public String getBarrio() {
         return barrio;

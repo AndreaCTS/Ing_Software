@@ -1,15 +1,20 @@
 package com.oscar.fullstackbackend.model;
 
 import java.util.Collection;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.oscar.fullstackbackend.token.Token;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,64 +27,68 @@ import lombok.NoArgsConstructor;
 @Entity
 public class User implements UserDetails {
 
-    @Id
-    @GeneratedValue
-    private int id;
+  @Id
+  @GeneratedValue
+  private int id;
 
-    private String name;
-    private String username;
-    private String email;
-    private String password;
+  private String name;
+  private String username;
+  private String email;
+  private String password;
 
-    @Enumerated(EnumType.STRING)
-    private UserRole role;
+  @Enumerated(EnumType.STRING)
+  private UserRole role;
 
-    public String getName() {   
-        return name;
-    }
+  @OneToMany(mappedBy = "user")
+  @JsonIgnore
+  private List<Token> tokens;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public int getId() {
-        return id;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+  public int getId() {
+    return id;
+  }
 
-    public String getUsername() {
-        return username;
-    }
+  public void setId(int id) {
+    this.id = id;
+  }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  public String getUsername() {
+    return username;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  public String getPassword() {
+    return password;
+  }
 
-    @Override
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     return role.getAuthorities();
   }
 
-    @Override
+  @Override
   public boolean isAccountNonExpired() {
     return true;
   }
@@ -98,4 +107,5 @@ public class User implements UserDetails {
   public boolean isEnabled() {
     return true;
   }
+
 }
