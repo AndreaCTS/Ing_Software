@@ -31,7 +31,6 @@ public class UserController {
     @GetMapping("/users")
     List<User> getAllUsers() {
         return userRepository.findAll();
-
     }
 
     @GetMapping("users/count")
