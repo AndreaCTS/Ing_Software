@@ -25,6 +25,8 @@ const logout = async () => {
       withCredentials: true,
     });
 
+    // Otras acciones después de cerrar sesión si es necesario
+
     // Eliminar el token almacenado después del logout
     localStorage.removeItem('token');
   } catch (error) {
@@ -49,13 +51,14 @@ export const CustomNavbar = () => {
             </Link>
           </Nav.Item>
         </Nav>
-
+        {/*
         <Nav>
         <NavDropdown title={<img src='../media/menu.png' alt="Menu" />} id="basic-nav-dropdown">
             <NavDropdown.Item href="#">Mis Comentarios</NavDropdown.Item>
             <NavDropdown.Item href="#">Mis Wheels</NavDropdown.Item>
           </NavDropdown>
         </Nav>
+  */}
       </Navbar.Collapse>
       <div className="collapse navbar-collapse justify-content-end">
         <ul className="navbar-nav">

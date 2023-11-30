@@ -79,76 +79,40 @@ ul {
   color: blue;
 }
 
-main {
-  height: 100vh; /* Altura del carrusel */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .breedCardContainer {
   display: flex;
-  justify-content: center; /* Centrar horizontalmente las tarjetas */
-  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan cuando no haya suficiente espacio en la fila */
-}
-
-h4 {/* Tamaño de fuente del título */
-  color: #ffffff; /* Color del título */
-  margin-left: 20px;
-}
-
-.breedTitle {
-  color: white;
-  margin: 10px;
-  font-weight: bold;
-  font-size: x-large;
-}
-/*background: url("/public/media/newBG.jpg");*/
-.initial {
-  background-color: antiquewhite;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
-  display: block;
+  align-items: center;
 
 }
 
 .breedCard {
-  margin: 10px;
-  background-color: rgb(124, 119, 119);
-  box-shadow: 5px 10px 10px rgb(231, 231, 231);
+  margin: 26px;
+  background-color: rgb(162, 161, 161);
+  box-shadow: 5px 5px 5px rgb(162, 161, 161);
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
-  align-items: flex-start;
-  text-align: left; /* Centrar el texto horizontalmente */
-  margin: auto; /* Centrar horizontalmente en el carrusel */
-  max-width: 683px; /* Ancho máximo de las tarjetas */
-  width: 100%; /* Ancho completo de las tarjetas dentro del carrusel */
-  height: 540px;
+  height: -70px;
 }
 
-.breedCard .btn {
-  margin: 10px 0; /* Espacio superior e inferior entre el botón y el contenido */
-  margin-left: 20px; /* Margen izquierdo para el botón */
+.breedTitle {
+  color: rgb(0, 0, 0);
+  margin: 10px;
+  font-weight: bold;
+  font-size: x-large;
 }
+
+
 
 .contenedorImagen {
-  width: 683px;
-  height: 430px;
+  width: 340px;
+  height: 400px;
   display: flex;
   margin-bottom: 5px;
 }
-/* Ajuste la distancia vertical entre las tarjetas y los botones */
 
 .contenedorImagen:hover {
   cursor: pointer;
   transform: scale(1.02);
 }
-
 
 .contenedorImagen > img {
   object-fit: cover;
@@ -188,11 +152,24 @@ h4 {/* Tamaño de fuente del título */
 
 .social-icons a {
   text-decoration: none;
-  font-size: 24px;
+  color: #333;
+  font-size: 16px;
 }
 
 .social-icons a:hover {
   color: #007bff; /* Hover color */
+}
+
+main {
+  height: 100vh; /* Altura del carrusel */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h4{
+  color: rgb(0, 0, 0);
 }
 
 
@@ -207,3 +184,6 @@ h4 {/* Tamaño de fuente del título */
   background-color: rgb(75, 4, 4);
   color: white;
 }
+
+
+

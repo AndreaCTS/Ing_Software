@@ -21,15 +21,12 @@ export default function Login() {
     try {
       const response = await axios.post("http://localhost:8080/userAuth/authenticate", user);
       const userData = response.data;
-      
-      const token = response.data.access_token;
 
-      localStorage.setItem('token', token);
+      localStorage.setItem("access_token", userData.access_token);
+      console.log("Token guardado en LocalStorage:", userData.access_token);
   
       // Log the userData object to the console for inspection
       console.log("userData:", userData);
-
-      console.log("token almacenado de manera local:", token);
   
       // Check if the user is an admin (adjust this condition as needed)
       if (userData.role === 'ADMIN') {
@@ -46,13 +43,13 @@ export default function Login() {
   };
 
   return (
-        <div  class="d-flex justify-content-center align-items-center" style={{height: "100vh",background:"#FFFEEC"}}>
-        <div className="bg-light col-md-6  border border-dark rounded p-4 mt-5 shadow">
-          <h2 className="text-center m-4">Login</h2>
+        <div  class="d-flex justify-content-center align-items-center" style={{height: "100vh",backgroundColor: "white" }}>
+        <div className=" col-md-6  border border-light rounded p-4 mt-5 shadow" style={{backgroundColor:"#333333"}}>
+          <h2 className=" font-weight-light text-center m-4 " style={{color:'white'}}>Login</h2>
 
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="mb-3">
-              <label htmlFor="Email" className="form-label">
+              <label htmlFor="Email" className="form-label" style={{color:'white'}}>
                 E-mail
               </label>
               <input
@@ -65,7 +62,7 @@ export default function Login() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="Password" className="form-label">
+              <label htmlFor="Password" className="form-label" style={{color:'white'}}>
                 Password
               </label>
               <input
@@ -77,10 +74,10 @@ export default function Login() {
                 onChange={(e) => onInputChange(e)}
               />
             </div>
-            <button type="submit" className="btn btn-outline-primary">
+            <button type="submit" className="btn btn-success">
               Submit
             </button>
-            <Link className="btn btn-outline-danger mx-2" to="/">
+            <Link className="btn btn-danger mx-2" to="/">
               Cancel
             </Link>
           </form>

@@ -15,6 +15,8 @@ export default function Admin() {
     try {
       const response = await axios.get("http://localhost:8080/users");
       setUsers(response.data);
+      console.log(response.data)
+      console.log("Data collected "+ response.data.length)
     } catch (error) {
       console.error('Error al obtener la lista de usuarios', error);
     }
@@ -31,9 +33,9 @@ export default function Admin() {
   };
 
   return (
-    <div className='admin-page'>
+    <div >
+    
       <Sidebar />
-      <div className='admin-content'>
         <h2>Panel de Administración</h2>
         <div className='user-table'>
           <table className='table border shadow'>
@@ -43,43 +45,50 @@ export default function Admin() {
                 <th scope='col'>Name</th>
                 <th scope='col'>Username</th>
                 <th scope='col'>Email</th>
+                <th scope='col'>Role</th>
                 <th scope='col'>Action</th>
               </tr>
             </thead>
             <tbody>
-              {users.map((user, index) => (
-                <tr key={user.id}>
-                  <th scope='row'>{index + 1}</th>
-                  <td>{user.name}</td>
-                  <td>{user.username}</td>
-                  <td>{user.email}</td>
-                  <td>
-                    <Link
-                      className='btn btn-primary mx-2'
-                      to={`/viewuser/${user.id}`}
-                    >
-                      View
-                    </Link>
-                    <Link
-                      className='btn btn-outline-primary mx-2'
-                      to={`/edituser/${user.id}`}
-                    >
-                      Editar
-                    </Link>
-                    <button
-                      className='btn btn-danger mx-2'
-                      onClick={() => deleteUser(user.id)}
-                    >
-                      Eliminar
-                    </button>
-                  </td>
+              {Array.isArray(users) && users.length > 0 ? (
+                users.map((user, index) => (
+                  <tr key={user.id}>
+                    <th scope='row'>{index + 1}</th>
+                    <td>{user.name}</td>
+                    <td>{user.username}</td>
+                    <td>{user.email}</td>
+                    <td>{user.role}</td>
+                    <td>
+                      <Link
+                        className='btn btn-primary mx-2'
+                        to={`/viewuser/${user.id}`}
+                      >
+                        View
+                      </Link>
+                      <Link
+                        className='btn btn-outline-primary mx-2'
+                        to={`/edituser/${user.id}`}
+                      >
+                        Edit
+                      </Link>
+                      <button
+                        className='btn btn-danger mx-2'
+                        onClick={() => deleteUser(user.id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="5">No users found</td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
       </div>
-    </div>
+   
   );
 }
-

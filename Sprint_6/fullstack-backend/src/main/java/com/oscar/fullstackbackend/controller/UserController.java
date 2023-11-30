@@ -31,7 +31,6 @@ public class UserController {
     @GetMapping("/users")
     List<User> getAllUsers() {
         return userRepository.findAll();
-
     }
 
     @GetMapping("users/count")
@@ -57,13 +56,12 @@ public class UserController {
     }
 
     @DeleteMapping("/user/{id}")
-    String deleteUser(@PathVariable Integer id){
-        if(!userRepository.existsById(id)){
+    String deleteUser(@PathVariable Integer id) {
+        if (!userRepository.existsById(id)) {
             throw new UserNotFoundException(id);
         }
         userRepository.deleteById(id);
-        return  "User with id "+id+" has been deleted success.";
-
+        return "User with id " + id + " has been deleted success.";
 
     }
 }
