@@ -39,7 +39,7 @@
 @media screen and (min-width: 1000px) {
     .container-noticias {
         display: block; /* Muestra el contenedor cuando la pantalla es más ancha que 500px */
-        width: 30%; /* Ajusta el ancho según tus necesidades */
+        /* Ajusta el ancho según tus necesidades */
         height: 100vh;
         overflow-y: scroll; /* Para permitir el desplazamiento vertical si el contenido es largo */
     }

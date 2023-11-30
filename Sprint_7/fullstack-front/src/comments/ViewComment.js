@@ -118,7 +118,6 @@ export default function ViewComment() {
   return (
     <>
       <div className="foro">
-        <LeftContainer/>
         <div className="foroWrapper">    
           <div className="filters">
             
@@ -138,7 +137,7 @@ export default function ViewComment() {
               ))}
             </select>
           </div>
-          <AddComment />
+          {/*<AddComment />*/}
           <div className="post">
             {comments.map((comment, index) => (  
                 <div className="postWrapper">
@@ -173,9 +172,7 @@ export default function ViewComment() {
 
                       </div>                   
                     </div>
-                  
                 </div>
-              
             ))}
           </div>  
         </div> 

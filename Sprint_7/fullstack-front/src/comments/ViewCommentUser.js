@@ -118,7 +118,7 @@ export default function ViewCommentUser() {
   return (
     <>
       <div className="foro">
-        <LeftContainer/>
+        
         <div className="foroWrapper">    
           <div className="filters">
             
