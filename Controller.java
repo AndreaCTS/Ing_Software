@@ -7,13 +7,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/map")
-public class MapController {
-
+public String Controller {
     @GetMapping("/coordinates")
-    public List<Coordinate> getRouteCoordinates() {
+    public String getMapCoordinates() {
         return Arrays.asList(
-                new Coordinate(4.710989, -74.072090), // Bogotá
-  
-        );
+         String coordinates = (4.710989, -74.072090), // Bogotá
+
+        return coordinates;
+    }
+    
+    @GetMapping("/info")
+    public String getMapInfo() {
+
+        String mapInfo = "Map information: OpenStreetMap"; 
+
+        return mapInfo;
     }
 }

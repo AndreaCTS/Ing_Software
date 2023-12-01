@@ -1,13 +1,10 @@
-import React from 'react';
-import MapComponent from './MapComponent';
+mapboxgl.accessToken = 'pk.eyJ1IjoibGF1bW9yZW5vMjMiLCJhIjoiY2xwbTFtM3llMDUxNDJtcXR4dWNwaHF1ZSJ9.dhVY_TMql4gErBWLFzpB_Q';
 
-const App = () => {
-  return (
-    <div>
-      <h1>Interactive Map with React</h1>
-      <MapComponent />
-    </div>
-  );
-};
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v12', 
+    center: [-74.5, 40], 
+    zoom: 9 
+});
 
-export default App;
+map.addControl(new mapboxgl.NavigationControl());
