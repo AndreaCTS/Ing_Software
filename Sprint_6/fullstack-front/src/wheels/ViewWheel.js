@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Card, Row, Col } from "react-bootstrap";
 import "../styles/wheel.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Table } from "react-bootstrap";
 
 export default function ViewWheel() {
   const [wheels, setWheels] = useState([]);
@@ -48,7 +48,7 @@ export default function ViewWheel() {
         <h1>Viaja a cualquier lugar con la app 🚗</h1>
       </div>
       <button class="btn-cssbuttons">
-        <span>Button</span>
+        <span>Redes</span>
         <span>
           <svg
             height="18"
@@ -64,9 +64,9 @@ export default function ViewWheel() {
             ></path>
           </svg>
         </span>
-        <ul>
+        <ul>  
           <li>
-            <a href="https://twitter.com/elmarianaa">
+            <a href="https://twitter.com/">
               <svg
                 height="18"
                 width="18"
@@ -126,45 +126,44 @@ export default function ViewWheel() {
             desplazarse de manera segura por Bogotá. Además, el servicio ofrece
             una gran tranquilidad para los padres de estudiantes que se
             preocupan por la seguridad de sus hijos cuando se desplazan solos
-            por la ciudad..
+            por la ciudad...
           </p>
         </div>
       </div>
       <div className="carousel-container" style={{ marginTop: "30px" }}>
         <Carousel responsive={responsive}>
+        {wheels.filter(wheel => wheel.cuposDisp > 0).map((wheel, index) => (
           <div className="card">
             <img
               className="imagen1"
               src={process.env.PUBLIC_URL + "/media/imagen1.jpg"}
               alt="Conductor 1"
             />
-            <h2> Carlos </h2>
+            <h2> {wheel.username} </h2>
             <p>
-              El Explorador Audaz: Carlos es el conductor audaz que transforma
-              cada viaje en una emocionante aventura. Con su espíritu intrépido
-              y actitud positiva, te llevará a tu destino con energía y emoción.
-              ¡Prepárate para un viaje lleno de entusiasmo!
+              {wheel.description}
             </p>
-            <div class="cards">
-              <div class="cards__title">informacion</div>
-              <div class="cards__data">
-                <div class="cards__right">
-                  <div class="item">Nombre</div>
-                  <div class="item">Precio</div>
-                  <div class="item">date</div>
-                  <div class="item">Cupos</div>
-                </div>
-                <div class="cards__left">
-                  <div class="item">sebastian</div>
-                  <div class="item">15.000</div>
-                  <div class="item">17/11/2023</div>
-                  <div class="item">4</div>
-                </div>
-              </div>
-            </div>
+            <Table striped bordered hover responsive>
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Precio</th>
+                  <th>Fecha</th>
+                  <th>Cupos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{wheel.username}</td>
+                  <td>{wheel.precio}</td>
+                  <td>30/11/2023</td>
+                  <td>{wheel.cuposDisp}</td>
+                </tr>
+              </tbody>
+            </Table>
             <p>
-              <button class="cta">
-                <span class="hover-underline-animation"> Compra Ahora </span>
+              <Link to={`/viewwheel/${wheel.id}`} class="cta">
+                <span class="hover-underline-animation"  > Más detalles </span>
                 <svg
                   viewBox="0 0 46 16"
                   height="10"
@@ -179,168 +178,12 @@ export default function ViewWheel() {
                     id="Path_10"
                   ></path>
                 </svg>
-              </button>
+              </Link>
             </p>
           </div>
-          <div>
-            <div className="card">
-              <img
-                className="imagen1"
-                src={process.env.PUBLIC_URL + "/media/imagen2.jpg"}
-                alt="Conductor 1"
-              />
-              <h2> María </h2>
-              <p>
-                La Navegante Serena: María, nuestra conductora experta, te
-                guiará con una calma inquebrantable. Su enfoque sereno hace que
-                cada viaje sea tan tranquilo como el suave fluir de un río. Con
-                ella, experimentarás un trayecto seguro y relajado.
-              </p>
-              <div class="cards">
-                <div class="cards__title">informacion</div>
-                <div class="cards__data">
-                  <div class="cards__right">
-                    <div class="item">Nombre</div>
-                    <div class="item">Precio</div>
-                    <div class="item">date</div>
-                    <div class="item">Cupos</div>
-                  </div>
-                  <div class="cards__left">
-                    <div class="item">David</div>
-                    <div class="item">10.000</div>
-                    <div class="item">17/11/2023</div>
-                    <div class="item">4</div>
-                  </div>
-                </div>
-              </div>
-              <p>
-                <button class="cta">
-                  <span class="hover-underline-animation"> Compra Ahora </span>
-                  <svg
-                    viewBox="0 0 46 16"
-                    height="10"
-                    width="30"
-                    xmlns="http://www.w3.org/2000/svg"
-                    id="arrow-horizontal"
-                  >
-                    <path
-                      transform="translate(30)"
-                      d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-                      data-name="Path 10"
-                      id="Path_10"
-                    ></path>
-                  </svg>
-                </button>
-              </p>
-            </div>
-          </div>
-          <div>
-            <div className="card">
-              <img
-                className="imagen1"
-                src={process.env.PUBLIC_URL + "/media/imagen3.jpg"}
-                alt="Conductor 1"
-              />
-              <h2> Javier </h2>
-              <p>
-                Javier es nuestro piloto gentil, siempre listo para brindarte un
-                servicio amable y cortés. Su enfoque relajado y amigable
-                transforma cada trayecto en una experiencia agradable. Viaja con
-                Javier y descubre el placer de un conductor atento y simpático.
-              </p>
-              <div class="cards">
-                <div class="cards__title">informacion</div>
-                <div class="cards__data">
-                  <div class="cards__right">
-                    <div class="item">Nombre</div>
-                    <div class="item">Precio</div>
-                    <div class="item">date</div>
-                    <div class="item">Cupos</div>
-                  </div>
-                  <div class="cards__left">
-                    <div class="item">juliana</div>
-                    <div class="item">30.000</div>
-                    <div class="item">17/11/2023</div>
-                    <div class="item">1</div>
-                  </div>
-                </div>
-              </div>
-              <p>
-                <button class="cta">
-                  <span class="hover-underline-animation"> Compra Ahora </span>
-                  <svg
-                    viewBox="0 0 46 16"
-                    height="10"
-                    width="30"
-                    xmlns="http://www.w3.org/2000/svg"
-                    id="arrow-horizontal"
-                  >
-                    <path
-                      transform="translate(30)"
-                      d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-                      data-name="Path 10"
-                      id="Path_10"
-                    ></path>
-                  </svg>
-                </button>
-              </p>
-            </div>
-          </div>
-          <div>
-            <div className="card">
-              <img
-                className="imagen1"
-                src={process.env.PUBLIC_URL + "/media/imagen4.jpg"}
-                alt="Conductor 1"
-              />
-              <h2> Ana </h2>
-              <p>
-                Ana es sinónimo de calidad y atención al detalle. Como
-                conductora de 5 estrellas, su compromiso con la excelencia
-                asegura que cada momento de tu viaje sea impecable. Disfruta de
-                un servicio excepcional con Ana a la rueda.
-              </p>
-              <div class="cards">
-                <div class="cards__title">informacion</div>
-                <div class="cards__data">
-                  <div class="cards__right">
-                    <div class="item">Nombre</div>
-                    <div class="item">Precio</div>
-                    <div class="item">date</div>
-                    <div class="item">Cupos</div>
-                  </div>
-                  <div class="cards__left">
-                    <div class="item">catalina</div>
-                    <div class="item">25.000</div>
-                    <div class="item">17/11/2023</div>
-                    <div class="item">2</div>
-                  </div>
-                </div>
-              </div>
-              <p>
-                <button class="cta">
-                  <span class="hover-underline-animation"> Compra Ahora </span>
-                  <svg
-                    viewBox="0 0 46 16"
-                    height="10"
-                    width="30"
-                    xmlns="http://www.w3.org/2000/svg"
-                    id="arrow-horizontal"
-                  >
-                    <path
-                      transform="translate(30)"
-                      d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-                      data-name="Path 10"
-                      id="Path_10"
-                    ></path>
-                  </svg>
-                </button>
-              </p>
-            </div>
-          </div>
+        ))}
         </Carousel>
       </div>
-      ;
       {/*
       <Row>
         {wheels.map((wheel, index) => (
@@ -372,14 +215,13 @@ export default function ViewWheel() {
                     className="mt-2"
                   >
                     Rate
-                  </Button> 
+                  </Button>
               </Card.Body>
             </Card>
           </Col>
         ))}
-      </Row>
-      */}
-      <Link className="button" to="/addwheels">
+      </Row> */}
+      <Link className="buttonWheel" to="/addwheels">
         Publicar Wheel 🙈
       </Link>
     </div>

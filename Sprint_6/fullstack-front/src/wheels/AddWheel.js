@@ -7,6 +7,7 @@ export default function AddWheel() {
   const [error, setError] = useState("");
   const [wheel, setWheels] = useState({
         username: "",
+        description: "",
         localidad: "",
         capacidadMax: null,
         cuposDisp: null,
@@ -15,7 +16,7 @@ export default function AddWheel() {
   });
 
 
-  const { username, localidad, capacidadMax, cuposDisp, precio, telefono } = wheel;
+  const { username, description, localidad, capacidadMax, cuposDisp, precio, telefono } = wheel;
 
   const onInputChange = (e) => {
     setWheels({ ...wheel, [e.target.name]: e.target.value });
@@ -125,6 +126,19 @@ export default function AddWheel() {
                 placeholder="Ingrese el teléfono de contacto"
                 name="telefono"
                 value={telefono}
+                onChange={(e) => onInputChange(e)}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="Description" className="form-label">
+                Descripción
+              </label>
+              <textarea
+                type={"text"}
+                className="form-control"
+                placeholder="Ingrese una descripción para su wheel"
+                name="description"
+                value={description}
                 onChange={(e) => onInputChange(e)}
               />
             </div>

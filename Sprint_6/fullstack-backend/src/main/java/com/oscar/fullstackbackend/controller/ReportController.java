@@ -5,6 +5,7 @@ import com.oscar.fullstackbackend.repository.ReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -17,7 +18,12 @@ public class ReportController {
     private ReportRepository reportRepository;
 
     @PostMapping("/report")
-    public ResponseEntity<Report> createCrimeReport(@RequestBody Report crimeReport) {
+    public ResponseEntity<?> createCrimeReport(@RequestBody Report crimeReport, BindingResult bindingResult) {
+        // Validación: Verificar errores de validación
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>("Todos los campos obligatorios deben completarse.", HttpStatus.BAD_REQUEST);
+        }
+
         Report savedReport = reportRepository.save(crimeReport);
         return new ResponseEntity<>(savedReport, HttpStatus.CREATED);
     }
