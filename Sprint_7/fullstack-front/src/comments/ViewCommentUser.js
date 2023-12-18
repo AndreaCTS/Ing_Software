@@ -140,6 +140,7 @@ export default function ViewCommentUser() {
           </div>
           <AddComment />
           <div className="post">
+            
             {comments.map((comment, index) => (  
                 <div className="postWrapper">
                     <div className="postTop">

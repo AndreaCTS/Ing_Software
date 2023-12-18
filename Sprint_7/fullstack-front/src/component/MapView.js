@@ -5,7 +5,8 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import ShowCrimes from './ShowCrimes';
 import Sidebar from './Sidebarn';
 import '../styles/Map.css';
-import 'leaflet/dist/leaflet.css'
+
+
 
 
 function MapView() {

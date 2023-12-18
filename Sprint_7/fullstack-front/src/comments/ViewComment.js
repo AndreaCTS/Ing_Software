@@ -137,6 +137,7 @@ export default function ViewComment() {
               ))}
             </select>
           </div>
+          
           {/*<AddComment />*/}
           <div className="post">
             {comments.map((comment, index) => (  

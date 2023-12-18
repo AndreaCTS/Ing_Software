@@ -28,6 +28,9 @@
     margin-left: auto;
     margin-right: auto;
     width: 500px;
+    box-shadow: -8px -2px 53px -21px rgba(0,0,0,0.72);
+    -webkit-box-shadow: -8px -2px 53px -21px rgba(0,0,0,0.72);
+    -moz-box-shadow: -8px -2px 53px -21px rgba(0,0,0,0.72);
     
 }
 
@@ -111,7 +114,9 @@
     margin-bottom: 30px;
     padding: 10px;
     border-radius: 10px;
-    background-color: rgb(210, 207, 207);
+    box-shadow: -8px -2px 53px -21px rgba(0,0,0,0.72);
+    -webkit-box-shadow: -8px -2px 53px -21px rgba(0,0,0,0.72);
+    -moz-box-shadow: -8px -2px 53px -21px rgba(0,0,0,0.72);
     margin-left: auto;
     margin-right: auto;
     width: 500px;
@@ -120,6 +125,7 @@
 .filter{
     border-radius: 10px;
     cursor: pointer;
+    
 }
 
 .filter:hover{
