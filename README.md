@@ -13,5 +13,10 @@ Para iniciar el proyecto desde el backend:
 Se muestra el aplicativo web realizado:
 
 Portada:
-![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20103242.png "Título opcional")
+![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20103242.png "Portada")
 
+![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20105332.png "Contenido")
+
+![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20105357.png "Contenido")
+
+![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20105404.png "Contenido")
