@@ -12,7 +12,7 @@ Para iniciar el proyecto desde el backend:
 
 Se muestra el aplicativo web realizado:
 
-Portada:
+**Portada:**
 ![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20103242.png "Portada")
 
 ![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20105332.png "Contenido")
@@ -20,3 +20,9 @@ Portada:
 ![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20105357.png "Contenido")
 
 ![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20105404.png "Contenido")
+
+
+**Al iniciar sesion con una cuenta ya registrada, puedes acceder a la información propia del usuario a cada una de las siguientes secciones:**
+![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20105738.png "Usuario")
+
+
