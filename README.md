@@ -12,7 +12,7 @@ Para iniciar el proyecto desde el backend:
 
 Se muestra el aplicativo web realizado:
 
-**Portada:**
+## **Portada:**
 ![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20103242.png "Portada")
 
 ![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20105332.png "Contenido")
@@ -25,7 +25,7 @@ Se muestra el aplicativo web realizado:
 **Al iniciar sesion con una cuenta ya registrada, puedes acceder a la información propia del usuario a cada una de las siguientes secciones:**
 ![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20105738.png "Usuario")
 
-**Seccion de Mapa**
+## **Sección de Mapa**
 Aqui se pueden ver en el mapa, un símbolo de unas esposas negras, esto indica que en esa ubicación se presento un reporte de que es una zona en la que sucedio alguna acción delictiva que afectó la seguridad de alguien.
 
 ![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20110136.png "Mapa")
@@ -35,7 +35,7 @@ En la zona izquierda del mapa, esta la opción de hacer el reporte en el mapa y 
 ![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20110110.png "Mapa")
 ![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20110127.png "Mapa")
 
-**Seccion del Wheel**
+## **Sección del Wheel**
 
 Aqui puede publicar un wheel, disponible para los usuarios a tomar un servicio de carro compartido con varias personas que van para una zona similar.
 
@@ -45,8 +45,17 @@ Aqui puede publicar un wheel, disponible para los usuarios a tomar un servicio d
 En la tarjetica de un wheel publicado, vas a la seccion de más detalles y ahi puedes aplicar a un servicio de wheel.
 ![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20111054.png "Wheel")
 
+## **Sección de Foro**
+
+Aqui el usuario puede compartir información de cualquier barrio en bogotá y ver las últimas noticias:
+
+![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20111550.png "Wheel")
+
+![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20112201.png "Wheel")
 
 
+
+**GRACIAS!**
 
 
 
