@@ -35,6 +35,16 @@ En la zona izquierda del mapa, esta la opción de hacer el reporte en el mapa y 
 ![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20110110.png "Mapa")
 ![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20110127.png "Mapa")
 
+**Seccion del Wheel**
+
+Aqui puede publicar un wheel, disponible para los usuarios a tomar un servicio de carro compartido con varias personas que van para una zona similar.
+
+![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20111036.png "Wheel")
+![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20111047.png "Wheel")
+
+En la tarjetica de un wheel publicado, vas a la seccion de más detalles y ahi puedes aplicar a un servicio de wheel.
+![Texto alternativo](https://raw.githubusercontent.com/AndreaCTS/imagenes/main/Screenshot%202025-01-08%20111054.png "Wheel")
+
 
 
 
