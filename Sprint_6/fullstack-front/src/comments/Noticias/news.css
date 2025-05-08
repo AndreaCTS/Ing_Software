@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.container-noticias{
+    display: none;
+    width: 500px;
+    justify-content: center;
+   
+}
+.title{
+    
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 20px;
+}
+.item{
+   
+    border-radius: 10px;
+    margin: 0 50px 0 50px;
+    padding: 10px;
+    box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
+    -moz-box-shadow: -10px 9px 31px 6px rgba(0,0,0,0.3);
+    margin-bottom: 15px;
+    
+}
+.title-noticia{
+    font-size: 17px;
+    padding: 10px;
+}
+
+.name{
+    font-weight: 500;
+}
+.info-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@media screen and (min-width: 1000px) {
+    .container-noticias {
+        display: block; /* Muestra el contenedor cuando la pantalla es más ancha que 500px */
+    }
+}
